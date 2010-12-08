@@ -1,0 +1,28 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "runCustomizationPalette:",
+	    "setDelegate:"
+	);
+	Super = NSObject;
+    };
+    NSToolbar = {
+	Actions = (
+	    "runCustomizationPalette:",
+	    "setDelegate:"
+	);
+	Outlets = (
+	    _delegate
+	);
+	Super = NSObject;
+    };
+    ProjectDocument = {
+	Actions = (
+	);
+	Outlets = (
+	    detailView
+	);
+	Super = NSDocument;
+    };
+}
