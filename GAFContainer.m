@@ -1,11 +1,11 @@
 /*
    Project: Zcode
 
-   Copyright (C) 2010 Ivan Vucica
+   Copyright (C) 2010 Free Software Foundation
 
    Author: Ivan Vucica,,,
 
-   Created: 2010-12-05 22:36:24 +0100 by ivucica
+   Created: 2010-12-31 19:00:09 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,24 +22,37 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-#ifndef _PROJECTDOCUMENT_H_
-#define _PROJECTDOCUMENT_H_
+// Groups and Files list has numerous groups in the outline view.
+// Let's implement a class that will allow us to represent them.
 
 #import <AppKit/AppKit.h>
-#import <AppKit/NSOutlineView.h>
-@interface ProjectDocument : NSDocument //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
-{
-  IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
-  NSArray *gafContainers;
+#import "GAFContainer.h"
 
-  // gorm does not support toolbar design. too bad. we'll build our own toolbar
-  NSToolbar* toolbar;  
+@implementation GAFContainer
+
+-(id)initWithTitle:(NSString*)_title
+{
+  if((self=[super init]))
+  {
+    title = _title;
+  }
+  return self;
+}
+-(NSString*)description
+{
+  return title;
 }
 
-@property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
-
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
+-(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
+{
+  return 0;
+}
+-(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView
+{
+  return nil;
+}
+-(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
+{
+  return YES;
+}
 @end
-
-#endif // _PBXPROJECT_H_
-

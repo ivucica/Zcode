@@ -1,11 +1,11 @@
 /*
    Project: Zcode
 
-   Copyright (C) 2010 Ivan Vucica
+   Copyright (C) 2010 Free Software Foundation
 
    Author: Ivan Vucica,,,
 
-   Created: 2010-12-05 22:36:24 +0100 by ivucica
+   Created: 2010-12-31 19:00:09 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,24 +22,21 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-#ifndef _PROJECTDOCUMENT_H_
-#define _PROJECTDOCUMENT_H_
+#ifndef _GAFCONTAINER_H_
+#define _GAFCONTAINER_H_
 
-#import <AppKit/AppKit.h>
-#import <AppKit/NSOutlineView.h>
-@interface ProjectDocument : NSDocument //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
+#import <Foundation/Foundation.h>
+
+@interface GAFContainer : NSObject
 {
-  IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
-  NSArray *gafContainers;
-
-  // gorm does not support toolbar design. too bad. we'll build our own toolbar
-  NSToolbar* toolbar;  
+  NSString* title;
 }
-
-@property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
-
-- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
+-(id)initWithTitle:(NSString*)title;
+-(NSString*)description;
+-(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
+-(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
+-(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
 @end
 
-#endif // _PBXPROJECT_H_
+#endif // _GAFCONTAINER_H_
 

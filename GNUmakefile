@@ -36,14 +36,16 @@ Resources/apple-green.png
 #
 Zcode_HEADER_FILES = \
 AppController.h \
-ProjectDocument.h
+ProjectDocument.h \
+GAFContainer.h
 
 #
 # Class files
 #
 Zcode_OBJC_FILES = \
 AppController.m \
-ProjectDocument.m
+ProjectDocument.m \
+GAFContainer.m
 
 #
 # Other sources

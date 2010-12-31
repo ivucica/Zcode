@@ -23,9 +23,25 @@
 */
 
 #import "ProjectDocument.h"
+#import "GAFContainer.h"
+
 @implementation ProjectDocument
 
 @synthesize groupsAndFilesView;
+
+#pragma mark -
+#pragma mark Init and deinit
+
+- (id)init
+{
+  if((self=[super init]))
+  {
+      gafContainers = [[NSArray alloc] initWithObjects:[[GAFContainer alloc] initWithTitle:@"Files"],
+                                                   nil];
+
+  }
+  return self;
+}
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
@@ -43,6 +59,12 @@
 -(NSString*)windowNibName
 {
   return @"ProjectDocument";
+}
+
+-(void)dealloc
+{
+  [toolbar release];
+  [gafContainers release];
 }
 
 #pragma mark -
@@ -83,28 +105,44 @@ willBeInsertedIntoToolbar: (BOOL)flag
 
 }
 
-
 #pragma mark -
 #pragma mark Outline view
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
 {
-  return 1;
+  if(item == nil)
+  {
+    return [gafContainers count];
+  }
+  if([item respondsToSelector:@selector(numberOfChildrenForOutlineView:)])
+  {
+    return [item numberOfChildrenForOutlineView:outlineView];
+  }
+  return 0;
 }
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  return @"Nerd";
+  return item;
 }
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
+  if([item respondsToSelector:@selector(isExpandableForOutlineView:)])
+  {
+    return [item isExpandableForOutlineView:outlineView];
+  }
   return NO;
 }
 - (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
 {
-  NSLog(@"%s", __PRETTY_FUNCTION__);
-  return @"Herd";
+  if(item == nil)
+  {
+    return [gafContainers objectAtIndex:index];
+  }
+  if([item respondsToSelector:@selector(child:forOutlineView:)])
+  {
+    return [item child:index forOutlineView:outlineView];
+  }
+  return nil;
 }
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {

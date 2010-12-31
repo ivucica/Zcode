@@ -21,7 +21,7 @@
 	Actions = (
 	);
 	Outlets = (
-	    detailView
+	    groupsAndFilesView
 	);
 	Super = NSDocument;
     };

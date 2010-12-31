@@ -12,7 +12,8 @@
     );
     CLASS_FILES = (
 	AppController.m,
-	ProjectDocument.m
+	ProjectDocument.m,
+	GAFContainer.m
     );
     COMPILEROPTIONS = "";
     CPPOPTIONS = "";
@@ -23,7 +24,8 @@
     );
     HEADER_FILES = (
 	AppController.h,
-	ProjectDocument.h
+	ProjectDocument.h,
+	GAFContainer.h
     );
     IMAGES = (
 	"apple-green.png"
