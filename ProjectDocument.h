@@ -27,18 +27,35 @@
 
 #import <AppKit/AppKit.h>
 #import <AppKit/NSOutlineView.h>
+
+@class PBXProject;
+
 @interface ProjectDocument : NSDocument //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
 {
+  ///////////////////////////////////////
+  ////
+  //// GUI AND GUI HELPERS ////
+  ////
   IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
   NSArray *gafContainers;
 
   // gorm does not support toolbar design. too bad. we'll build our own toolbar
-  NSToolbar* toolbar;  
+  NSToolbar* toolbar; 
+  
+  
+  //////////////////////////////
+  ////
+  //// MODEL ////
+  ////
+  
+  PBXProject* pbxProject;
 }
 
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
+-(id)newObjectSpecifiedByISAWithPBXDictionary:(NSDictionary*)objects withKey:(NSString*)key required:(BOOL)required error:(NSError**)error;
+
 @end
 
 #endif // _PBXPROJECT_H_

@@ -5,3 +5,6 @@ Zcode.pcproj/ivucica*
 Zcode.pcproj.backup/*
 *~
 *.swp
+samples/*
+.gwdir
+

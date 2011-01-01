@@ -37,7 +37,9 @@ Resources/apple-green.png
 Zcode_HEADER_FILES = \
 AppController.h \
 ProjectDocument.h \
-GAFContainer.h
+GAFContainer.h \
+PBXProject.h \
+NSDictionary+SmartUnpack.h
 
 #
 # Class files
@@ -45,7 +47,9 @@ GAFContainer.h
 Zcode_OBJC_FILES = \
 AppController.m \
 ProjectDocument.m \
-GAFContainer.m
+GAFContainer.m \
+PBXProject.m \
+NSDictionary+SmartUnpack.m
 
 #
 # Other sources

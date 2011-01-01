@@ -19,8 +19,8 @@
 	{
 	    NSDocumentClass = ProjectDocument;
 	    NSHumanReadableName = "Xcode Project";
-	    NSIcon = codeblocks.png;
-	    NSName = DocumentType;
+	    NSIcon = "apple-green.png";
+	    NSName = xcodeproj;
 	    NSRole = Editor;
 	    NSUnixExtensions = (
 		xcodeproj
