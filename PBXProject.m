@@ -25,8 +25,12 @@
 #import "PBXProject.h"
 #import "ProjectDocument.h"
 #import "NSDictionary+SmartUnpack.h"
+#import "PBXGroup.h"
 
 @implementation PBXProject
+
+@synthesize mainGroup;
+
 -(id)initWithOwnerDocument:(ProjectDocument*)ownerDocument
 {
   if((self=[super init]))
@@ -54,12 +58,14 @@
     {
       compatibilityVersion = @"Xcode 3.1";
     }
+    [compatibilityVersion retain];
     
     developmentRegion = [dict unpackObjectWithKey:@"developmentRegion" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
     if(!developmentRegion)
     {
       developmentRegion = @"English";
     }
+    [developmentRegion retain];
     
     hasScannedForEncodings = [[dict unpackObjectWithKey:@"hasScannedForEncodings" forDocument:ownerDocument pbxDictionary:objects required:NO error:error] integerValue] == 1;
     
@@ -68,26 +74,30 @@
     {
       knownRegions = [NSArray arrayWithObjects:@"English", nil];
     }
+    [knownRegions retain];
     
-    /* mainGroup = [dict unpackObjectWithKey:@"mainGroup" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    mainGroup = [dict unpackObjectWithKey:@"mainGroup" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
     if(!mainGroup || ![mainGroup isKindOfClass:[PBXGroup class]])
     {
     // FIXME set error text here
       [self release];
       return nil;
-    }*/
+    }
+    [mainGroup retain];
     
     projectDirPath = [dict unpackObjectWithKey:@"projectDirPath" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
     if(!projectDirPath)
     {
       projectDirPath = @"";
     }
+    [projectDirPath retain];
     
     projectRoot = [dict unpackObjectWithKey:@"projectRoot" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
     if(!projectRoot)
     {
       projectRoot = @"";
     }
+    [projectRoot retain];
     
     
     /*
@@ -106,6 +116,19 @@
     
   }
   return self;
+}
+
+-(void)dealloc
+{
+  //[buildConfigurationList release];
+  [compatibilityVersion release];
+  [developmentRegion release];
+  [knownRegions release];
+  [mainGroup release];
+  [projectDirPath release];
+  [projectRoot release];
+  [targets release];
+  [super dealloc ];
 }
 
 -(NSString*)description

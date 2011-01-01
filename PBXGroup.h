@@ -1,11 +1,11 @@
 /*
    Project: Zcode
 
-   Copyright (C) 2010 Free Software Foundation
+   Copyright (C) 2011 Free Software Foundation
 
    Author: Ivan Vucica,,,
 
-   Created: 2010-12-31 19:00:09 +0100 by ivucica
+   Created: 2011-01-01 20:31:02 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,42 +22,28 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-// Groups and Files list has numerous groups in the outline view.
-// Let's implement a class that will allow us to represent them.
+#ifndef _PBXGROUP_H_
+#define _PBXGROUP_H_
 
-#import <AppKit/AppKit.h>
-#import "GAFContainer.h"
-
-@implementation GAFContainer
-
--(id)initWithTitle:(NSString*)_title
+#import <Foundation/Foundation.h>
+@class NSOutlineView;
+@interface PBXGroup : NSObject
 {
-  if((self=[super init]))
-  {
-    title = [_title retain];
-  }
-  return self;
-}
--(void)dealloc
-{
-  [title release];
-  [super dealloc];
-}
--(NSString*)description
-{
-  return title;
+  // children can be:
+  // * PBXGroup
+  // * PBXFileReference
+  
+  NSMutableArray *children;
+  NSString *name;
+  NSString *sourceTree;
 }
 
--(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
-{
-  return 0;
-}
--(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView
-{
-  return nil;
-}
--(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
-{
-  return YES;
-}
+// For outline view
+-(NSString*)description;
+-(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
+-(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
+-(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
 @end
+
+#endif // _PBXGROUP_H_
+

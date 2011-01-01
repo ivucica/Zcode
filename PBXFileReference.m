@@ -1,11 +1,11 @@
 /*
    Project: Zcode
 
-   Copyright (C) 2010 Free Software Foundation
+   Copyright (C) 2011 Free Software Foundation
 
    Author: Ivan Vucica,,,
 
-   Created: 2010-12-31 19:00:09 +0100 by ivucica
+   Created: 2011-01-01 20:37:37 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,30 +22,52 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-// Groups and Files list has numerous groups in the outline view.
-// Let's implement a class that will allow us to represent them.
+#import "PBXFileReference.h"
+#import "ProjectDocument.h"
+#import "NSDictionary+SmartUnpack.h"
 
-#import <AppKit/AppKit.h>
-#import "GAFContainer.h"
-
-@implementation GAFContainer
-
--(id)initWithTitle:(NSString*)_title
+@implementation PBXFileReference
+-(id)initWithOwnerDocument:(ProjectDocument*)ownerDocument
 {
   if((self=[super init]))
   {
-    title = [_title retain];
+    //
   }
   return self;
 }
+-(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error
+{
+  if((self=[self initWithOwnerDocument:ownerDocument]))
+  {
+    NSDictionary *dict = [objects objectForKey:ownKey];
+    
+    
+    path = [dict unpackObjectWithKey:@"path" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    if(! path || ![path isKindOfClass:[NSString class]])
+    {
+      [self release];
+      return nil;
+    }
+    [path retain];
+    
+    
+  }
+  return self;
+}
+
+
 -(void)dealloc
 {
-  [title release];
+  [path release];
   [super dealloc];
 }
+
+
+#pragma mark -
+#pragma mark For outline view
 -(NSString*)description
 {
-  return title;
+  return path;
 }
 
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
@@ -58,6 +80,7 @@
 }
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
 {
-  return YES;
+  return NO;
 }
+
 @end

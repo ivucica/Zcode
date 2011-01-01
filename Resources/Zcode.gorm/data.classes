@@ -10,9 +10,16 @@
     };
     FirstResponder = {
 	Actions = (
+	    "orderFrontSharedMemoryPanel:",
 	    "orderFrontFontPanel:",
 	    "showPrefPanel:"
 	);
 	Super = NSObject;
+    };
+    NSApplication = {
+	Actions = (
+	    "orderFrontSharedMemoryPanel:"
+	);
+	Super = NSResponder;
     };
 }

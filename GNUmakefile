@@ -39,7 +39,10 @@ AppController.h \
 ProjectDocument.h \
 GAFContainer.h \
 PBXProject.h \
-NSDictionary+SmartUnpack.h
+NSDictionary+SmartUnpack.h \
+PBXGroup.h \
+PBXFileReference.h \
+PBXVariantGroup.h
 
 #
 # Class files
@@ -49,7 +52,10 @@ AppController.m \
 ProjectDocument.m \
 GAFContainer.m \
 PBXProject.m \
-NSDictionary+SmartUnpack.m
+NSDictionary+SmartUnpack.m \
+PBXGroup.m \
+PBXFileReference.m \
+PBXVariantGroup.m
 
 #
 # Other sources

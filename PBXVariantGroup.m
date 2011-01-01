@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-01 18:20:47 +0100 by ivucica
+   Created: 2011-01-01 21:37:29 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,31 +22,8 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-#ifndef _PBXPROJECT_H_
-#define _PBXPROJECT_H_
+#import "PBXVariantGroup.h"
 
-#import <Foundation/Foundation.h>
-
-@class ProjectDocument;
-@class PBXGroup;
-
-@interface PBXProject : NSObject
-{
-  //XCConfigurationList *buildConfigurationList;
-  NSString *compatibilityVersion;
-  NSString *developmentRegion;
-  BOOL hasScannedForEncodings;
-  NSArray *knownRegions;
-  PBXGroup *mainGroup;
-  NSString *projectDirPath;
-  NSString *projectRoot;
-  NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
-}
--(id)initWithObjects:(NSDictionary*)object ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error;
-
-@property (readonly) PBXGroup* mainGroup;
+@implementation PBXVariantGroup
 
 @end
-
-#endif // _PBXPROJECT_H_
-
