@@ -27,6 +27,8 @@
 #import "NSDictionary+SmartUnpack.h"
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
+@synthesize ownerGroup;
+
 -(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
   if((self=[super init]))
@@ -52,6 +54,14 @@
     }
     [path retain];
     
+    sourceTree = [dict unpackObjectWithKey:@"sourceTree" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    if(! sourceTree || ![sourceTree isKindOfClass:[NSString class]])
+    {
+      [self release];
+      return nil;
+    }
+    [sourceTree retain];
+    
     
   }
   return self;
@@ -64,6 +74,18 @@
   [super dealloc];
 }
 
+
+-(NSString*)fullPath
+{
+  if([sourceTree isEqualToString:@"<absolute>"])
+    return path;
+  if([sourceTree isEqualToString:@"<group>"])
+  {
+    return [[ownerGroup fullPath] stringByAppendingPathComponent:path];
+  }
+
+  return path;
+}
 
 #pragma mark -
 #pragma mark For outline view
@@ -85,10 +107,15 @@
   return NO;
 }
 
+
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
   [[cell image] release];
-  NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/usr/share/icons/gnome/48x48/actions/system-run.png"];
+  //NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/usr/share/icons/gnome/48x48/actions/system-run.png"];
+  
+  NSLog(@"Fullpath: %@", [self fullPath]);
+  NSImage *img = [[[NSWorkspace sharedWorkspace] iconForFile:[self fullPath]] retain];
+
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   [cell setImage:img];

@@ -33,6 +33,7 @@
 @interface PBXGroup : NSObject
 {
   ProjectDocument *ownerDocument;
+  PBXGroup *ownerGroup;
   
   // children can be:
   // * PBXGroup
@@ -41,6 +42,7 @@
   NSMutableArray *children;
   NSString *name;
   NSString *sourceTree;
+  
 }
 
 // For outline view
@@ -50,6 +52,9 @@
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
 -(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
 -(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
+
+@property (assign) PBXGroup *ownerGroup;
+
 @end
 
 #endif // _PBXGROUP_H_

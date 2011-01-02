@@ -28,15 +28,19 @@
 #import <Foundation/Foundation.h>
 
 @class ProjectDocument;
+@class PBXGroup;
 @interface PBXFileReference : NSObject
 {
   ProjectDocument *ownerDocument;
+  PBXGroup *ownerGroup;
   
   NSInteger fileEncoding;
   NSString *lastKnownFileType;
   NSString *path;
   NSString *sourceTree;
 }
+
+@property (assign) PBXGroup *ownerGroup;
 
 @end
 

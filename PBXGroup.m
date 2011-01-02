@@ -25,8 +25,11 @@
 #import "PBXGroup.h"
 #import "ProjectDocument.h"
 #import "NSDictionary+SmartUnpack.h"
+#import <unistd.h> // get_current_dir_name()
 
 @implementation PBXGroup
+@synthesize ownerGroup;
+
 -(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
   if((self=[super init]))
@@ -115,6 +118,28 @@
 
 }
 
+
+-(NSString*)fullPath
+{
+// FIXME sourceTree decoding should be a global utility function
+// FIXME sourceTree can contain environment variable name, e.g. "BUILT_PRODUCTS_DIR"
+  if([sourceTree isEqualToString:@"<absolute>"])
+    return nil; // group cannot have an absolute path specified... hopefully
+  if([sourceTree isEqualToString:@"<group>"])
+    if(ownerGroup)
+      return [ownerGroup fullPath];
+    else
+    { // mainGroup does not have an owner
+    // FIXME see if we can avoid C and use some objc utility func
+      char* cwd_c = get_current_dir_name();
+      NSString *cwd = [NSString stringWithUTF8String:cwd_c];
+      free(cwd_c);
+      
+      return [cwd stringByAppendingPathComponent];
+    }
+  return sourceTree;
+}
+
 #pragma mark -
 #pragma mark For outline view
 -(NSString*)description
@@ -143,7 +168,7 @@
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
   [[cell image] release];
-  NSImage *img = [[NSImage imageNamed:@"apple-green"] retain];
+  NSImage *img = [[NSImage imageNamed:@"common_Folder"] retain];
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   [cell setImage:img];
