@@ -27,8 +27,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class ProjectDocument;
 @interface PBXFileReference : NSObject
 {
+  ProjectDocument *ownerDocument;
+  
   NSInteger fileEncoding;
   NSString *lastKnownFileType;
   NSString *path;

@@ -25,20 +25,22 @@
 #import "PBXFileReference.h"
 #import "ProjectDocument.h"
 #import "NSDictionary+SmartUnpack.h"
-
+#import <AppKit/NSImage.h>
 @implementation PBXFileReference
--(id)initWithOwnerDocument:(ProjectDocument*)ownerDocument
+-(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
   if((self=[super init]))
   {
-    //
+    ownerDocument = _ownerDocument;
   }
   return self;
 }
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error
+-(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
 {
-  if((self=[self initWithOwnerDocument:ownerDocument]))
+  if((self=[super init]))
   {
+    ownerDocument = _ownerDocument;
+    
     NSDictionary *dict = [objects objectForKey:ownKey];
     
     
@@ -83,4 +85,12 @@
   return NO;
 }
 
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
+{
+  [[cell image] release];
+  NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/usr/share/icons/gnome/48x48/actions/system-run.png"];
+  [img setScalesWhenResized:YES];
+  [img setSize:NSMakeSize(16,16)];
+  [cell setImage:img];
+}
 @end

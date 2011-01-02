@@ -31,18 +31,20 @@
 
 @synthesize mainGroup;
 
--(id)initWithOwnerDocument:(ProjectDocument*)ownerDocument
+-(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
   if((self=[super init]))
   {
-    //
+    ownerDocument = _ownerDocument;
   }
   return self;
 }
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error
+-(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
 {
-  if((self=[self initWithOwnerDocument:ownerDocument]))
+  if((self=[super init]))
   {
+    ownerDocument = _ownerDocument;
+  
     NSDictionary *dict = [objects objectForKey:ownKey];
     
     /*buildConfigurationsList = [dict unpackObjectWithKey:@"buildConfigurationsList" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
@@ -148,4 +150,6 @@
   hasScannedForEncodings ? "YES" : "NO",
   [knownRegions count]];
 }
+
+
 @end

@@ -27,18 +27,20 @@
 #import "NSDictionary+SmartUnpack.h"
 
 @implementation PBXGroup
--(id)initWithOwnerDocument:(ProjectDocument*)ownerDocument
+-(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
   if((self=[super init]))
   {
-    //
+    ownerDocument = _ownerDocument;
   }
   return self;
 }
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error
+-(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
 {
-  if((self=[self initWithOwnerDocument:ownerDocument]))
+  if((self=[super init]))
   {
+    ownerDocument = _ownerDocument;
+    
     NSDictionary *dict = [objects objectForKey:ownKey];
     
     
@@ -132,7 +134,18 @@
 {
   return YES;
 }
-
-
-
+-(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn
+{
+// FIXME check if 'object' is string, etc
+  [name release];
+  name = [object retain];
+}
+- (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
+{
+  [[cell image] release];
+  NSImage *img = [[NSImage imageNamed:@"apple-green"] retain];
+  [img setScalesWhenResized:YES];
+  [img setSize:NSMakeSize(16,16)];
+  [cell setImage:img];
+}
 @end

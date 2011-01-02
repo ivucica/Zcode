@@ -42,7 +42,8 @@ PBXProject.h \
 NSDictionary+SmartUnpack.h \
 PBXGroup.h \
 PBXFileReference.h \
-PBXVariantGroup.h
+PBXVariantGroup.h \
+ImageAndTextCell.h
 
 #
 # Class files
@@ -55,7 +56,8 @@ PBXProject.m \
 NSDictionary+SmartUnpack.m \
 PBXGroup.m \
 PBXFileReference.m \
-PBXVariantGroup.m
+PBXVariantGroup.m \
+ImageAndTextCell.m
 
 #
 # Other sources

@@ -32,6 +32,8 @@
 
 @interface PBXProject : NSObject
 {
+  ProjectDocument *ownerDocument;
+
   //XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
   NSString *developmentRegion;

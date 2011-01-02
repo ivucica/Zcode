@@ -7,6 +7,13 @@
 	);
 	Super = NSObject;
     };
+    ImageAndTextCell = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSTextFieldCell;
+    };
     NSToolbar = {
 	Actions = (
 	    "runCustomizationPalette:",
