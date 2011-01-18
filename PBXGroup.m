@@ -73,7 +73,7 @@
         //[dict unpackObjectWithKey:childId forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
         if(child)
         {
-
+          [child setOwnerGroup:self];
           [unpackedChildren addObject:child];
         } else 
         {
@@ -130,12 +130,8 @@
       return [ownerGroup fullPath];
     else
     { // mainGroup does not have an owner
-    // FIXME see if we can avoid C and use some objc utility func
-      char* cwd_c = get_current_dir_name();
-      NSString *cwd = [NSString stringWithUTF8String:cwd_c];
-      free(cwd_c);
-      
-      return [cwd stringByAppendingPathComponent];
+      return [[ownerDocument fileName] stringByDeletingLastPathComponent];
+      //return [cwd stringByAppendingPathComponent];
     }
   return sourceTree;
 }

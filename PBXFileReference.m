@@ -78,7 +78,9 @@
 -(NSString*)fullPath
 {
   if([sourceTree isEqualToString:@"<absolute>"])
+  {
     return path;
+  }
   if([sourceTree isEqualToString:@"<group>"])
   {
     return [[ownerGroup fullPath] stringByAppendingPathComponent:path];
@@ -91,7 +93,7 @@
 #pragma mark For outline view
 -(NSString*)description
 {
-  return path;
+  return [path lastPathComponent];
 }
 
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
