@@ -122,7 +122,13 @@
     if (image != nil) {
         NSRect imageFrame;
         NSSize imageSize = [image size];
-        NSDivideRect(cellFrame, &imageFrame, &cellFrame, /*3 + imageSize.width*/0, NSMinXEdge);
+		float division;
+		#if !GNUSTEP
+		division = 3 + imageSize.width;
+		#else
+		division = 0;
+		#endif
+        NSDivideRect(cellFrame, &imageFrame, &cellFrame, division, NSMinXEdge);
         if ([self drawsBackground]) {
             [[self backgroundColor] set];
             NSRectFill(imageFrame);

@@ -30,7 +30,8 @@
 
 @class PBXProject;
 
-@interface ProjectDocument : NSDocument //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
+@interface ProjectDocument : NSDocument <NSToolbarDelegate>
+//<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
 {
   ///////////////////////////////////////
   ////

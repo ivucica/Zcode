@@ -242,7 +242,6 @@
     return NO;
   }
     
-  
   [gafContainers release];
   gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], nil];
   return YES;
@@ -335,7 +334,7 @@
     itemForItemIdentifier: (NSString*)itemIdentifier
 willBeInsertedIntoToolbar: (BOOL)flag
 {
-  NSToolbarItem* ti = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+  NSToolbarItem* ti = [[[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier] autorelease];
   [ti setLabel:@"Build"];
   [ti setPaletteLabel:@"Build"];
   [ti setToolTip:@"Build"];

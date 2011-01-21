@@ -85,6 +85,7 @@
       }
       else
       {
+        [unpackedChildren release];
         [self release];
         return nil;
       }
@@ -104,6 +105,13 @@
   }
   return self;
 }
+
+#if !GNUSTEP
+-(id)copyWithZone:(NSZone*)zone
+{
+  return [self retain]; // faking because Cocoa NSOutlineView is for some reason copyWithZone'ing its items
+}
+#endif
 
 -(void)dealloc
 {
@@ -159,7 +167,7 @@
 }
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
-  [[cell image] release];
+  [[cell image] release]; // FIXME xcode static analysis says we should not do this
   NSImage *img = [[NSImage imageNamed:@"common_Folder"] retain];
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];

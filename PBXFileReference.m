@@ -67,6 +67,12 @@
   return self;
 }
 
+#if !GNUSTEP
+-(id)copyWithZone:(NSZone*)zone
+{
+  return [self retain]; // faking because Cocoa NSOutlineView is for some reason copyWithZone'ing its items
+}
+#endif
 
 -(void)dealloc
 {
@@ -112,7 +118,8 @@
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
-  [[cell image] release];
+  [[cell image] release]; // FIXME xcode's static analysis warns that we are releasing object which we don't own
+  
   //NSImage *img = [[NSImage alloc] initWithContentsOfFile:@"/usr/share/icons/gnome/48x48/actions/system-run.png"];
   
   NSLog(@"Fullpath: %@", [self fullPath]);

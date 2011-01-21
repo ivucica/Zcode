@@ -50,7 +50,6 @@
     /*buildConfigurationsList = [dict unpackObjectWithKey:@"buildConfigurationsList" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
     if(!buildConfigurationsList || ![buildConfigurationsList isKindOfClass:[XCConfigurationList class]])
     {
-    // FIXME set error text here
       [self release];
       return nil;
     }*/
@@ -81,7 +80,6 @@
     mainGroup = [dict unpackObjectWithKey:@"mainGroup" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
     if(!mainGroup || ![mainGroup isKindOfClass:[PBXGroup class]])
     {
-    // FIXME set error text here
       [self release];
       return nil;
     }
@@ -119,6 +117,13 @@
   }
   return self;
 }
+
+#if !GNUSTEP
+-(id)copyWithZone:(NSZone*)zone
+{
+  return [self retain]; // faking because Cocoa NSOutlineView is for some reason copyWithZone'ing its items
+}
+#endif
 
 -(void)dealloc
 {
