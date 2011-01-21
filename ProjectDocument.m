@@ -98,11 +98,12 @@
   [w setToolbar:toolbar];
   //[window toggleToolbarShown:self];
   [toolbar setVisible:YES];
-  
-  [editorViewContainer addSubview:editorViewController.view];
+
   CGRect editorRect = CGRectZero;
   editorRect.size = editorViewContainer.frame.size;
   editorViewController.view.frame = editorRect;
+
+  [editorViewContainer addSubview:editorViewController.view];
 }
 
 
@@ -445,6 +446,34 @@ willBeInsertedIntoToolbar: (BOOL)flag
   id item = [groupsAndFilesView itemAtRow:[groupsAndFilesView selectedRow]];
   [item addLeafsToArray:leafs];
   projectDetailListDataSource.items = leafs;
+  
+  if (leafs.count == 1) {
+	  [self switchEditor:item];
+  }
 }
 
+
+#pragma mark -
+#pragma mark Editor management
+- (void)switchEditor:(id)item
+{
+  [editorViewController.view removeFromSuperview];
+  [editorViewController release];
+  NSString *editorType = [item desiredEditor];
+  
+  Class classFromIsa;
+#if GNUSTEP
+  classFromIsa = objc_lookup_class([editorType UTF8String]);
+#else
+  classFromIsa = objc_lookUpClass([editorType UTF8String]);
+#endif
+
+  editorViewController = [[classFromIsa alloc] initWithNibName:editorType bundle:nil];
+  [editorViewContainer addSubview:editorViewController.view];
+  
+  CGRect editorRect = CGRectZero;
+  editorRect.size = editorViewContainer.frame.size;
+  editorViewController.view.frame = editorRect;
+
+}
 @end

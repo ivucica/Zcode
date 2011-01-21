@@ -24,6 +24,8 @@
 		7F6ACC8312E9D69F00536F3D /* ZCEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */; };
 		7F6ACC8512E9D6F600536F3D /* ZCEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */; };
 		7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD0912E9DD0D00536F3D /* apple-green.icns */; };
+		7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */; };
+		7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,9 @@
 		7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCEditorViewController.m; sourceTree = "<group>"; };
 		7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCEditorViewController.xib; sourceTree = "<group>"; };
 		7F6ACD0912E9DD0D00536F3D /* apple-green.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "apple-green.icns"; sourceTree = "<group>"; };
+		7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextEditorViewController.h; sourceTree = "<group>"; };
+		7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextEditorViewController.m; sourceTree = "<group>"; };
+		7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCTextEditorViewController.xib; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Zcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,6 +146,8 @@
 				7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */,
 				7F6ACC8112E9D69F00536F3D /* ZCEditorViewController.h */,
 				7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */,
+				7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */,
+				7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -162,6 +169,7 @@
 				7F6ACB1012E9A22600536F3D /* ProjectDocument.xib */,
 				7F6ACB1112E9A22600536F3D /* Zcode.xib */,
 				7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */,
+				7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 				7F6ACB1412E9A22600536F3D /* Zcode.xib in Resources */,
 				7F6ACC8512E9D6F600536F3D /* ZCEditorViewController.xib in Resources */,
 				7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */,
+				7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +261,7 @@
 				7F6ACAF012E9A15500536F3D /* ProjectDocument.m in Sources */,
 				7F6ACC2112E9BBA200536F3D /* ProjectDetailListDataSource.m in Sources */,
 				7F6ACC8312E9D69F00536F3D /* ZCEditorViewController.m in Sources */,
+				7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

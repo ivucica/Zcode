@@ -62,6 +62,14 @@
     }
     [sourceTree retain];
     
+    lastKnownFileType = [dict unpackObjectWithKey:@"lastKnownFileType" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
+    if(! lastKnownFileType || ![lastKnownFileType isKindOfClass:[NSString class]])
+    {
+      NSLog(@"Guessing lastKnownFileType for %@", self);
+      lastKnownFileType = @"sourcecode.c.objc";
+    }
+    [lastKnownFileType retain];
+    
     
   }
   return self;
@@ -77,6 +85,8 @@
 -(void)dealloc
 {
   [path release];
+  [sourceTree release];
+  [lastKnownFileType release];
   [super dealloc];
 }
 
@@ -105,6 +115,15 @@
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   return img;
+}
+
+-(NSString*)desiredEditor
+{
+  if([lastKnownFileType isEqualToString:@"sourcecode.c.objc"])
+  {
+    return @"ZCTextEditorViewController";
+  }
+  return @"ZCEditorViewController";
 }
 
 #pragma mark -
