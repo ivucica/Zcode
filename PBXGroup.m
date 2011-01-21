@@ -168,7 +168,12 @@
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
   [[cell image] release]; // FIXME xcode static analysis says we should not do this
-  NSImage *img = [[NSImage imageNamed:@"common_Folder"] retain];
+  NSImage *img;
+  #if GNUSTEP
+  img = [[NSImage imageNamed:@"common_Folder"] retain];
+  #else
+  img = [[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)] retain];
+  #endif
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   [cell setImage:img];
