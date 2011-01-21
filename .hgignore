@@ -7,4 +7,8 @@ Zcode.pcproj.backup/*
 *.swp
 samples/*
 .gwdir
-
+build/*
+*.pch
+*.pbxuser
+*.mode1v3
+.DS_Store

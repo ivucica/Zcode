@@ -46,7 +46,7 @@
     
     NSDictionary *dict = [objects objectForKey:ownKey];
     
-    
+    // FIXME not required! if it doesnt exist, extract from path
     name = [dict unpackObjectWithKey:@"name" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
     if(!name || ![name isKindOfClass:[NSString class]])
     {
@@ -68,7 +68,7 @@
     {
       if([childId isKindOfClass:[NSString class]])
       {
-        id child = [ownerDocument newObjectSpecifiedByISAWithPBXDictionary:objects withKey:childId required:YES error:error];
+        id child = [[ownerDocument newObjectSpecifiedByISAWithPBXDictionary:objects withKey:childId required:YES error:error] autorelease];
 
         //[dict unpackObjectWithKey:childId forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
         if(child)
@@ -107,10 +107,6 @@
 
 -(void)dealloc
 {
-  for(id child in children)
-  {
-    [child release];
-  }
   [children release];
   [name release];
   [sourceTree release];

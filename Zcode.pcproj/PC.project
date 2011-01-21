@@ -103,7 +103,7 @@
 	GNUmakefile.preamble,
 	GNUmakefile,
 	GNUmakefile.postamble,
-	ZcodeInfo.plist
+	Zcode-Info-gnustep.plist
     );
     USER_LANGUAGES = (
 	AmericanEnglish,

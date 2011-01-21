@@ -27,6 +27,10 @@
 #import "PBXProject.h"
 #import "NSDictionary+SmartUnpack.h"
 
+#if !GNUSTEP
+#import <objc/runtime.h>
+#endif
+
 @implementation ProjectDocument
 
 @synthesize groupsAndFilesView;
@@ -103,10 +107,12 @@
 -(void)dealloc
 {
   [toolbar release];
+#if GNUSTEP
   for(id container in gafContainers)
   {
     [container release];
   }
+#endif
   [gafContainers release];
   [pbxProject release];
   [super dealloc];
@@ -169,7 +175,7 @@
   if(!plist)
   {
     // errstr is already filled
-    [self _handleIOError:error errorString:[NSString stringWithFormat:errstr]];
+    [self _handleIOError:error errorString:errstr];
 
     return NO;
   }
@@ -279,7 +285,12 @@
     return nil;
   }  
   ////////////
-  Class classFromIsa = objc_lookup_class([isaStr UTF8String]);
+  Class classFromIsa;
+#if GNUSTEP
+  classFromIsa = objc_lookup_class([isaStr UTF8String]);
+#else
+  classFromIsa = objc_lookUpClass([isaStr UTF8String]);
+#endif
   if(!classFromIsa)
     errstr = [NSString stringWithFormat:@"Zcode's internal class '%@' does not exist", isaStr];
   if(errstr)

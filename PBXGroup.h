@@ -30,7 +30,7 @@
 @class NSTableColumn;
 @class NSCell;
 @class ProjectDocument;
-@interface PBXGroup : NSObject
+@interface PBXGroup : NSObject <NSCopying>
 {
   ProjectDocument *ownerDocument;
   PBXGroup *ownerGroup;
