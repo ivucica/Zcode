@@ -26,5 +26,29 @@
 
 
 @implementation ProjectDetailListDataSource
+@synthesize items;
+
+-(void)dealloc
+{
+  [items release];
+  [super dealloc];
+}
+-(void)setItems:(NSArray *)_items
+{
+  [items release];
+  items = [_items retain];
+  NSLog(@"Now handling %d items", items.count);
+  
+  [ownerTableView reloadData];
+}
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+  return items.count;
+}
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+  id item = [items objectAtIndex:row];
+  return [item tableView:tableView objectValueForTableColumn:tableColumn];
+}
 
 @end

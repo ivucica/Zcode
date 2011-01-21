@@ -26,6 +26,7 @@
 #import "GAFContainer.h"
 #import "PBXProject.h"
 #import "NSDictionary+SmartUnpack.h"
+#import "ProjectDetailListDataSource.h"
 
 #if !GNUSTEP
 #import <objc/runtime.h>
@@ -42,7 +43,6 @@
 {
   if((self=[super init]))
   {
-
     pbxProject = [[PBXProject alloc] init];
     gafContainers = [[NSArray alloc] initWithObjects:[pbxProject mainGroup],
                                                      nil];
@@ -430,5 +430,12 @@ willBeInsertedIntoToolbar: (BOOL)flag
     [item outlineView:outlineView willDisplayCell:cell forTableColumn:tableColumn];
 }
   
+- (void)outlineViewSelectionDidChange:(NSNotification *)notification
+{
+  NSMutableArray *leafs = [[NSMutableArray alloc] init];
+  id item = [groupsAndFilesView itemAtRow:[groupsAndFilesView selectedRow]];
+  [item addLeafsToArray:leafs];
+  projectDetailListDataSource.items = leafs;
+}
 
 @end

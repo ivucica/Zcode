@@ -29,6 +29,7 @@
 #import <AppKit/NSOutlineView.h>
 
 @class PBXProject;
+@class ProjectDetailListDataSource;
 
 @interface ProjectDocument : NSDocument <NSToolbarDelegate>
 //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
@@ -38,6 +39,7 @@
   //// GUI AND GUI HELPERS ////
   ////
   IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
+  IBOutlet ProjectDetailListDataSource *projectDetailListDataSource;
   NSArray *gafContainers;
 
   // gorm does not support toolbar design. too bad. we'll build our own toolbar

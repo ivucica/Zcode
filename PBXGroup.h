@@ -53,8 +53,11 @@
 -(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
 -(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
 
-@property (assign) PBXGroup *ownerGroup;
+// For table view
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn;
 
+@property (assign) PBXGroup *ownerGroup;
+@property (readonly) NSImage *img;
 @end
 
 #endif // _PBXGROUP_H_
