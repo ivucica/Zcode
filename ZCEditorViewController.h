@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-21 14:04:00 +0100 by ivucica
+   Created: 2011-01-21 16:00:00 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -24,16 +24,9 @@
 
 #import <AppKit/AppKit.h>
 
-@class ProjectDocument;
 
-@interface ProjectDetailListDataSource : NSObject<NSTableViewDataSource> {
-  IBOutlet ProjectDocument *ownerDocument;
-  IBOutlet NSTableView *ownerTableView;
-  IBOutlet NSArray *items;	
+@interface ZCEditorViewController : NSViewController {
+
 }
-@property (retain) NSArray *items;
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 
 @end

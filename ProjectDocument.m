@@ -27,6 +27,7 @@
 #import "PBXProject.h"
 #import "NSDictionary+SmartUnpack.h"
 #import "ProjectDetailListDataSource.h"
+#import "ZCEditorViewController.h"
 
 #if !GNUSTEP
 #import <objc/runtime.h>
@@ -46,6 +47,7 @@
     pbxProject = [[PBXProject alloc] init];
     gafContainers = [[NSArray alloc] initWithObjects:[pbxProject mainGroup],
                                                      nil];
+    editorViewController = [[ZCEditorViewController alloc] initWithNibName:@"ZCEditorViewController" bundle:nil];
   }
   return self;
 }
@@ -66,6 +68,7 @@
     if([self readFromURL:[NSURL fileURLWithPath:file] ofType:type error:&error])
     {
       [self setFileName:file];
+      editorViewController = [[ZCEditorViewController alloc] initWithNibName:@"ZCEditorViewController" bundle:nil];
     }
     else
     {
@@ -95,6 +98,11 @@
   [w setToolbar:toolbar];
   //[window toggleToolbarShown:self];
   [toolbar setVisible:YES];
+  
+  [editorViewContainer addSubview:editorViewController.view];
+  CGRect editorRect = CGRectZero;
+  editorRect.size = editorViewContainer.frame.size;
+  editorViewController.view.frame = editorRect;
 }
 
 
@@ -113,6 +121,7 @@
     [container release];
   }
 #endif
+  [editorViewController release];
   [gafContainers release];
   [pbxProject release];
   [super dealloc];

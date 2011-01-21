@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="24"/>
+			<integer value="23"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -46,6 +46,7 @@
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="628278183">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -53,7 +54,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSSplitView" id="658355350">
 							<reference key="NSNextResponder" ref="628278183"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">274</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSCustomView" id="463300331">
@@ -238,7 +239,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSSplitView" id="245670327">
 											<reference key="NSNextResponder" ref="225162777"/>
-											<int key="NSvFlags">286</int>
+											<int key="NSvFlags">274</int>
 											<object class="NSMutableArray" key="NSSubviews">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSCustomView" id="425271028">
@@ -567,7 +568,7 @@
 												</object>
 												<object class="NSCustomView" id="957838080">
 													<reference key="NSNextResponder" ref="245670327"/>
-													<int key="NSvFlags">256</int>
+													<int key="NSvFlags">283</int>
 													<string key="NSFrame">{{0, 199}, {430, 229}}</string>
 													<reference key="NSSuperview" ref="245670327"/>
 													<string key="NSClassName">NSView</string>
@@ -665,6 +666,14 @@
 						<reference key="destination" ref="506324846"/>
 					</object>
 					<int key="connectionID">54</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">editorViewContainer</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="957838080"/>
+					</object>
+					<int key="connectionID">55</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1064,7 +1073,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">54</int>
+			<int key="maxID">55</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1131,11 +1140,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>editorViewContainer</string>
 							<string>groupsAndFilesView</string>
 							<string>projectDetailListDataSource</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSView</string>
 							<string>NSOutlineView</string>
 							<string>ProjectDetailListDataSource</string>
 						</object>
@@ -1144,11 +1155,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>editorViewContainer</string>
 							<string>groupsAndFilesView</string>
 							<string>projectDetailListDataSource</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">editorViewContainer</string>
+								<string key="candidateClassName">NSView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">groupsAndFilesView</string>
 								<string key="candidateClassName">NSOutlineView</string>

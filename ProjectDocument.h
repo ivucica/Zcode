@@ -30,6 +30,7 @@
 
 @class PBXProject;
 @class ProjectDetailListDataSource;
+@class ZCEditorViewController;
 
 @interface ProjectDocument : NSDocument <NSToolbarDelegate>
 //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
@@ -40,7 +41,9 @@
   ////
   IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
   IBOutlet ProjectDetailListDataSource *projectDetailListDataSource;
+  IBOutlet NSView *editorViewContainer;
   NSArray *gafContainers;
+  ZCEditorViewController *editorViewController;
 
   // gorm does not support toolbar design. too bad. we'll build our own toolbar
   NSToolbar* toolbar; 

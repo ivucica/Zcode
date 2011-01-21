@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-21 14:04:00 +0100 by ivucica
+   Created: 2011-01-21 16:00:00 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,18 +22,15 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-#import <AppKit/AppKit.h>
+#import "ZCEditorViewController.h"
 
-@class ProjectDocument;
 
-@interface ProjectDetailListDataSource : NSObject<NSTableViewDataSource> {
-  IBOutlet ProjectDocument *ownerDocument;
-  IBOutlet NSTableView *ownerTableView;
-  IBOutlet NSArray *items;	
+@implementation ZCEditorViewController
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+  if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+    NSLog(@"New ZCEditorViewController!");
+  }
+  return self;
 }
-@property (retain) NSArray *items;
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
-
 @end
