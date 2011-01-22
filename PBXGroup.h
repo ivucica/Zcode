@@ -28,7 +28,9 @@
 #import <Foundation/Foundation.h>
 @class NSOutlineView;
 @class NSTableColumn;
+@class NSTableView;
 @class NSCell;
+@class NSImage;
 @class ProjectDocument;
 @interface PBXGroup : NSObject
 {
