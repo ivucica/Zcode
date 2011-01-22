@@ -47,11 +47,12 @@
     NSDictionary *dict = [objects objectForKey:ownKey];
     
     // FIXME not required! if it doesnt exist, extract from path
-    name = [dict unpackObjectWithKey:@"name" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    name = [dict unpackObjectWithKey:@"name" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
     if(!name || ![name isKindOfClass:[NSString class]])
     {
-      [self release];
-      return nil;
+      [name release]; // ensure it's nill, and fill out below
+      name = nil;
+	  
     }
     [name retain];
     
@@ -102,6 +103,13 @@
     }
     [sourceTree retain];
     
+	
+	
+    // with sourceTree, we have enough info to fill out 'name'
+    if(!name)
+    {
+      name = [[[self fullPath] lastPathComponent] retain];
+    }
   }
   return self;
 }
