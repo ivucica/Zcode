@@ -161,22 +161,6 @@
     return NO;
   }
   
-  //////////////////////
-  NSInteger archiveVersion = [[reader.plist objectForKey:@"archiveVersion"] intValue];
-  if(archiveVersion != 1)
-  {  
-    [self _handleIOError:error errorString:[NSString stringWithFormat:@"Unsupported archive version: %d", archiveVersion]];
-
-    return NO;
-  }
-  
-  ////////////////////////
-  NSInteger objectVersion = [[reader.plist objectForKey:@"objectVersion"] intValue];
-  if(objectVersion != 45)
-  {
-    NSLog(@"Zcode is only verified to load pbxproj plists of objectVersion 45; currently loading %d", objectVersion);
-  }
-  
   /////////////////////////
   NSDictionary* objects = [reader.plist objectForKey:@"objects"];
   NSString *errstr = nil;
