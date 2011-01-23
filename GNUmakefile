@@ -36,16 +36,16 @@ Resources/apple-green.png
 # Header files
 #
 Zcode_HEADER_FILES = \
+PBXProjLib/PBXFileReference.h \
+PBXProjLib/PBXGroup.h \
+PBXProjLib/PBXProject.h \
+PBXProjLib/PBXVariantGroup.h \
 AppController.h \
 ProjectDocument.h \
 GAFContainer.h \
-PBXProject.h \
 NSDictionary+SmartUnpack.h \
-PBXGroup.h \
 PBXGroup+ViewRelated.h \
-PBXFileReference.h \
 PBXFileReference+ViewRelated.h \
-PBXVariantGroup.h \
 ImageAndTextCell.h \
 ZCEditorViewController.h \
 ZCTextEditorViewController.h
@@ -54,16 +54,16 @@ ZCTextEditorViewController.h
 # Class files
 #
 Zcode_OBJC_FILES = \
+PBXProjLib/PBXFileReference.m \
+PBXProjLib/PBXGroup.m \
+PBXProjLib/PBXProject.m \
+PBXProjLib/PBXVariantGroup.m \
 AppController.m \
 ProjectDocument.m \
 GAFContainer.m \
-PBXProject.m \
 NSDictionary+SmartUnpack.m \
-PBXGroup.m \
 PBXGroup+ViewRelated.m \
-PBXFileReference.m \
 PBXFileReference+ViewRelated.m \
-PBXVariantGroup.m \
 ImageAndTextCell.m \
 ZCEditorViewController.m \
 ZCTextEditorViewController.m
