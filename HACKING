@@ -1,0 +1,76 @@
+HACKING ZCODE
+=============
+
+Just a few notes on coding style, right now. This is primarily what I do,
+and open to discussion. While doubtful you'd get me to agree ;-) it's not
+written in stone. 
+
+I'd, however, like the patches to adhere to basic coding style outlined here.
+Currently these are primarily stylistic notes.
+
+1. Use two spaces for tab
+
+While I don't personally like this formatting, this is what Project Center
+does, and what GNUstep primarily uses. So until I get around to replacing
+two-spaces with tabs, just use two spaces.
+
+2. Braces newlined, same level as preceding line
+
+An example will be worth more than a thousand words here:
+  [someone doSomething];
+  if (someCondition)
+  {
+    // increase indent here
+    [something doStuff];
+  }
+  performOperation();
+
+3. Reasonable spacing
+
+Use newlines to denote separation between logical sections of code. Use
+whitespace to denote separation between logical segments of a complex
+expression.
+
+4. Self-documenting code and comments
+
+Could a line be less than understandable just because it's a complex
+expression full of cryptic variable names? Either self-document by moving
+the code in a separate function, or write a comment.
+
+5. Align colons
+
+Your fancy, but complex Objective-C call makes a lot of calls, and
+is unreadable in one line? It's ok to split it multiple lines, but please
+align the colons:
+
+  [[Something alloc] initWithManyArguments:a
+                         someOtherArgument:b
+                                 aThirdOne:c];
+
+6. Use camelcase for ObjC identifiers
+
+...butRememberThatTheFirstLetterIsLowercase
+
+7. Use _ to denote private identifiers
+
+_thisIsAPrivateIVar
+
+8. Don't separate colon from argument
+
+  [this isNot: whatIWant];
+See point 5. for a correct example :-)
+
+
+I'm sure I could write down some other info on how I personally prefer
+writing code, but the most important one is:
+
+9. Just try being consistent
+
+Trying is also more important than actually being consistent; if you find
+something works better than the "consistent" way, just go for it.
+
+
+Let's all just have fun!
+
+-- ivucica
+
