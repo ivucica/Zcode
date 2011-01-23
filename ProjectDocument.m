@@ -153,24 +153,16 @@
 
   [self setFileName:pbxProjPath];
 
- // PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
-
-  NSString* errstr = nil;
-  NSData *data = [NSData dataWithContentsOfFile:pbxProjPath];
-
-
-  NSDictionary *plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:0 format:0 errorDescription:&errstr];
-
-  if(!plist)
+  PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
+  if(!reader.plist)
   {
     // errstr is already filled
-    [self _handleIOError:error errorString:errstr];
-
+    [self _handleIOError:error errorString:reader.errorMessage];
     return NO;
   }
   
   //////////////////////
-  NSInteger archiveVersion = [[plist objectForKey:@"archiveVersion"] intValue];
+  NSInteger archiveVersion = [[reader.plist objectForKey:@"archiveVersion"] intValue];
   if(archiveVersion != 1)
   {  
     [self _handleIOError:error errorString:[NSString stringWithFormat:@"Unsupported archive version: %d", archiveVersion]];
@@ -179,15 +171,15 @@
   }
   
   ////////////////////////
-  NSInteger objectVersion = [[plist objectForKey:@"objectVersion"] intValue];
+  NSInteger objectVersion = [[reader.plist objectForKey:@"objectVersion"] intValue];
   if(objectVersion != 45)
   {
     NSLog(@"Zcode is only verified to load pbxproj plists of objectVersion 45; currently loading %d", objectVersion);
   }
   
   /////////////////////////
-  NSDictionary* objects = [plist objectForKey:@"objects"];
-  errstr = nil;
+  NSDictionary* objects = [reader.plist objectForKey:@"objects"];
+  NSString *errstr = nil;
   if(!objects)
     errstr = @"'objects' is nil";
   else if (![objects isKindOfClass:[NSDictionary class]])
@@ -200,7 +192,7 @@
   }
   
   ///////////////////
-  NSString* rootObject = [plist objectForKey:@"rootObject"];
+  NSString* rootObject = [reader.plist objectForKey:@"rootObject"];
   errstr = nil;
   if(!rootObject)
     errstr = @"'rootObject' specifier is nil";

@@ -5,9 +5,16 @@
 
 @interface PBXProjectReader : NSObject {
     NSString *file_;
+    
+    NSString *errorMessage_;
+    NSDictionary *plist_;
 }
 
 @property (readonly, copy) NSString *file;
+
+@property (readonly, assign) BOOL errorOccurred;
+@property (readonly, copy) NSString *errorMessage;
+@property (readonly) NSDictionary *plist;
 
 - (id)initWithFile:(NSString *)file;
 

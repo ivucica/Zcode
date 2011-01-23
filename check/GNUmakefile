@@ -10,7 +10,10 @@ include $(GNUSTEP_MAKEFILES)/common.make
 
 TOOL_NAME		= check_Zcode
 
-check_Zcode_OBJC_FILES	= $(wildcard check_*.m) main.m
+check_Zcode_OBJC_FILES	= \
+$(wildcard ../PBXProjLib/*.m) \
+$(wildcard check_*.m) \
+main.m
 
 -include GNUmakefile.preamble
 include $(GNUSTEP_MAKEFILES)/tool.make

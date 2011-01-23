@@ -1,0 +1,352 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F6ACAC312E99F5C00536F3D /* Zcode_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAC212E99F5C00536F3D /* Zcode_main.m */; };
+		7F6ACAE812E9A15500536F3D /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD712E9A15500536F3D /* AppController.m */; };
+		7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD912E9A15500536F3D /* GAFContainer.m */; };
+		7F6ACAEA12E9A15500536F3D /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */; };
+		7F6ACAEB12E9A15500536F3D /* NSDictionary+SmartUnpack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */; };
+		7F6ACAEC12E9A15500536F3D /* PBXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADF12E9A15500536F3D /* PBXFileReference.m */; };
+		7F6ACAED12E9A15500536F3D /* PBXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE112E9A15500536F3D /* PBXGroup.m */; };
+		7F6ACAEE12E9A15500536F3D /* PBXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE312E9A15500536F3D /* PBXProject.m */; };
+		7F6ACAEF12E9A15500536F3D /* PBXVariantGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE512E9A15500536F3D /* PBXVariantGroup.m */; };
+		7F6ACAF012E9A15500536F3D /* ProjectDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE712E9A15500536F3D /* ProjectDocument.m */; };
+		7F6ACB1212E9A22600536F3D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACB0F12E9A22600536F3D /* Credits.rtf */; };
+		7F6ACB1312E9A22600536F3D /* ProjectDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACB1012E9A22600536F3D /* ProjectDocument.xib */; };
+		7F6ACB1412E9A22600536F3D /* Zcode.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACB1112E9A22600536F3D /* Zcode.xib */; };
+		7F6ACC2112E9BBA200536F3D /* ProjectDetailListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */; };
+		7F6ACC8312E9D69F00536F3D /* ZCEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */; };
+		7F6ACC8512E9D6F600536F3D /* ZCEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */; };
+		7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD0912E9DD0D00536F3D /* apple-green.icns */; };
+		7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */; };
+		7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2564AD2C0F5327BB00F57823 /* Zcode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zcode_Prefix.pch; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		7F6ACAC212E99F5C00536F3D /* Zcode_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zcode_main.m; sourceTree = "<group>"; };
+		7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Zcode-Info-cocoa.plist"; sourceTree = "<group>"; };
+		7F6ACAD612E9A15500536F3D /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		7F6ACAD712E9A15500536F3D /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		7F6ACAD812E9A15500536F3D /* GAFContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAFContainer.h; sourceTree = "<group>"; };
+		7F6ACAD912E9A15500536F3D /* GAFContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAFContainer.m; sourceTree = "<group>"; };
+		7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
+		7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
+		7F6ACADC12E9A15500536F3D /* NSDictionary+SmartUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SmartUnpack.h"; sourceTree = "<group>"; };
+		7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SmartUnpack.m"; sourceTree = "<group>"; };
+		7F6ACADE12E9A15500536F3D /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
+		7F6ACADF12E9A15500536F3D /* PBXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileReference.m; sourceTree = "<group>"; };
+		7F6ACAE012E9A15500536F3D /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
+		7F6ACAE112E9A15500536F3D /* PBXGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXGroup.m; sourceTree = "<group>"; };
+		7F6ACAE212E9A15500536F3D /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
+		7F6ACAE312E9A15500536F3D /* PBXProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProject.m; sourceTree = "<group>"; };
+		7F6ACAE412E9A15500536F3D /* PBXVariantGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXVariantGroup.h; sourceTree = "<group>"; };
+		7F6ACAE512E9A15500536F3D /* PBXVariantGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXVariantGroup.m; sourceTree = "<group>"; };
+		7F6ACAE612E9A15500536F3D /* ProjectDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDocument.h; sourceTree = "<group>"; };
+		7F6ACAE712E9A15500536F3D /* ProjectDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDocument.m; sourceTree = "<group>"; };
+		7F6ACB0F12E9A22600536F3D /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		7F6ACB1012E9A22600536F3D /* ProjectDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectDocument.xib; sourceTree = "<group>"; };
+		7F6ACB1112E9A22600536F3D /* Zcode.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Zcode.xib; sourceTree = "<group>"; };
+		7F6ACC1F12E9BBA200536F3D /* ProjectDetailListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectDetailListDataSource.h; sourceTree = "<group>"; };
+		7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectDetailListDataSource.m; sourceTree = "<group>"; };
+		7F6ACC8112E9D69F00536F3D /* ZCEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCEditorViewController.h; sourceTree = "<group>"; };
+		7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCEditorViewController.m; sourceTree = "<group>"; };
+		7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCEditorViewController.xib; sourceTree = "<group>"; };
+		7F6ACD0912E9DD0D00536F3D /* apple-green.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "apple-green.icns"; sourceTree = "<group>"; };
+		7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextEditorViewController.h; sourceTree = "<group>"; };
+		7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextEditorViewController.m; sourceTree = "<group>"; };
+		7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCTextEditorViewController.xib; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* Zcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* Zcode.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* Zcode */ = {
+			isa = PBXGroup;
+			children = (
+				7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = Zcode;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F6ACAD612E9A15500536F3D /* AppController.h */,
+				7F6ACAD712E9A15500536F3D /* AppController.m */,
+				7F6ACAD812E9A15500536F3D /* GAFContainer.h */,
+				7F6ACAD912E9A15500536F3D /* GAFContainer.m */,
+				7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */,
+				7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */,
+				7F6ACADC12E9A15500536F3D /* NSDictionary+SmartUnpack.h */,
+				7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */,
+				7F6ACADE12E9A15500536F3D /* PBXFileReference.h */,
+				7F6ACADF12E9A15500536F3D /* PBXFileReference.m */,
+				7F6ACAE012E9A15500536F3D /* PBXGroup.h */,
+				7F6ACAE112E9A15500536F3D /* PBXGroup.m */,
+				7F6ACAE212E9A15500536F3D /* PBXProject.h */,
+				7F6ACAE312E9A15500536F3D /* PBXProject.m */,
+				7F6ACAE412E9A15500536F3D /* PBXVariantGroup.h */,
+				7F6ACAE512E9A15500536F3D /* PBXVariantGroup.m */,
+				7F6ACAE612E9A15500536F3D /* ProjectDocument.h */,
+				7F6ACAE712E9A15500536F3D /* ProjectDocument.m */,
+				7F6ACC1F12E9BBA200536F3D /* ProjectDetailListDataSource.h */,
+				7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */,
+				7F6ACC8112E9D69F00536F3D /* ZCEditorViewController.h */,
+				7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */,
+				7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */,
+				7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7F6ACAC212E99F5C00536F3D /* Zcode_main.m */,
+				2564AD2C0F5327BB00F57823 /* Zcode_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7F6ACD0912E9DD0D00536F3D /* apple-green.icns */,
+				7F6ACB0F12E9A22600536F3D /* Credits.rtf */,
+				7F6ACB1012E9A22600536F3D /* ProjectDocument.xib */,
+				7F6ACB1112E9A22600536F3D /* Zcode.xib */,
+				7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */,
+				7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* Zcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "Zcode" */;
+			buildPhases = (
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zcode;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Zcode;
+			productReference = 8D15AC370486D014006FF6A4 /* Zcode.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Zcode" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Zcode */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* Zcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F6ACB1212E9A22600536F3D /* Credits.rtf in Resources */,
+				7F6ACB1312E9A22600536F3D /* ProjectDocument.xib in Resources */,
+				7F6ACB1412E9A22600536F3D /* Zcode.xib in Resources */,
+				7F6ACC8512E9D6F600536F3D /* ZCEditorViewController.xib in Resources */,
+				7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */,
+				7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F6ACAC312E99F5C00536F3D /* Zcode_main.m in Sources */,
+				7F6ACAE812E9A15500536F3D /* AppController.m in Sources */,
+				7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */,
+				7F6ACAEA12E9A15500536F3D /* ImageAndTextCell.m in Sources */,
+				7F6ACAEB12E9A15500536F3D /* NSDictionary+SmartUnpack.m in Sources */,
+				7F6ACAEC12E9A15500536F3D /* PBXFileReference.m in Sources */,
+				7F6ACAED12E9A15500536F3D /* PBXGroup.m in Sources */,
+				7F6ACAEE12E9A15500536F3D /* PBXProject.m in Sources */,
+				7F6ACAEF12E9A15500536F3D /* PBXVariantGroup.m in Sources */,
+				7F6ACAF012E9A15500536F3D /* ProjectDocument.m in Sources */,
+				7F6ACC2112E9BBA200536F3D /* ProjectDetailListDataSource.m in Sources */,
+				7F6ACC8312E9D69F00536F3D /* ZCEditorViewController.m in Sources */,
+				7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
+				INFOPLIST_FILE = "Zcode-Info-cocoa.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Zcode;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
+				INFOPLIST_FILE = "Zcode-Info-cocoa.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Zcode;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "Zcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Zcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
