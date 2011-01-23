@@ -29,6 +29,7 @@
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */; };
 		969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */; };
+		96EABD2912ECA594006239A6 /* PBXProjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EABD2812ECA594006239A6 /* PBXProjectReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,8 @@
 		969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PBXFileReference+ViewRelated.m"; sourceTree = "<group>"; };
 		969956C112EC99C0005B1A5F /* PBXGroup+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXGroup+ViewRelated.h"; sourceTree = "<group>"; };
 		969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PBXGroup+ViewRelated.m"; sourceTree = "<group>"; };
+		96EABD2712ECA594006239A6 /* PBXProjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectReader.h; sourceTree = "<group>"; };
+		96EABD2812ECA594006239A6 /* PBXProjectReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProjectReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 		96EABD0812EC9BBB006239A6 /* PBXProjLib */ = {
 			isa = PBXGroup;
 			children = (
+				96EABD2712ECA594006239A6 /* PBXProjectReader.h */,
+				96EABD2812ECA594006239A6 /* PBXProjectReader.m */,
 				7F6ACADE12E9A15500536F3D /* PBXFileReference.h */,
 				7F6ACADF12E9A15500536F3D /* PBXFileReference.m */,
 				7F6ACAE012E9A15500536F3D /* PBXGroup.h */,
@@ -282,6 +287,7 @@
 				7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */,
 				969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */,
 				969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */,
+				96EABD2912ECA594006239A6 /* PBXProjectReader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

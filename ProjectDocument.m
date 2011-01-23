@@ -28,6 +28,7 @@
 #import "NSDictionary+SmartUnpack.h"
 #import "ProjectDetailListDataSource.h"
 #import "ZCEditorViewController.h"
+#import "PBXProjLib/PBXProjectReader.h"
 
 #if !GNUSTEP
 #import <objc/runtime.h>
@@ -151,36 +152,14 @@
   NSString *pbxProjPath = [path stringByAppendingPathComponent:@"project.pbxproj"];
 
   [self setFileName:pbxProjPath];
-/*
-// This doesnt work on GNUstep.
-// TODO check why
 
-  NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:pbxProjPath];
-  NSLog(@"Dict %@ from file %@", dict, pbxProjPath);
-  
-          NSData *data = [NSData dataWithContentsOfFile:pbxProjPath];
-        NSKeyedUnarchiver *kua;
-        @try {
-                kua = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-        }
-        @catch (NSException * e) {
-                return NO;
-        }
-        @finally {
-                
-        }
-        if(!kua)
-                return NO;
-        
-        id obj = [kua decodeObject];
-        
-        NSLog(@"obj: %@", obj);
-  */    
-    
+ // PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
+
   NSString* errstr = nil;
   NSData *data = [NSData dataWithContentsOfFile:pbxProjPath];
 
-  id plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:0 format:0 errorDescription:&errstr];
+
+  NSDictionary *plist = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:0 format:0 errorDescription:&errstr];
 
   if(!plist)
   {
@@ -254,6 +233,7 @@
     
   [gafContainers release];
   gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], nil];
+
   return YES;
 }
 
