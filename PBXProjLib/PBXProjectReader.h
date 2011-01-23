@@ -8,6 +8,7 @@
     
     NSString *errorMessage_;
     NSDictionary *plist_;
+    NSMutableDictionary *foundObjects_;
 }
 
 @property (readonly, copy) NSString *file;
@@ -19,6 +20,8 @@
 @property (readonly, retain) NSString *rootObjectKey;
 
 - (id)initWithFile:(NSString *)file;
+
+- (id)objectForKey:(NSString *)key;
 
 @end
 

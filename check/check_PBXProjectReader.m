@@ -1,4 +1,5 @@
 #import "PBXProjLib/PBXProjectReader.h"
+#import "PBXProjLib/PBXFileReference.h"
 #import "check.h"
 
 CHECK(PBXProjectReader_loads_plist_dictionary)
@@ -64,5 +65,25 @@ CHECK(PBXProjectReader_can_retrieve_rootObjectKey)
 {
 	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
 	assert([r.rootObjectKey isEqualToString:@"2A37F4A9FDCFA73011CA2CEA"]);
+	[r release];
+}
+
+CHECK(PBXProjectReader_can_reconstitute_simple_object)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	id a = [r objectForKey:@"7F6ACADE12E9A15500536F3D"];
+	assert(a != nil);
+	assert([a isKindOfClass:[PBXFileReference class]]);
+	[r release];
+}
+
+CHECK(PBXProjectReader_preserves_references)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	id a = [r objectForKey:@"7F6ACADE12E9A15500536F3D"];
+	id b = [r objectForKey:@"7F6ACADE12E9A15500536F3D"];
+	assert(a != nil);
+	assert(b != nil);
+	assert(a == b);
 	[r release];
 }

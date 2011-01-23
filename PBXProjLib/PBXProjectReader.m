@@ -1,4 +1,8 @@
 #import "PBXProjectReader.h"
+#if !GNUSTEP
+#import <objc/runtime.h>
+#endif
+
 
 @interface PBXProjectReader ()
 @property (readwrite, copy) NSString *file;
@@ -18,6 +22,7 @@
 		return nil;
 
 	self.file = file;
+	foundObjects_ = [[NSMutableDictionary alloc] init];
 
 	NSString* errstr = nil;
 	NSData *data = [NSData dataWithContentsOfFile:self.file];
@@ -48,6 +53,7 @@
 	self.file = nil;
 	self.errorMessage = nil;
 	[plist_ release];
+	[foundObjects_ release];
 	[super dealloc];
 }
 
@@ -88,6 +94,42 @@
 
 - (NSString *)rootObjectKey {
 	return [self.plist objectForKey:@"rootObject"];
+}
+
+- (id)objectForKey:(NSString *)key {
+	id instance = [foundObjects_ objectForKey:key];
+	if (instance)
+		return instance;
+
+	NSDictionary *props = [self.objects objectForKey:key];
+	if (!props)
+	{
+		//FIXME:
+		return nil;
+	}
+
+	NSString *isaStr = [props objectForKey:@"isa"];
+	if (!isaStr)
+	{
+		//FIXME:
+		return nil;
+	}
+
+	Class classFromIsa;
+#if GNUSTEP
+	classFromIsa = objc_lookup_class([isaStr UTF8String]);
+#else
+	classFromIsa = objc_lookUpClass([isaStr UTF8String]);
+#endif
+  	if(!classFromIsa)
+	{
+		//FIXME:
+		return nil;
+	}
+
+	instance = [[classFromIsa alloc] init];
+	[foundObjects_ setObject:instance forKey:key];
+	return [instance autorelease];
 }
 
 @end
