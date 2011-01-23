@@ -22,8 +22,12 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#import <AppKit/AppKit.h>
+#import "config.h"
 
+#import <AppKit/AppKit.h>
+#if !HAVE_NSVIEWCONTROLLER_H
+#import "gnustep_more/NSViewController.h"
+#endif
 
 @interface ZCEditorViewController : NSViewController {
 

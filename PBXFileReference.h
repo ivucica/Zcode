@@ -50,7 +50,7 @@
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
 -(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
--(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
+//-(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
 -(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
 
 // For table view

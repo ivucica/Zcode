@@ -26,12 +26,14 @@
 
 @class ProjectDocument;
 
-@interface ProjectDetailListDataSource : NSObject<NSTableViewDataSource> {
+@interface ProjectDetailListDataSource : NSObject
+//<NSTableViewDataSource> // GNUstep does not define this as a protocol
+{
   IBOutlet ProjectDocument *ownerDocument;
   IBOutlet NSTableView *ownerTableView;
   IBOutlet NSArray *items;	
 }
-@property (retain) NSArray *items;
+@property (nonatomic, retain) NSArray *items;
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;

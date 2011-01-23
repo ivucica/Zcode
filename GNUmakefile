@@ -23,12 +23,12 @@ Zcode_APPLICATION_ICON = apple-green.png
 # Resource files
 #
 Zcode_RESOURCE_FILES = \
-$(wildcard Resources/*.xib) \
 Resources/Zcode.gorm \
 Resources/Main.gsmarkup \
 Resources/MainMenu-GNUstep.gsmarkup \
 Resources/MainMenu-OSX.gsmarkup \
 Resources/ProjectDocument.gorm \
+Resources/ZCEditorViewController.gorm \
 Resources/apple-green.png 
 
 
@@ -45,8 +45,9 @@ PBXGroup.h \
 PBXFileReference.h \
 PBXVariantGroup.h \
 ImageAndTextCell.h \
-ZCEditorViewController.h \
-ZCTextEditorViewController.h
+ProjectDetailListDataSource.h \
+ZCTextEditorViewController.h \
+ZCEditorViewController.h
 
 #
 # Class files
@@ -61,8 +62,10 @@ PBXGroup.m \
 PBXFileReference.m \
 PBXVariantGroup.m \
 ImageAndTextCell.m \
+ProjectDetailListDataSource.m \
+ZCTextEditorViewController.m \
 ZCEditorViewController.m \
-ZCTextEditorViewController.m
+gnustep_more.m
 
 #
 # Other sources

@@ -24,11 +24,23 @@
 	);
 	Super = NSObject;
     };
+    ProjectDetailListDataSource = {
+	Actions = (
+	);
+	Outlets = (
+	    ownerDocument,
+	    ownerTableView,
+	    items
+	);
+	Super = NSObject;
+    };
     ProjectDocument = {
 	Actions = (
 	);
 	Outlets = (
-	    groupsAndFilesView
+	    groupsAndFilesView,
+	    editorViewContainer,
+	    projectDetailListDataSource
 	);
 	Super = NSDocument;
     };

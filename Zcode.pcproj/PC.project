@@ -19,9 +19,13 @@
 	PBXGroup.m,
 	PBXFileReference.m,
 	PBXVariantGroup.m,
-	ImageAndTextCell.m
+	ImageAndTextCell.m,
+	ProjectDetailListDataSource.m,
+	ZCTextEditorViewController.m,
+	ZCEditorViewController.m,
+	gnustep_more.m
     );
-    COMPILEROPTIONS = "";
+    COMPILEROPTIONS = "-g3 -O0";
     CPPOPTIONS = "";
     CREATION_DATE = "2010-12-05 21:43:57 +0100";
     DOCU_FILES = (
@@ -37,7 +41,10 @@
 	PBXGroup.h,
 	PBXFileReference.h,
 	PBXVariantGroup.h,
-	ImageAndTextCell.h
+	ImageAndTextCell.h,
+	ProjectDetailListDataSource.h,
+	ZCTextEditorViewController.h,
+	ZCEditorViewController.h
     );
     IMAGES = (
 	"apple-green.png"
@@ -48,19 +55,20 @@
 	Main.gsmarkup,
 	"MainMenu-GNUstep.gsmarkup",
 	"MainMenu-OSX.gsmarkup",
-	ProjectDocument.gorm
+	ProjectDocument.gorm,
+	ZCEditorViewController.gorm
     );
     LANGUAGE = English;
     LIBRARIES = (
 	"gnustep-base",
 	"gnustep-gui"
     );
-    LINKEROPTIONS = "";
+    LINKEROPTIONS = "-g3";
     LOCALIZED_RESOURCES = (
     );
     MAININTERFACE = Zcode.gorm;
     MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
-    OBJC_COMPILEROPTIONS = "";
+    OBJC_COMPILEROPTIONS = "-g3 -O0";
     OTHER_RESOURCES = (
     );
     OTHER_SOURCES = (
@@ -103,7 +111,7 @@
 	GNUmakefile.preamble,
 	GNUmakefile,
 	GNUmakefile.postamble,
-	Zcode-Info-gnustep.plist
+	"Zcode-Info-gnustep.plist"
     );
     USER_LANGUAGES = (
 	AmericanEnglish,

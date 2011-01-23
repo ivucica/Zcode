@@ -60,6 +60,7 @@
 
 @property (assign) PBXGroup *ownerGroup;
 @property (readonly) NSImage *img;
+@property (readonly) NSString *fullPath;
 @end
 
 #endif // _PBXGROUP_H_

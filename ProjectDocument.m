@@ -99,13 +99,12 @@
   //[window toggleToolbarShown:self];
   [toolbar setVisible:YES];
 
-  CGRect editorRect = CGRectZero;
+  NSRect editorRect = NSZeroRect;
   editorRect.size = editorViewContainer.frame.size;
   editorViewController.view.frame = editorRect;
 
   [editorViewContainer addSubview:editorViewController.view];
 }
-
 
 // an NSDocument must specify which nib file it uses
 -(NSString*)windowNibName
@@ -115,6 +114,7 @@
 
 -(void)dealloc
 {
+  NSLog(@"PD dealloc");
   [toolbar release];
 #if GNUSTEP
   for(id container in gafContainers)
@@ -471,7 +471,7 @@ willBeInsertedIntoToolbar: (BOOL)flag
   editorViewController = [[classFromIsa alloc] initWithNibName:editorType bundle:nil];
   [editorViewContainer addSubview:editorViewController.view];
   
-  CGRect editorRect = CGRectZero;
+  NSRect editorRect = NSZeroRect;
   editorRect.size = editorViewContainer.frame.size;
   editorViewController.view.frame = editorRect;
 

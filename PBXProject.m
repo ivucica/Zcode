@@ -22,6 +22,7 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+#import <AppKit/NSOutlineView.h>
 #import "PBXProject.h"
 #import "ProjectDocument.h"
 #import "NSDictionary+SmartUnpack.h"

@@ -1,0 +1,28 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "setRepresentedObject:"
+	);
+	Super = NSObject;
+    };
+    NSViewController = {
+	Actions = (
+	    "setRepresentedObject:"
+	);
+	Outlets = (
+	    _representedObject,
+	    view,
+	    _autounbinder,
+	    "_reserved[2]"
+	);
+	Super = NSResponder;
+    };
+    ZCEditorViewController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSViewController;
+    };
+}

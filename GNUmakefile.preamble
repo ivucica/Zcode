@@ -6,13 +6,13 @@
 ADDITIONAL_CPPFLAGS += 
 
 # Additional flags to pass to Objective C compiler
-ADDITIONAL_OBJCFLAGS += 
+ADDITIONAL_OBJCFLAGS += -g3 -O0
 
 # Additional flags to pass to C compiler
-ADDITIONAL_CFLAGS += 
+ADDITIONAL_CFLAGS += -g3 -O0
 
 # Additional flags to pass to the linker
-ADDITIONAL_LDFLAGS +=  
+ADDITIONAL_LDFLAGS += -g3 
 
 # Additional include directories the compiler should search
 ADDITIONAL_INCLUDE_DIRS += 

@@ -32,7 +32,8 @@
 @class ProjectDetailListDataSource;
 @class ZCEditorViewController;
 
-@interface ProjectDocument : NSDocument <NSToolbarDelegate>
+@interface ProjectDocument : NSDocument 
+//<NSToolbarDelegate> // GNUstep does not define this as a protocol
 //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
 {
   ///////////////////////////////////////

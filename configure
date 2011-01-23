@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# This is a custom 'configure' script.
+
+# I didn't feel studying how to use autotools with GNUstep was
+# a fun way to spend my offline-time, so autotools integration
+# will be added at a later point in time, if at all.
+
+# We definitely, however, need to detect missing headers in old
+# versions of GNUstep such as Debian's, and then use copies
+# from gnustep_more/ subfolder.
+
+# -ivucica
+
+if [ "$GNUSTEP_MAKEFILES" == "" ]; then
+	GNUSTEP_MAKEFILES=`gnustep-config --variable=GNUSTEP_MAKEFILES`
+fi
+if [ "$GNUSTEP_MAKEFILES" == "" ]; then
+	echo You need to set GNUSTEP_MAKEFILES before compiling! > /dev/stderr
+	exit 1
+fi
+export GNUSTEP_MAKEFILES
+
+echo "#ifndef CONFIG_H_INCLUDED" > config.h
+echo "#define CONFIG_H_INCLUDED" >> config.h
+
+mkdir /tmp/ZcodeConfigure
+cd /tmp/ZcodeConfigure
+
+################ begin nsviewcontroller test ##################
+
+echo "==> Testing NSViewController...">/dev/stderr
+echo > /dev/stderr
+cat > test_nsviewcontroller.m << __END
+#import <AppKit/AppKit.h>
+#import <AppKit/NSViewController.h>
+
+NSViewController* vc;
+int main() { return 0; }
+
+__END
+
+cat > GNUmakefile << __END
+include \$(GNUSTEP_MAKEFILES)/common.make
+
+VERSION = 1.0
+PACKAGE_NAME = Zcode
+APP_NAME = Zcode
+
+Zcode_OBJC_FILES=test_nsviewcontroller.m
+
+-include GNUmakefile.preamble
+include \$(GNUSTEP_MAKEFILES)/aggregate.make
+include \$(GNUSTEP_MAKEFILES)/application.make
+-include GNUmakefile.postamble
+
+__END
+
+if make ; then # TODO dig out an example how to redirect stdout and stderr to null
+	cd - # back to zcode tree
+	echo "#define HAVE_NSVIEWCONTROLLER_H 1" >> config.h
+	cd - # back to tmp
+else
+	cd - # back to zcode tree
+	echo "#define HAVE_NSVIEWCONTROLLER_H 0" >> config.h
+	cd - # back to tmp
+fi
+
+
+########### end nsviewcontroller test #####################
+
+
+# back to Zcode tree
+cd -
+rm -rf /tmp/ZcodeConfigure
+echo "#endif" >> config.h
+
+echo " =========="
+echo "Configuration of Zcode complete."
+echo "Review config.h to check if detection was ok."
