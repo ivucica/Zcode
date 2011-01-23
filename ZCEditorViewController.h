@@ -26,7 +26,7 @@
 
 #import <AppKit/AppKit.h>
 #if !HAVE_NSVIEWCONTROLLER_H
-#import "gnustep_more/NSViewController.h"
+#import "gnustep_more/AppKit/NSViewController.h"
 #endif
 
 @interface ZCEditorViewController : NSViewController {

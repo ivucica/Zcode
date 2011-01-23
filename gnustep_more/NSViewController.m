@@ -22,8 +22,8 @@
  Boston, MA 02110-1301, USA.
  */ 
 
-//#import "AppKit/NSViewController.h"
-#import "NSViewController.h"
+#import "AppKit/NSViewController.h"
+#import "AppKit/NSNib.h"
 
 @implementation NSViewController
 
@@ -74,6 +74,11 @@
 
 - (NSView *)view
 {
+  if(!view)
+    {
+      // FIXME we should loadView only once
+      [self loadView];
+    }
   return view;
 }
 
@@ -112,5 +117,51 @@
   [self notImplemented: _cmd];
 }
 
+- (void)loadView
+{
+  NSDictionary *table;
+  NSString *nibPath;
+
+  // FIXME NSWindowController uses a flag "nib_is_loaded".
+  // However, short of making use of one of the reserved slots,
+  // I see no way to add a flags structure while maintaining 
+  // compatibility.
+
+  // For purposes of this early, quick and dirty patch, 
+  // let's conclude that nib isn't loaded if view controller's
+  // view is nil. While not right, it'll do for the purposes
+  // of getting initWithNibName to work.
+
+  if(view) // TODO if we use a flag to record that nib is loaded, 
+            // use flag here
+    {
+      // nib is loaded
+      return;
+    }
+  
+  // FIXME this only supports nibs in main bundle
+  nibPath = [[NSBundle mainBundle] pathForNibResource: _nibName];
+
+  table = [NSDictionary dictionaryWithObject: self forKey: NSNibOwner];
+  if ([NSBundle loadNibFile: nibPath
+		externalNameTable: table
+		withZone: [self zone]])
+    {
+      // TODO if we use a flag to record that nib is loaded, set it to true here
+	  
+      // success!
+    }
+  else
+    {
+      if (_nibName != nil)
+        {
+	  NSLog (@"%@: could not load nib named %@.nib", 
+		 [self class], _nibName);
+	}
+    }
+
+
+
+}
 
 @end
