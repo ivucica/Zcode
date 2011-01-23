@@ -71,6 +71,12 @@ Zcode_OBJC_FILES += \
 Zcode_main.m 
 
 #
+# Subprojects
+#
+SUBPROJECTS = \
+check
+
+#
 # Makefiles
 #
 -include GNUmakefile.preamble
