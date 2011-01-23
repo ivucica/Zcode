@@ -15,6 +15,7 @@
 @property (readonly, assign) BOOL errorOccurred;
 @property (readonly, copy) NSString *errorMessage;
 @property (readonly, retain) NSDictionary *plist;
+@property (readonly, retain) NSDictionary *objects;
 
 - (id)initWithFile:(NSString *)file;
 

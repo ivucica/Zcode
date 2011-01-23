@@ -154,30 +154,18 @@
   [self setFileName:pbxProjPath];
 
   PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
-  if(!reader.plist)
+  
+  NSDictionary* objects = reader.objects;
+  if(reader.errorOccurred)
   {
     // errstr is already filled
     [self _handleIOError:error errorString:reader.errorMessage];
     return NO;
   }
   
-  /////////////////////////
-  NSDictionary* objects = [reader.plist objectForKey:@"objects"];
-  NSString *errstr = nil;
-  if(!objects)
-    errstr = @"'objects' is nil";
-  else if (![objects isKindOfClass:[NSDictionary class]])
-    errstr = @"'objects' is not a dictionary";
-  if(errstr)
-  {
-    [self _handleIOError:error errorString:errstr];
-
-    return NO;
-  }
-  
   ///////////////////
   NSString* rootObject = [reader.plist objectForKey:@"rootObject"];
-  errstr = nil;
+  NSString* errstr = nil;
   if(!rootObject)
     errstr = @"'rootObject' specifier is nil";
   else if (![rootObject isKindOfClass:[NSString class]])

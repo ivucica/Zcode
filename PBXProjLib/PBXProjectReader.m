@@ -71,4 +71,19 @@
 	return [plist_ retain];
 }
 
+- (NSDictionary *)objects {
+	NSDictionary *result = [self.plist objectForKey:@"objects"];
+	if (!result)
+	{
+		self.errorMessage = @"No 'objects' key found in pbxproj file";
+		return nil;
+	}
+	if (![result isKindOfClass:[NSDictionary class]])
+	{
+		self.errorMessage = @"'objects' key from pbxproj file was not a dictionary";
+		return nil;
+	}
+	return result;
+}
+
 @end
