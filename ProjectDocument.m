@@ -100,10 +100,31 @@
   [toolbar setVisible:YES];
 
   NSRect editorRect = NSZeroRect;
-  editorRect.size = editorViewContainer.frame.size;
-  editorViewController.view.frame = editorRect;
+  if(editorViewContainer)
+  {
+    editorRect.size = editorViewContainer.frame.size;
+    if(editorViewController)
+    {
+      if(editorViewController.view)
+      {
+        editorViewController.view.frame = editorRect;
 
-  [editorViewContainer addSubview:editorViewController.view];
+        [editorViewContainer addSubview:editorViewController.view];
+      }
+      else
+      {
+        NSLog(@"Editor view does not exist!");
+      }
+    }
+    else
+    {
+      NSLog(@"Editor view controller failed to load!");
+    }
+  }
+  else
+  {
+    NSLog(@"Editor view container does not exist!");
+  }
 }
 
 // an NSDocument must specify which nib file it uses
@@ -457,6 +478,11 @@ willBeInsertedIntoToolbar: (BOOL)flag
 #pragma mark Editor management
 - (void)switchEditor:(id)item
 {
+  if(!editorViewContainer)
+  {
+    NSLog(@"Cannot switch editor, editor view container does not exist!");
+    return;
+  }
   [editorViewController.view removeFromSuperview];
   [editorViewController release];
   NSString *editorType = [item desiredEditor];
@@ -469,11 +495,16 @@ willBeInsertedIntoToolbar: (BOOL)flag
 #endif
 
   editorViewController = [[classFromIsa alloc] initWithNibName:editorType bundle:nil];
-  [editorViewContainer addSubview:editorViewController.view];
-  
-  NSRect editorRect = NSZeroRect;
-  editorRect.size = editorViewContainer.frame.size;
-  editorViewController.view.frame = editorRect;
-
+  if(editorViewController)
+  {
+    [editorViewContainer addSubview:editorViewController.view];
+    NSRect editorRect = NSZeroRect;
+    editorRect.size = editorViewContainer.frame.size;
+    editorViewController.view.frame = editorRect;
+  }
+  else
+  {
+    NSLog(@"Editor view controller %@ failed to load", editorType);
+  }
 }
 @end
