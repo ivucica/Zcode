@@ -22,32 +22,32 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _PBXGROUP_H_
-#define _PBXGROUP_H_
+#ifndef PBXGroup_ViewRelated_h_INCLUDED
+#define PBXGroup_ViewRelated_h_INCLUDED
 
-@class ProjectDocument;
+#import "PBXGroup.h"
 
-#import <Foundation/Foundation.h>
-@interface PBXGroup : NSObject
-{
-  ProjectDocument *ownerDocument;
-  PBXGroup *ownerGroup;
-  
-  // children can be:
-  // * PBXGroup
-  // * PBXFileReference
-  
-  NSMutableArray *children;
-  NSString *name;
-  NSString *sourceTree;
-  
-}
+@class NSOutlineView;
+@class NSTableColumn;
+@class NSTableView;
+@class NSCell;
+@class NSImage;
 
-@property (assign) PBXGroup *ownerGroup;
+@interface PBXGroup (ViewRelated)
 
--(NSString*)description;
+// For outline view
+-(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
+-(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
+-(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
+-(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
+-(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
+
+// For table view
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn;
+
+@property (readonly) NSImage *img;
 
 @end
 
-#endif // _PBXGROUP_H_
+#endif // ndef PBXGroup_ViewRelated_h_INCLUDED
 

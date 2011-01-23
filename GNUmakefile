@@ -42,7 +42,9 @@ GAFContainer.h \
 PBXProject.h \
 NSDictionary+SmartUnpack.h \
 PBXGroup.h \
+PBXGroup+ViewRelated.h \
 PBXFileReference.h \
+PBXFileReference+ViewRelated.h \
 PBXVariantGroup.h \
 ImageAndTextCell.h \
 ZCEditorViewController.h \
@@ -58,7 +60,9 @@ GAFContainer.m \
 PBXProject.m \
 NSDictionary+SmartUnpack.m \
 PBXGroup.m \
+PBXGroup+ViewRelated.m \
 PBXFileReference.m \
+PBXFileReference+ViewRelated.m \
 PBXVariantGroup.m \
 ImageAndTextCell.m \
 ZCEditorViewController.m \
