@@ -27,6 +27,10 @@
 #import "NSDictionary+SmartUnpack.h"
 #import <unistd.h> // get_current_dir_name()
 
+@interface PBXGroup ()
+- (NSString *)fullPath;
+@end
+
 @implementation PBXGroup
 @synthesize ownerGroup;
 
@@ -138,6 +142,7 @@
   if([sourceTree isEqualToString:@"<absolute>"])
     return nil; // group cannot have an absolute path specified... hopefully
   if([sourceTree isEqualToString:@"<group>"])
+  {
     if(ownerGroup)
       return [ownerGroup fullPath];
     else
@@ -145,6 +150,7 @@
       return [[ownerDocument fileName] stringByDeletingLastPathComponent];
       //return [cwd stringByAppendingPathComponent];
     }
+  }
   return sourceTree;
 }
 
