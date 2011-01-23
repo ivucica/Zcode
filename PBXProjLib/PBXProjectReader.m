@@ -86,4 +86,8 @@
 	return result;
 }
 
+- (NSString *)rootObjectKey {
+	return [self.plist objectForKey:@"rootObject"];
+}
+
 @end

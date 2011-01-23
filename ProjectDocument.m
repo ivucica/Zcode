@@ -156,25 +156,14 @@
   PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
   
   NSDictionary* objects = reader.objects;
+  NSString* rootObject = reader.rootObjectKey;
   if(reader.errorOccurred)
   {
-    // errstr is already filled
     [self _handleIOError:error errorString:reader.errorMessage];
     return NO;
   }
-  
-  ///////////////////
-  NSString* rootObject = [reader.plist objectForKey:@"rootObject"];
-  NSString* errstr = nil;
-  if(!rootObject)
-    errstr = @"'rootObject' specifier is nil";
-  else if (![rootObject isKindOfClass:[NSString class]])
-    errstr = @"'rootObject' specifier is not a string";
-  if(errstr)
-  {
-    [self _handleIOError:error errorString:errstr];
-    return NO;
-  }  
+
+  NSString *errstr = nil;
   
   //////////////////////////
   if(pbxProject)

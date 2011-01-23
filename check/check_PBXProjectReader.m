@@ -59,3 +59,10 @@ CHECK(PBXProjectReader_singals_error_when_objects_not_dictionary)
 	assert([r.errorMessage isEqualToString:@"'objects' key from pbxproj file was not a dictionary"]);
 	[r release];
 }
+
+CHECK(PBXProjectReader_can_retrieve_rootObjectKey)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	assert([r.rootObjectKey isEqualToString:@"2A37F4A9FDCFA73011CA2CEA"]);
+	[r release];
+}
