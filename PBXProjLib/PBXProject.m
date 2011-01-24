@@ -24,99 +24,11 @@
 
 #import "PBXProject.h"
 #import "ProjectDocument.h"
-#import "NSDictionary+SmartUnpack.h"
 #import "PBXGroup.h"
 
 @implementation PBXProject
 
 @synthesize mainGroup;
-
--(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-  }
-  return self;
-}
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-  
-    NSDictionary *dict = [objects objectForKey:ownKey];
-    
-    /*buildConfigurationsList = [dict unpackObjectWithKey:@"buildConfigurationsList" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(!buildConfigurationsList || ![buildConfigurationsList isKindOfClass:[XCConfigurationList class]])
-    {
-      [self release];
-      return nil;
-    }*/
-    
-    compatibilityVersion = [dict unpackObjectWithKey:@"compatibilityVersion" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!compatibilityVersion)
-    {
-      compatibilityVersion = @"Xcode 3.1";
-    }
-    [compatibilityVersion retain];
-    
-    developmentRegion = [dict unpackObjectWithKey:@"developmentRegion" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!developmentRegion)
-    {
-      developmentRegion = @"English";
-    }
-    [developmentRegion retain];
-    
-    hasScannedForEncodings = [[dict unpackObjectWithKey:@"hasScannedForEncodings" forDocument:ownerDocument pbxDictionary:objects required:NO error:error] integerValue] == 1;
-    
-    knownRegions = [dict unpackObjectWithKey:@"knownRegions" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!knownRegions)
-    {
-      knownRegions = [NSArray arrayWithObjects:@"English", nil];
-    }
-    [knownRegions retain];
-    
-    mainGroup = [dict unpackObjectWithKey:@"mainGroup" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(!mainGroup || ![mainGroup isKindOfClass:[PBXGroup class]])
-    {
-      [self release];
-      return nil;
-    }
-    [mainGroup retain];
-    
-    projectDirPath = [dict unpackObjectWithKey:@"projectDirPath" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!projectDirPath)
-    {
-      projectDirPath = @"";
-    }
-    [projectDirPath retain];
-    
-    projectRoot = [dict unpackObjectWithKey:@"projectRoot" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!projectRoot)
-    {
-      projectRoot = @"";
-    }
-    [projectRoot retain];
-    
-    
-    /*
-    objects to decode:
-    
-  //XCConfigurationList *buildConfigurationList;
-  NSString *compatibilityVersion;
-  NSString *developmentRegion;
-  BOOL hasScannedForEncodings;
-  NSArray *knownRegions;
-  //PBXGroup *mainGroup;
-  NSString *projectDirPath;
-  NSString *projectRoot;
-  NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
-*/
-    
-  }
-  return self;
-}
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone

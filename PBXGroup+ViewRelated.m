@@ -35,8 +35,7 @@
 -(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn
 {
 // FIXME check if 'object' is string, etc
-  [name release];
-  name = [object retain];
+  self.name = object;
 }
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {

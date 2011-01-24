@@ -24,7 +24,6 @@
 
 #import "PBXFileReference.h"
 #import "ProjectDocument.h"
-#import "NSDictionary+SmartUnpack.h"
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
 @synthesize ownerGroup;
@@ -32,47 +31,6 @@
 @synthesize lastKnownFileType = lastKnownFileType_;
 @synthesize path = path_;
 @synthesize sourceTree = sourceTree_;
-
--(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-  }
-  return self;
-}
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-    
-    NSDictionary *dict = [objects objectForKey:ownKey];
-    
-    
-    self.path = [dict unpackObjectWithKey:@"path" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(! self.path || ![self.path isKindOfClass:[NSString class]])
-    {
-      [self release];
-      return nil;
-    }
-    
-    self.sourceTree = [dict unpackObjectWithKey:@"sourceTree" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(! self.sourceTree || ![self.sourceTree isKindOfClass:[NSString class]])
-    {
-      [self release];
-      return nil;
-    }
-    
-    self.lastKnownFileType = [dict unpackObjectWithKey:@"lastKnownFileType" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(! self.lastKnownFileType || ![self.lastKnownFileType isKindOfClass:[NSString class]])
-    {
-      NSLog(@"Guessing lastKnownFileType for %@", self);
-      self.lastKnownFileType = @"sourcecode.c.objc";
-    }
-  }
-  return self;
-}
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone

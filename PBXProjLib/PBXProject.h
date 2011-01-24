@@ -44,7 +44,6 @@
   NSString *projectRoot;
   NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
 }
--(id)initWithObjects:(NSDictionary*)object ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error;
 
 @property (readonly) PBXGroup* mainGroup;
 

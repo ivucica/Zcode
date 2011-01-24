@@ -25,7 +25,6 @@
 #import "ProjectDocument.h"
 #import "GAFContainer.h"
 #import "PBXProject.h"
-#import "NSDictionary+SmartUnpack.h"
 #import "ProjectDetailListDataSource.h"
 #import "ZCEditorViewController.h"
 #import "PBXProjLib/PBXProjectReader.h"
@@ -153,115 +152,22 @@
 
   [self setFileName:pbxProjPath];
 
+
+  if(pbxProject)
+    [pbxProject release];
+
   PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
-  
-  NSDictionary* objects = reader.objects;
-  NSString* rootObject = reader.rootObjectKey;
+  pbxProject = reader.rootObject;
   if(reader.errorOccurred)
   {
     [self _handleIOError:error errorString:reader.errorMessage];
     return NO;
   }
 
-  NSString *errstr = nil;
-  
-  //////////////////////////
-  if(pbxProject)
-    [pbxProject release];
-  pbxProject = [self newObjectSpecifiedByISAWithPBXDictionary:objects withKey:rootObject required:YES error:error];
-  if(! pbxProject)
-  {
-    if(error && *error)
-      return NO; // return immediately, dont overwrite error string since it probably contains more useful info already
-    else
-      errstr = @"Root object is nil";
-  }
-  else if (![pbxProject isKindOfClass:[PBXProject class]])
-    errstr = @"Root object is not a PBXProject";
-  if(errstr)
-  {
-    [self _handleIOError:error errorString:errstr];
-    return NO;
-  }
-    
   [gafContainers release];
   gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], nil];
 
   return YES;
-}
-
--(id)newObjectSpecifiedByISAWithPBXDictionary:(NSDictionary*)objects withKey:(NSString*)key required:(BOOL)required error:(NSError**)error
-{
-  NSString *filename = [self fileName];
-  NSDictionary *dict = [objects objectForKey:key];
-  NSString *errstr = nil;
-
-  if(!dict)
-    errstr = [NSString stringWithFormat:@"'%@' dict is nil", key];
-  else if (![dict isKindOfClass:[NSDictionary class]])
-    errstr = [NSString stringWithFormat:@"'%@' is not a dictionary", key];
-      
-  if(errstr)
-  {
-    if(required)
-    {
-      [self _handleIOError:error errorString:errstr];
-    }
-    return nil;
-  }  
-
-  //////////
-  errstr = nil;
-  NSString *isaStr = [dict objectForKey:@"isa"];
-  if(!isaStr)
-    errstr = [NSString stringWithFormat:@"%@'s 'isa' is nil", key];
-  else if (![isaStr isKindOfClass:[NSString class]])
-    errstr = [NSString stringWithFormat:@"%@'s 'isa' is not a string", key];
-  
-  if(errstr)
-  {
-    if(required)
-    {
-      [self _handleIOError:error errorString:errstr];
-    }
-    return nil;
-  }  
-  ////////////
-  Class classFromIsa;
-#if GNUSTEP
-  classFromIsa = objc_lookup_class([isaStr UTF8String]);
-#else
-  classFromIsa = objc_lookUpClass([isaStr UTF8String]);
-#endif
-  if(!classFromIsa)
-    errstr = [NSString stringWithFormat:@"Zcode's internal class '%@' does not exist", isaStr];
-  if(errstr)
-  {
-    if(required)
-    {
-      [self _handleIOError:error errorString:errstr];  
-    }
-    return nil;
-  }  
-  
-  
-  //////////////
-  id instanceFromIsa = [classFromIsa alloc];
-  if(![instanceFromIsa respondsToSelector:@selector(initWithObjects:ownKey:ownerDocument:error:)])
-    errstr = [NSString stringWithFormat:@"Zcode's internal class '%@' does not respond to initialization selector", isaStr];
-  if(errstr)
-  {
-    if(required)
-    {
-      [self _handleIOError:error errorString:errstr]; 
-    }
-    [instanceFromIsa release];
-    return nil;
-  }  
-    
-    
-  return [instanceFromIsa initWithObjects:objects ownKey:key ownerDocument:self error:error];
-  
 }
 
 #pragma mark -

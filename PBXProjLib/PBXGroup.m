@@ -24,7 +24,6 @@
 
 #import "PBXGroup.h"
 #import "ProjectDocument.h"
-#import "NSDictionary+SmartUnpack.h"
 #import <unistd.h> // get_current_dir_name()
 
 @interface PBXGroup ()
@@ -34,90 +33,8 @@
 @implementation PBXGroup
 @synthesize ownerGroup;
 @synthesize children = children_;
-
--(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-  }
-  return self;
-}
--(id)initWithObjects:(NSDictionary*)objects ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)_ownerDocument error:(NSError**)error
-{
-  if((self=[super init]))
-  {
-    ownerDocument = _ownerDocument;
-    
-    NSDictionary *dict = [objects objectForKey:ownKey];
-    
-    // FIXME not required! if it doesnt exist, extract from path
-    name = [dict unpackObjectWithKey:@"name" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!name || ![name isKindOfClass:[NSString class]])
-    {
-      [name release]; // ensure it's nill, and fill out below
-      name = nil;
-	  
-    }
-    [name retain];
-    
-    
-    
-    NSArray *children = [dict unpackObjectWithKey:@"children" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(! children || ![children isKindOfClass:[NSArray class]])
-    {
-      [self release];
-      return nil;
-    }
-    NSMutableArray *unpackedChildren = [[NSMutableArray alloc] init];
-    for(NSString* childId in children)
-    {
-      if([childId isKindOfClass:[NSString class]])
-      {
-        id child = [[ownerDocument newObjectSpecifiedByISAWithPBXDictionary:objects withKey:childId required:YES error:error] autorelease];
-
-        //[dict unpackObjectWithKey:childId forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-        if(child)
-        {
-          [child setOwnerGroup:self];
-          [unpackedChildren addObject:child];
-        } else 
-        {
-          [unpackedChildren release];
-          
-          [self release];
-          return nil;
-        }
-      }
-      else
-      {
-        [unpackedChildren release];
-        [self release];
-        return nil;
-      }
-    }
-    self.children = unpackedChildren;
-    
-    
-    
-    sourceTree = [dict unpackObjectWithKey:@"sourceTree" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(!sourceTree || ![sourceTree isKindOfClass:[NSString class]])
-    {
-      NSLog(@"in a pbxgroup, no sourcetree specified, setting default <group>");
-      sourceTree = @"<group>";
-    }
-    [sourceTree retain];
-    
-	
-	
-    // with sourceTree, we have enough info to fill out 'name'
-    if(!name)
-    {
-      name = [[[self fullPath] lastPathComponent] retain];
-    }
-  }
-  return self;
-}
+@synthesize name = name_;
+@synthesize sourceTree = sourceTree_;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -129,20 +46,19 @@
 -(void)dealloc
 {
   self.children = nil;
-  [name release];
-  [sourceTree release];
+  self.name = nil;
+  self.sourceTree = nil;
   [super dealloc];
 
 }
-
 
 -(NSString*)fullPath
 {
 // FIXME sourceTree decoding should be a global utility function
 // FIXME sourceTree can contain environment variable name, e.g. "BUILT_PRODUCTS_DIR"
-  if([sourceTree isEqualToString:@"<absolute>"])
+  if([self.sourceTree isEqualToString:@"<absolute>"])
     return nil; // group cannot have an absolute path specified... hopefully
-  if([sourceTree isEqualToString:@"<group>"])
+  if([self.sourceTree isEqualToString:@"<group>"])
   {
     if(ownerGroup)
       return [ownerGroup fullPath];
@@ -152,12 +68,14 @@
       //return [cwd stringByAppendingPathComponent];
     }
   }
-  return sourceTree;
+  return self.sourceTree;
 }
 
 -(NSString*)description
 {
-  return name;
+  if (self.name)
+    return self.name;
+  return [[self fullPath] lastPathComponent];
 }
 
 @end

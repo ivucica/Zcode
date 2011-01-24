@@ -60,7 +60,6 @@
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
--(id)newObjectSpecifiedByISAWithPBXDictionary:(NSDictionary*)objects withKey:(NSString*)key required:(BOOL)required error:(NSError**)error;
 
 @end
 

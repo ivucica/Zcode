@@ -11,7 +11,6 @@
 		7F6ACAE812E9A15500536F3D /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD712E9A15500536F3D /* AppController.m */; };
 		7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD912E9A15500536F3D /* GAFContainer.m */; };
 		7F6ACAEA12E9A15500536F3D /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */; };
-		7F6ACAEB12E9A15500536F3D /* NSDictionary+SmartUnpack.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */; };
 		7F6ACAEC12E9A15500536F3D /* PBXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACADF12E9A15500536F3D /* PBXFileReference.m */; };
 		7F6ACAED12E9A15500536F3D /* PBXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE112E9A15500536F3D /* PBXGroup.m */; };
 		7F6ACAEE12E9A15500536F3D /* PBXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAE312E9A15500536F3D /* PBXProject.m */; };
@@ -46,8 +45,6 @@
 		7F6ACAD912E9A15500536F3D /* GAFContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAFContainer.m; sourceTree = "<group>"; };
 		7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
 		7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
-		7F6ACADC12E9A15500536F3D /* NSDictionary+SmartUnpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SmartUnpack.h"; sourceTree = "<group>"; };
-		7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SmartUnpack.m"; sourceTree = "<group>"; };
 		7F6ACADE12E9A15500536F3D /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
 		7F6ACADF12E9A15500536F3D /* PBXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileReference.m; sourceTree = "<group>"; };
 		7F6ACAE012E9A15500536F3D /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
@@ -144,8 +141,6 @@
 				7F6ACAD912E9A15500536F3D /* GAFContainer.m */,
 				7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */,
 				7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */,
-				7F6ACADC12E9A15500536F3D /* NSDictionary+SmartUnpack.h */,
-				7F6ACADD12E9A15500536F3D /* NSDictionary+SmartUnpack.m */,
 				7F6ACAE612E9A15500536F3D /* ProjectDocument.h */,
 				7F6ACAE712E9A15500536F3D /* ProjectDocument.m */,
 				7F6ACC1F12E9BBA200536F3D /* ProjectDetailListDataSource.h */,
@@ -276,7 +271,6 @@
 				7F6ACAE812E9A15500536F3D /* AppController.m in Sources */,
 				7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */,
 				7F6ACAEA12E9A15500536F3D /* ImageAndTextCell.m in Sources */,
-				7F6ACAEB12E9A15500536F3D /* NSDictionary+SmartUnpack.m in Sources */,
 				7F6ACAEC12E9A15500536F3D /* PBXFileReference.m in Sources */,
 				7F6ACAED12E9A15500536F3D /* PBXGroup.m in Sources */,
 				7F6ACAEE12E9A15500536F3D /* PBXProject.m in Sources */,

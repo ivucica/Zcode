@@ -38,13 +38,15 @@
   // * PBXFileReference
   
   NSMutableArray *children_;
-  NSString *name;
-  NSString *sourceTree;
+  NSString *name_;
+  NSString *sourceTree_;
   
 }
 
 @property (assign) PBXGroup *ownerGroup;
 @property (readwrite, retain) NSMutableArray *children;
+@property (readwrite, copy) NSString *name;
+@property (readwrite, copy) NSString *sourceTree;
 
 -(NSString*)description;
 

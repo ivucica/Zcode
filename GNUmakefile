@@ -44,7 +44,6 @@ PBXProjLib/PBXVariantGroup.h \
 AppController.h \
 ProjectDocument.h \
 GAFContainer.h \
-NSDictionary+SmartUnpack.h \
 PBXGroup+ViewRelated.h \
 PBXFileReference+ViewRelated.h \
 ImageAndTextCell.h \
@@ -63,7 +62,6 @@ PBXProjLib/PBXVariantGroup.m \
 AppController.m \
 ProjectDocument.m \
 GAFContainer.m \
-NSDictionary+SmartUnpack.m \
 PBXGroup+ViewRelated.m \
 PBXFileReference+ViewRelated.m \
 ImageAndTextCell.m \
