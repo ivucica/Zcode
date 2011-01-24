@@ -10,6 +10,8 @@
 @property (readwrite, retain) NSDictionary *plist;
 
 - (BOOL)isObjectKey:(id)value;
+- (id)resolveObjectReferencesFor:(id)value;
+- (NSArray *)resolveObjectReferencesForArray:(NSArray *)value;
 @end
 
 @implementation PBXProjectReader
@@ -135,27 +137,11 @@
 		if ([propName isEqualToString:@"isa"])
 			continue;
 
-		id value = [props objectForKey:propName];
-		if ([self isObjectKey:value])
-		{
-			value = [self objectForKey:value];
-		}
-		else if ([value isKindOfClass:[NSArray class]])
-		{
-			NSMutableArray *ar = [[NSMutableArray alloc] init];
-			for (id elt in value)
-			{
-				if ([self isObjectKey:elt])
-					elt = [self objectForKey:elt];
-				[ar addObject:elt];
-			}
-			value = [NSArray arrayWithArray:ar];
-			[ar release];
-		}
+		id value = [self resolveObjectReferencesFor:[props objectForKey:propName]];
 
 		@try
 		{
-			[instance setValue:[props objectForKey:propName] forKey:propName];
+			[instance setValue:value forKey:propName];
 		}
 		@catch (...)
 		{
@@ -164,6 +150,24 @@
 
 	[foundObjects_ setObject:instance forKey:key];
 	return [instance autorelease];
+}
+
+- (id)resolveObjectReferencesFor:(id)value {
+	if ([self isObjectKey:value])
+		return [self objectForKey:value];
+	else if ([value isKindOfClass:[NSArray class]])
+		return [self resolveObjectReferencesForArray:value];
+	else
+		return value;
+}
+
+- (NSArray *)resolveObjectReferencesForArray:(NSArray *)value {
+	NSMutableArray *ar = [[NSMutableArray alloc] init];
+	for (id elt in value)
+		[ar addObject:[self resolveObjectReferencesFor:elt]];
+	NSArray *result = [NSArray arrayWithArray:ar];
+	[ar release];
+	return result;
 }
 
 - (BOOL)isObjectKey:(id)value {
