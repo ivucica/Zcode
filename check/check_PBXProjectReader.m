@@ -1,4 +1,5 @@
 #import "PBXProjLib/PBXBuildFile.h"
+#import "PBXProjLib/PBXGroup.h"
 #import "PBXProjLib/PBXProjectReader.h"
 #import "PBXProjLib/PBXFileReference.h"
 #import "check.h"
@@ -110,3 +111,19 @@ CHECK(PBXProjectReader_sets_object_references)
 	assert([bf.fileRef.lastKnownFileType isEqualToString:@"sourcecode.c.objc"]);
 	[r release];
 }
+
+CHECK(PBXProjectReader_sets_array_of_object_references)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	PBXGroup *g = [r objectForKey:@"1058C7A8FEA54F5311CA2CBB"]; // Other Frameworks
+	assert([g isKindOfClass:[PBXGroup class]]);
+	assert(g.children != nil);
+	assert([g.children count] == 3);
+	for (id child in g.children)
+	{
+		assert([child isKindOfClass:[PBXFileReference class]]);
+		assert([[child sourceTree] isEqualToString:@"<absolute>"]);
+	}
+	[r release];
+}
+

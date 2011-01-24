@@ -22,11 +22,11 @@
 
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
 {
-  return [children count];
+  return [self.children count];
 }
 -(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView
 {
-  return [children objectAtIndex:index];
+  return [self.children objectAtIndex:index];
 }
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
 {
@@ -63,7 +63,7 @@
 
 - (void)addLeafsToArray:(NSMutableArray*)leafs
 {
-  for(id child in children)
+  for(id child in self.children)
   {
     [child addLeafsToArray:leafs];
   }

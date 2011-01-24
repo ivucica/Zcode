@@ -33,6 +33,7 @@
 
 @implementation PBXGroup
 @synthesize ownerGroup;
+@synthesize children = children_;
 
 -(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
@@ -62,7 +63,7 @@
     
     
     
-    children = [dict unpackObjectWithKey:@"children" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    NSArray *children = [dict unpackObjectWithKey:@"children" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
     if(! children || ![children isKindOfClass:[NSArray class]])
     {
       [self release];
@@ -95,7 +96,7 @@
         return nil;
       }
     }
-    children = unpackedChildren;
+    self.children = unpackedChildren;
     
     
     
@@ -127,7 +128,7 @@
 
 -(void)dealloc
 {
-  [children release];
+  self.children = nil;
   [name release];
   [sourceTree release];
   [super dealloc];

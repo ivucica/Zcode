@@ -140,6 +140,18 @@
 		{
 			value = [self objectForKey:value];
 		}
+		else if ([value isKindOfClass:[NSArray class]])
+		{
+			NSMutableArray *ar = [[NSMutableArray alloc] init];
+			for (id elt in value)
+			{
+				if ([self isObjectKey:elt])
+					elt = [self objectForKey:elt];
+				[ar addObject:elt];
+			}
+			value = [NSArray arrayWithArray:ar];
+			[ar release];
+		}
 
 		@try
 		{
