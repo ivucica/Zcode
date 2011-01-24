@@ -87,3 +87,14 @@ CHECK(PBXProjectReader_preserves_references)
 	assert(a == b);
 	[r release];
 }
+
+CHECK(PBXProjectReader_sets_property_values)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	PBXFileReference *fr = [r objectForKey:@"7F6ACADE12E9A15500536F3D"];
+	assert(fr.fileEncoding == 4);
+	assert([fr.lastKnownFileType isEqualToString:@"sourcecode.c.h"]);
+	assert([fr.path isEqualToString:@"PBXFileReference.h"]);
+	assert([fr.sourceTree isEqualToString:@"<group>"]);
+	[r release];
+}

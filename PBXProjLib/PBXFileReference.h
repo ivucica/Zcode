@@ -34,13 +34,18 @@
   ProjectDocument *ownerDocument;
   PBXGroup *ownerGroup;
   
-  NSInteger fileEncoding;
-  NSString *lastKnownFileType;
-  NSString *path;
-  NSString *sourceTree;
+  NSInteger fileEncoding_;
+  NSString *lastKnownFileType_;
+  NSString *path_;
+  NSString *sourceTree_;
 }
 
 @property (assign) PBXGroup *ownerGroup;
+
+@property (readwrite, assign) NSInteger fileEncoding;
+@property (readwrite, copy) NSString *lastKnownFileType;
+@property (readwrite, copy) NSString *path;
+@property (readwrite, copy) NSString *sourceTree;
 
 - (NSString *)fullPath;
 

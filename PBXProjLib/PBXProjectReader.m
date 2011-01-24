@@ -8,6 +8,8 @@
 @property (readwrite, copy) NSString *file;
 @property (readwrite, copy) NSString *errorMessage;
 @property (readwrite, retain) NSDictionary *plist;
+
+- (BOOL)isObjectKey:(id)value;
 @end
 
 @implementation PBXProjectReader
@@ -128,8 +130,38 @@
 	}
 
 	instance = [[classFromIsa alloc] init];
+	for (NSString *propName in props)
+	{
+		if ([propName isEqualToString:@"isa"])
+			continue;
+
+		id value = [props objectForKey:propName];
+		if ([self isObjectKey:value])
+		{
+			value = [self objectForKey:value];
+		}
+
+		@try
+		{
+			[instance setValue:[props objectForKey:propName] forKey:propName];
+		}
+		@catch (...)
+		{
+		}
+	}
+
 	[foundObjects_ setObject:instance forKey:key];
 	return [instance autorelease];
+}
+
+- (BOOL)isObjectKey:(id)value {
+	if (value == nil)
+		return NO;
+	if (![value isKindOfClass:[NSString class]])
+		return NO;
+	if ([self.objects objectForKey:value] == nil)
+		return NO;
+	return YES;
 }
 
 @end

@@ -28,6 +28,10 @@
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
 @synthesize ownerGroup;
+@synthesize fileEncoding = fileEncoding_;
+@synthesize lastKnownFileType = lastKnownFileType_;
+@synthesize path = path_;
+@synthesize sourceTree = sourceTree_;
 
 -(id)initWithOwnerDocument:(ProjectDocument*)_ownerDocument
 {
@@ -46,31 +50,26 @@
     NSDictionary *dict = [objects objectForKey:ownKey];
     
     
-    path = [dict unpackObjectWithKey:@"path" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(! path || ![path isKindOfClass:[NSString class]])
+    self.path = [dict unpackObjectWithKey:@"path" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    if(! self.path || ![self.path isKindOfClass:[NSString class]])
     {
       [self release];
       return nil;
     }
-    [path retain];
     
-    sourceTree = [dict unpackObjectWithKey:@"sourceTree" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
-    if(! sourceTree || ![sourceTree isKindOfClass:[NSString class]])
+    self.sourceTree = [dict unpackObjectWithKey:@"sourceTree" forDocument:ownerDocument pbxDictionary:objects required:YES error:error];
+    if(! self.sourceTree || ![self.sourceTree isKindOfClass:[NSString class]])
     {
       [self release];
       return nil;
     }
-    [sourceTree retain];
     
-    lastKnownFileType = [dict unpackObjectWithKey:@"lastKnownFileType" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
-    if(! lastKnownFileType || ![lastKnownFileType isKindOfClass:[NSString class]])
+    self.lastKnownFileType = [dict unpackObjectWithKey:@"lastKnownFileType" forDocument:ownerDocument pbxDictionary:objects required:NO error:error];
+    if(! self.lastKnownFileType || ![self.lastKnownFileType isKindOfClass:[NSString class]])
     {
       NSLog(@"Guessing lastKnownFileType for %@", self);
-      lastKnownFileType = @"sourcecode.c.objc";
+      self.lastKnownFileType = @"sourcecode.c.objc";
     }
-    [lastKnownFileType retain];
-    
-    
   }
   return self;
 }
@@ -84,35 +83,35 @@
 
 -(void)dealloc
 {
-  [path release];
-  [sourceTree release];
-  [lastKnownFileType release];
+  self.path = nil;
+  self.sourceTree = nil;
+  self.lastKnownFileType = nil;
   [super dealloc];
 }
 
 
 -(NSString*)fullPath
 {
-  if([sourceTree isEqualToString:@"<absolute>"])
+  if([self.sourceTree isEqualToString:@"<absolute>"])
   {
-    return path;
+    return self.path;
   }
-  if([sourceTree isEqualToString:@"<group>"])
+  if([self.sourceTree isEqualToString:@"<group>"])
   {
-    return [[ownerGroup fullPath] stringByAppendingPathComponent:path];
+    return [[ownerGroup fullPath] stringByAppendingPathComponent:self.path];
   }
 
-  return path;
+  return self.path;
 }
 
 -(NSString*)description
 {
-  return [path lastPathComponent];
+  return [self.path lastPathComponent];
 }
 
 -(NSString*)desiredEditor
 {
-  if([lastKnownFileType isEqualToString:@"sourcecode.c.objc"])
+  if([self.lastKnownFileType isEqualToString:@"sourcecode.c.objc"])
   {
     return @"ZCTextEditorViewController";
   }
