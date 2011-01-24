@@ -3,6 +3,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class PBXProject;
+
 @interface PBXProjectReader : NSObject {
     NSString *file_;
     
@@ -18,6 +20,7 @@
 @property (readonly, retain) NSDictionary *plist;
 @property (readonly, retain) NSDictionary *objects;
 @property (readonly, retain) NSString *rootObjectKey;
+@property (readonly, retain) PBXProject *rootObject;
 
 - (id)initWithFile:(NSString *)file;
 

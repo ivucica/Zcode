@@ -1,5 +1,6 @@
 #import "PBXProjLib/PBXBuildFile.h"
 #import "PBXProjLib/PBXGroup.h"
+#import "PBXProjLib/PBXProject.h"
 #import "PBXProjLib/PBXProjectReader.h"
 #import "PBXProjLib/PBXFileReference.h"
 #import "check.h"
@@ -127,3 +128,10 @@ CHECK(PBXProjectReader_sets_array_of_object_references)
 	[r release];
 }
 
+CHECK(PBXProjectReader_retrieves_root_object)
+{
+	PBXProjectReader *r = [[PBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
+	PBXProject *p = r.rootObject;
+	assert([p isKindOfClass:[PBXProject class]]);
+	[r release];
+}

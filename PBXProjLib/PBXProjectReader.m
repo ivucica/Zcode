@@ -100,6 +100,10 @@
 	return [self.plist objectForKey:@"rootObject"];
 }
 
+- (PBXProject *)rootObject {
+	return [self objectForKey:self.rootObjectKey];
+}
+
 - (id)objectForKey:(NSString *)key {
 	id instance = [foundObjects_ objectForKey:key];
 	if (instance)
@@ -164,7 +168,11 @@
 - (NSArray *)resolveObjectReferencesForArray:(NSArray *)value {
 	NSMutableArray *ar = [[NSMutableArray alloc] init];
 	for (id elt in value)
-		[ar addObject:[self resolveObjectReferencesFor:elt]];
+	{
+		id resolvedElt = [self resolveObjectReferencesFor:elt];
+		if (resolvedElt)
+			[ar addObject:resolvedElt];
+	}
 	NSArray *result = [NSArray arrayWithArray:ar];
 	[ar release];
 	return result;
