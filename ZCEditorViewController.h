@@ -22,10 +22,14 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+#if GNUSTEP
 #import "config.h"
+#else
+#define HAVE_NSVIEWCONTROLLER_H 1
+#endif
 
 #import <AppKit/AppKit.h>
-#if !HAVE_NSVIEWCONTROLLER_H
+#if !(HAVE_NSVIEWCONTROLLER_H)
 #import "gnustep_more/AppKit/NSViewController.h"
 #endif
 
