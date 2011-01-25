@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-01 19:53:11 +0100 by ivucica
+   Created: 2011-01-01 18:20:47 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -22,19 +22,32 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _NSDICTIONARYSMARTUNPACK_H_
-#define _NSDICTIONARYSMARTUNPACK_H_
+#ifndef _PBXPROJECT_H_
+#define _PBXPROJECT_H_
 
 #import <Foundation/Foundation.h>
 
-@class ProjectDocument; // project document is needed primarily for the filename
+@class ProjectDocument;
+@class PBXGroup;
 
-@interface NSDictionary (SmartUnpack)
+@interface PBXProject : NSObject
+{
+  ProjectDocument *ownerDocument;
 
+  //XCConfigurationList *buildConfigurationList;
+  NSString *compatibilityVersion;
+  NSString *developmentRegion;
+  BOOL hasScannedForEncodings;
+  NSArray *knownRegions;
+  PBXGroup *mainGroup;
+  NSString *projectDirPath;
+  NSString *projectRoot;
+  NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
+}
 
--(id)unpackObjectWithKey:(NSString*)key forDocument:(ProjectDocument*)doc pbxDictionary:(NSDictionary*)objects required:(BOOL)required error:(NSError**)error;
+@property (readonly) PBXGroup* mainGroup;
 
 @end
 
-#endif // _NSDICTIONARY+SMARTUNPACK_H_
+#endif // _PBXPROJECT_H_
 

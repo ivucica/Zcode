@@ -25,13 +25,9 @@
 #ifndef _PBXGROUP_H_
 #define _PBXGROUP_H_
 
-#import <Foundation/Foundation.h>
-@class NSOutlineView;
-@class NSTableColumn;
-@class NSTableView;
-@class NSCell;
-@class NSImage;
 @class ProjectDocument;
+
+#import <Foundation/Foundation.h>
 @interface PBXGroup : NSObject
 {
   ProjectDocument *ownerDocument;
@@ -41,26 +37,20 @@
   // * PBXGroup
   // * PBXFileReference
   
-  NSMutableArray *children;
-  NSString *name;
-  NSString *sourceTree;
+  NSMutableArray *children_;
+  NSString *name_;
+  NSString *sourceTree_;
   
 }
 
-// For outline view
--(NSString*)description;
--(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
--(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
--(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
--(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
--(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
-
-// For table view
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn;
-
 @property (assign) PBXGroup *ownerGroup;
+@property (readwrite, retain) NSMutableArray *children;
+@property (readwrite, copy) NSString *name;
+@property (readwrite, copy) NSString *sourceTree;
+
+-(NSString*)description;
+
 @property (readonly) NSImage *img;
-@property (readonly) NSString *fullPath;
 @end
 
 #endif // _PBXGROUP_H_

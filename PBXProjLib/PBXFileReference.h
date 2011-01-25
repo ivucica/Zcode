@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-01 18:20:47 +0100 by ivucica
+   Created: 2011-01-01 20:37:37 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -22,33 +22,35 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _PBXPROJECT_H_
-#define _PBXPROJECT_H_
+#ifndef _PBXFILEREFERENCE_H_
+#define _PBXFILEREFERENCE_H_
 
 #import <Foundation/Foundation.h>
 
 @class ProjectDocument;
 @class PBXGroup;
-
-@interface PBXProject : NSObject
+@interface PBXFileReference : NSObject
 {
   ProjectDocument *ownerDocument;
-
-  //XCConfigurationList *buildConfigurationList;
-  NSString *compatibilityVersion;
-  NSString *developmentRegion;
-  BOOL hasScannedForEncodings;
-  NSArray *knownRegions;
-  PBXGroup *mainGroup;
-  NSString *projectDirPath;
-  NSString *projectRoot;
-  NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
+  PBXGroup *ownerGroup;
+  
+  NSInteger fileEncoding_;
+  NSString *lastKnownFileType_;
+  NSString *path_;
+  NSString *sourceTree_;
 }
--(id)initWithObjects:(NSDictionary*)object ownKey:(NSString*)ownKey ownerDocument:(ProjectDocument*)ownerDocument error:(NSError**)error;
 
-@property (readonly) PBXGroup* mainGroup;
+-(NSString*)description;
+
+@property (assign) PBXGroup *ownerGroup;
+@property (readwrite, assign) NSInteger fileEncoding;
+@property (readwrite, copy) NSString *lastKnownFileType;
+@property (readwrite, copy) NSString *path;
+@property (readwrite, copy) NSString *sourceTree;
+
+- (NSString *)fullPath;
 
 @end
 
-#endif // _PBXPROJECT_H_
+#endif // _PBXFILEREFERENCE_H_
 

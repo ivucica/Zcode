@@ -36,14 +36,16 @@ Resources/apple-green.png
 # Header files
 #
 Zcode_HEADER_FILES = \
+PBXProjLib/PBXFileReference.h \
+PBXProjLib/PBXGroup.h \
+PBXProjLib/PBXProject.h \
+PBXProjLib/PBXProjectReader.h \
+PBXProjLib/PBXVariantGroup.h \
 AppController.h \
 ProjectDocument.h \
 GAFContainer.h \
-PBXProject.h \
-NSDictionary+SmartUnpack.h \
-PBXGroup.h \
-PBXFileReference.h \
-PBXVariantGroup.h \
+PBXGroup+ViewRelated.h \
+PBXFileReference+ViewRelated.h \
 ImageAndTextCell.h \
 ProjectDetailListDataSource.h \
 ZCTextEditorViewController.h \
@@ -53,14 +55,16 @@ ZCEditorViewController.h
 # Class files
 #
 Zcode_OBJC_FILES = \
+PBXProjLib/PBXFileReference.m \
+PBXProjLib/PBXGroup.m \
+PBXProjLib/PBXProject.m \
+PBXProjLib/PBXProjectReader.m \
+PBXProjLib/PBXVariantGroup.m \
 AppController.m \
 ProjectDocument.m \
 GAFContainer.m \
-PBXProject.m \
-NSDictionary+SmartUnpack.m \
-PBXGroup.m \
-PBXFileReference.m \
-PBXVariantGroup.m \
+PBXGroup+ViewRelated.m \
+PBXFileReference+ViewRelated.m \
 ImageAndTextCell.m \
 ProjectDetailListDataSource.m \
 ZCTextEditorViewController.m \
@@ -72,6 +76,12 @@ gnustep_more.m
 #
 Zcode_OBJC_FILES += \
 Zcode_main.m 
+
+#
+# Subprojects
+#
+SUBPROJECTS = \
+check
 
 #
 # Makefiles

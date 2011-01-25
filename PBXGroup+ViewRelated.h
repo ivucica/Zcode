@@ -5,7 +5,7 @@
 
    Author: Ivan Vucica,,,
 
-   Created: 2011-01-01 20:37:37 +0100 by ivucica
+   Created: 2011-01-01 20:31:02 +0100 by ivucica
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -22,44 +22,32 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _PBXFILEREFERENCE_H_
-#define _PBXFILEREFERENCE_H_
+#ifndef PBXGroup_ViewRelated_h_INCLUDED
+#define PBXGroup_ViewRelated_h_INCLUDED
 
-#import <Foundation/Foundation.h>
+#import "PBXGroup.h"
 
 @class NSOutlineView;
 @class NSTableColumn;
 @class NSTableView;
 @class NSCell;
+@class NSImage;
 
-@class ProjectDocument;
-@class PBXGroup;
-@interface PBXFileReference : NSObject
-{
-  ProjectDocument *ownerDocument;
-  PBXGroup *ownerGroup;
-  
-  NSInteger fileEncoding;
-  NSString *lastKnownFileType;
-  NSString *path;
-  NSString *sourceTree;
-}
+@interface PBXGroup (ViewRelated)
 
 // For outline view
--(NSString*)description;
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView;
 -(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView;
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView;
-//-(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
+-(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn;
 -(void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn;
 
 // For table view
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn;
 
-
-@property (assign) PBXGroup *ownerGroup;
+@property (readonly) NSImage *img;
 
 @end
 
-#endif // _PBXFILEREFERENCE_H_
+#endif // ndef PBXGroup_ViewRelated_h_INCLUDED
 

@@ -25,7 +25,7 @@
 	ZCEditorViewController.m,
 	gnustep_more.m
     );
-    COMPILEROPTIONS = "-g3 -O0";
+    COMPILEROPTIONS = "-g3 -O0 ";
     CPPOPTIONS = "";
     CREATION_DATE = "2010-12-05 21:43:57 +0100";
     DOCU_FILES = (
@@ -68,7 +68,7 @@
     );
     MAININTERFACE = Zcode.gorm;
     MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
-    OBJC_COMPILEROPTIONS = "-g3 -O0";
+    OBJC_COMPILEROPTIONS = "-g3 -O0  -Wno-deprecated-declarations";
     OTHER_RESOURCES = (
     );
     OTHER_SOURCES = (
@@ -102,6 +102,7 @@
     PROJECT_TYPE = Application;
     PROJECT_URL = "http://ivan.vucica.net/zcode/";
     SEARCH_HEADER_DIRS = (
+        "PBXProjLib"
     );
     SEARCH_LIB_DIRS = (
     );
