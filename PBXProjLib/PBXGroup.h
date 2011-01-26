@@ -49,8 +49,6 @@
 @property (readwrite, copy) NSString *sourceTree;
 
 -(NSString*)description;
-
-@property (readonly) NSImage *img;
 @end
 
 #endif // _PBXGROUP_H_
