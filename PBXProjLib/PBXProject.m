@@ -1,7 +1,7 @@
 /*
    Project: Zcode
 
-   Copyright (C) 2011 Free Software Foundation
+   Copyright (C) 2011 Ivan Vučica
 
    Author: Ivan Vucica,,,
 
