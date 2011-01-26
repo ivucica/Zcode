@@ -28,10 +28,11 @@
 @class ProjectDocument;
 
 #import <Foundation/Foundation.h>
-@interface PBXGroup : NSObject
+#import "PBXPathedItem.h"
+
+@interface PBXGroup : NSObject <PBXPathedItem>
 {
-  ProjectDocument *ownerDocument;
-  PBXGroup *ownerGroup;
+  id <PBXPathedItem> owner_; // weak reference
   
   // children can be:
   // * PBXGroup
@@ -43,7 +44,7 @@
   
 }
 
-@property (assign) PBXGroup *ownerGroup;
+@property (readwrite, assign) id <PBXPathedItem> owner;
 @property (readwrite, retain) NSMutableArray *children;
 @property (readwrite, copy) NSString *name;
 @property (readwrite, copy) NSString *sourceTree;

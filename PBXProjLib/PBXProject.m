@@ -29,7 +29,16 @@
 
 @implementation PBXProject
 
-@synthesize mainGroup;
+@synthesize owner = owner_;
+
+@synthesize mainGroup = mainGroup_;
+-(void)setMainGroup:(PBXGroup *)mainGroup
+{
+  [mainGroup_ autorelease];
+  mainGroup_ = [mainGroup retain];
+  [mainGroup_ setOwner:self];
+  NSLog(@"Setting mainGroup %p owner to %p", mainGroup_, self);
+}
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -44,7 +53,7 @@
   [compatibilityVersion release];
   [developmentRegion release];
   [knownRegions release];
-  [mainGroup release];
+  self.mainGroup = nil;
   [projectDirPath release];
   [projectRoot release];
   [targets release];
@@ -69,5 +78,9 @@
   [knownRegions count]];
 }
 
+- (NSString *)path
+{
+  return [self.owner path];
+}
 
 @end

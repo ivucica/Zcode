@@ -26,12 +26,8 @@
 #import "ProjectDocument.h"
 #import <unistd.h> // get_current_dir_name()
 
-@interface PBXGroup ()
-- (NSString *)fullPath;
-@end
-
 @implementation PBXGroup
-@synthesize ownerGroup;
+@synthesize owner = owner_;
 @synthesize children = children_;
 @synthesize name = name_;
 @synthesize sourceTree = sourceTree_;
@@ -52,22 +48,28 @@
 
 }
 
--(NSString*)fullPath
+-(void)setChildren:(NSMutableArray *)children
+{
+  [children_ autorelease];
+  children_ = [children retain];
+  for (id child in children_)
+  {
+    if ([child respondsToSelector:@selector(setOwner:)])
+    {
+      NSLog(@"Setting %p owner to %p", child, self);
+      [child setOwner:self];
+    }
+  }
+}
+
+-(NSString*)path
 {
 // FIXME sourceTree decoding should be a global utility function
 // FIXME sourceTree can contain environment variable name, e.g. "BUILT_PRODUCTS_DIR"
   if([self.sourceTree isEqualToString:@"<absolute>"])
     return nil; // group cannot have an absolute path specified... hopefully
   if([self.sourceTree isEqualToString:@"<group>"])
-  {
-    if(ownerGroup)
-      return [ownerGroup fullPath];
-    else
-    { // mainGroup does not have an owner
-      return [[ownerDocument fileName] stringByDeletingLastPathComponent];
-      //return [cwd stringByAppendingPathComponent];
-    }
-  }
+    return [self.owner path];
   return self.sourceTree;
 }
 
@@ -75,7 +77,7 @@
 {
   if (self.name)
     return self.name;
-  return [[self fullPath] lastPathComponent];
+  return [[self path] lastPathComponent];
 }
 
 @end

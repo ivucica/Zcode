@@ -27,25 +27,28 @@
 
 #import <Foundation/Foundation.h>
 
+#import "PBXPathedItem.h"
+
 @class ProjectDocument;
 @class PBXGroup;
 
-@interface PBXProject : NSObject
+@interface PBXProject : NSObject <PBXPathedItem>
 {
-  ProjectDocument *ownerDocument;
+  id <PBXPathedItem> owner_; // weak reference
 
   //XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
   NSString *developmentRegion;
   BOOL hasScannedForEncodings;
   NSArray *knownRegions;
-  PBXGroup *mainGroup;
+  PBXGroup *mainGroup_;
   NSString *projectDirPath;
   NSString *projectRoot;
   NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
 }
 
-@property (readonly) PBXGroup* mainGroup;
+@property (readwrite, retain) PBXGroup* mainGroup;
+@property (readwrite, assign) id <PBXPathedItem> owner;
 
 @end
 

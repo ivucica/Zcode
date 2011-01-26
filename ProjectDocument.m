@@ -178,12 +178,14 @@
     [pbxProject release];
 
   PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
-  pbxProject = reader.rootObject;
+  pbxProject = [reader.rootObject retain];
   if(reader.errorOccurred)
   {
     [self _handleIOError:error errorString:reader.errorMessage];
     return NO;
   }
+
+  pbxProject.owner = self;
 
   [gafContainers release];
   gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], nil];
@@ -346,4 +348,14 @@ willBeInsertedIntoToolbar: (BOOL)flag
     NSLog(@"Editor view controller %@ failed to load", editorType);
   }
 }
+
+#pragma mark -
+#pragma mark PBXPathedItem
+
+- (NSString *)path
+{
+  return [[self fileName] stringByDeletingLastPathComponent];
+}
+
 @end
+

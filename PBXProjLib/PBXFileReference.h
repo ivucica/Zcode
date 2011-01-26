@@ -31,7 +31,6 @@
 @class PBXGroup;
 @interface PBXFileReference : NSObject
 {
-  ProjectDocument *ownerDocument;
   PBXGroup *ownerGroup;
   
   NSInteger fileEncoding_;
