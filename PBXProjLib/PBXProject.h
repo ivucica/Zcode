@@ -27,14 +27,14 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PBXPathedItem.h"
+#import "ZCPathedItem.h"
 
 @class ProjectDocument;
 @class PBXGroup;
 
-@interface PBXProject : NSObject <PBXPathedItem>
+@interface PBXProject : NSObject <ZCPathedItem>
 {
-  id <PBXPathedItem> owner_; // weak reference
+  id <ZCPathedItem> owner_; // weak reference
 
   //XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
@@ -48,7 +48,7 @@
 }
 
 @property (readwrite, retain) PBXGroup* mainGroup;
-@property (readwrite, assign) id <PBXPathedItem> owner;
+@property (readwrite, assign) id <ZCPathedItem> owner;
 
 @end
 

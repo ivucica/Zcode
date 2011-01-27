@@ -3,9 +3,9 @@
 
    Copyright (C) 2011 Free Software Foundation
 
-   Author: Ivan Vucica,,,
+   Author: Jason Felice,,,
 
-   Created: 2011-01-01 20:31:02 +0100 by ivucica
+   Created: 2011-01-26 20:39:47 -0500 by eraserhd
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU Lesser General Public
@@ -22,35 +22,14 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _PBXGROUP_H_
-#define _PBXGROUP_H_
-
-@class ProjectDocument;
+#ifndef ZCPathedItem_h_INCLUDED
+#define ZCPathedItem_h_INCLUDED
 
 #import <Foundation/Foundation.h>
-#import "ZCPathedItem.h"
 
-@interface PBXGroup : NSObject <ZCPathedItem>
-{
-  id <ZCPathedItem> owner_; // weak reference
-  
-  // children can be:
-  // * PBXGroup
-  // * PBXFileReference
-  
-  NSMutableArray *children_;
-  NSString *name_;
-  NSString *sourceTree_;
-  
-}
-
-@property (readwrite, assign) id <ZCPathedItem> owner;
-@property (readwrite, retain) NSMutableArray *children;
-@property (readwrite, copy) NSString *name;
-@property (readwrite, copy) NSString *sourceTree;
-
--(NSString*)description;
+@protocol ZCPathedItem
+- (NSString *)path;
 @end
 
-#endif // _PBXGROUP_H_
+#endif // ndef ZCPathedItem_h_INCLUDED
 

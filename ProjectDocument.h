@@ -27,13 +27,13 @@
 
 #import <AppKit/AppKit.h>
 #import <AppKit/NSOutlineView.h>
-#import "PBXProjLib/PBXPathedItem.h"
+#import "PBXProjLib/ZCPathedItem.h"
 
 @class PBXProject;
 @class ProjectDetailListDataSource;
 @class ZCEditorViewController;
 
-@interface ProjectDocument : NSDocument <PBXPathedItem>
+@interface ProjectDocument : NSDocument <ZCPathedItem>
 //<NSToolbarDelegate> // GNUstep does not define this as a protocol
 //<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
 {
