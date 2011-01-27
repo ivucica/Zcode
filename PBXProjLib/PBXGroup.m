@@ -55,10 +55,7 @@
   for (id child in children_)
   {
     if ([child respondsToSelector:@selector(setOwner:)])
-    {
-      NSLog(@"Setting %p owner to %p", child, self);
       [child setOwner:self];
-    }
   }
 }
 

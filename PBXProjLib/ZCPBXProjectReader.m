@@ -1,10 +1,10 @@
-#import "PBXProjectReader.h"
+#import "ZCPBXProjectReader.h"
 #if !GNUSTEP
 #import <objc/runtime.h>
 #endif
 
 
-@interface PBXProjectReader ()
+@interface ZCPBXProjectReader ()
 @property (readwrite, copy) NSString *file;
 @property (readwrite, copy) NSString *errorMessage;
 @property (readwrite, retain) NSDictionary *plist;
@@ -14,7 +14,7 @@
 - (NSArray *)resolveObjectReferencesForArray:(NSArray *)value;
 @end
 
-@implementation PBXProjectReader
+@implementation ZCPBXProjectReader
 @synthesize file = file_;
 
 @synthesize errorMessage = errorMessage_;

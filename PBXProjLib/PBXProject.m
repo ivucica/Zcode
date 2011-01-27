@@ -37,7 +37,6 @@
   [mainGroup_ autorelease];
   mainGroup_ = [mainGroup retain];
   [mainGroup_ setOwner:self];
-  NSLog(@"Setting mainGroup %p owner to %p", mainGroup_, self);
 }
 
 #if !GNUSTEP

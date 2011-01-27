@@ -29,7 +29,7 @@
 		969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */; };
 		969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */; };
 		96A380FB12EFB82800AEFB83 /* PBXBuildFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A380F912EFB82800AEFB83 /* PBXBuildFile.m */; };
-		96EABD2912ECA594006239A6 /* PBXProjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EABD2812ECA594006239A6 /* PBXProjectReader.m */; };
+		96EABD2912ECA594006239A6 /* ZCPBXProjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EABD2812ECA594006239A6 /* ZCPBXProjectReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +76,8 @@
 		96A380F812EFB82800AEFB83 /* PBXBuildFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildFile.h; sourceTree = "<group>"; };
 		96A380F912EFB82800AEFB83 /* PBXBuildFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildFile.m; sourceTree = "<group>"; };
 		96A380FA12EFB82800AEFB83 /* ZCPathedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPathedItem.h; sourceTree = "<group>"; };
-		96EABD2712ECA594006239A6 /* PBXProjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectReader.h; sourceTree = "<group>"; };
-		96EABD2812ECA594006239A6 /* PBXProjectReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProjectReader.m; sourceTree = "<group>"; };
+		96EABD2712ECA594006239A6 /* ZCPBXProjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBXProjectReader.h; sourceTree = "<group>"; };
+		96EABD2812ECA594006239A6 /* ZCPBXProjectReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBXProjectReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +193,6 @@
 			children = (
 				96A380F812EFB82800AEFB83 /* PBXBuildFile.h */,
 				96A380F912EFB82800AEFB83 /* PBXBuildFile.m */,
-				96EABD2712ECA594006239A6 /* PBXProjectReader.h */,
-				96EABD2812ECA594006239A6 /* PBXProjectReader.m */,
 				7F6ACADE12E9A15500536F3D /* PBXFileReference.h */,
 				7F6ACADF12E9A15500536F3D /* PBXFileReference.m */,
 				7F6ACAE012E9A15500536F3D /* PBXGroup.h */,
@@ -204,6 +202,8 @@
 				7F6ACAE412E9A15500536F3D /* PBXVariantGroup.h */,
 				7F6ACAE512E9A15500536F3D /* PBXVariantGroup.m */,
 				96A380FA12EFB82800AEFB83 /* ZCPathedItem.h */,
+				96EABD2712ECA594006239A6 /* ZCPBXProjectReader.h */,
+				96EABD2812ECA594006239A6 /* ZCPBXProjectReader.m */,
 			);
 			path = PBXProjLib;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 				7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */,
 				969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */,
 				969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */,
-				96EABD2912ECA594006239A6 /* PBXProjectReader.m in Sources */,
+				96EABD2912ECA594006239A6 /* ZCPBXProjectReader.m in Sources */,
 				96A380FB12EFB82800AEFB83 /* PBXBuildFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

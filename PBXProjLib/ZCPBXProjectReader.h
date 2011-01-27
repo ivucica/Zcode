@@ -1,11 +1,11 @@
-#ifndef PBXProjectReader_h_INCLUDED
-#define PBXProjectReader_h_INCLUDED
+#ifndef ZCPBXProjectReader_h_INCLUDED
+#define ZCPBXProjectReader_h_INCLUDED
 
 #import <Foundation/Foundation.h>
 
 @class PBXProject;
 
-@interface PBXProjectReader : NSObject {
+@interface ZCPBXProjectReader : NSObject {
     NSString *file_;
     
     NSString *errorMessage_;
@@ -28,5 +28,5 @@
 
 @end
 
-#endif // ndef PBXProjectReader_h_INCLUDED
+#endif // ndef ZCPBXProjectReader_h_INCLUDED
 

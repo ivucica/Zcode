@@ -27,7 +27,7 @@
 #import "PBXProject.h"
 #import "ProjectDetailListDataSource.h"
 #import "ZCEditorViewController.h"
-#import "PBXProjLib/PBXProjectReader.h"
+#import "PBXProjLib/ZCPBXProjectReader.h"
 
 #if !GNUSTEP
 #import <objc/runtime.h>
@@ -177,7 +177,7 @@
   if(pbxProject)
     [pbxProject release];
 
-  PBXProjectReader *reader = [[[PBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
+  ZCPBXProjectReader *reader = [[[ZCPBXProjectReader alloc] initWithFile:pbxProjPath] autorelease];
   pbxProject = [reader.rootObject retain];
   if(reader.errorOccurred)
   {
