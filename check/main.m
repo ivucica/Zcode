@@ -10,7 +10,10 @@ main(int argc, const char *argv[])
 	NSAutoreleasePool *p;
 #define CHECK(x) \
 	p = [[NSAutoreleasePool alloc] init]; \
-	check_##x(); \
+	fprintf(stderr, "%s ... ", #x); \
+	fflush(stderr); \
+ 	check_##x(); \
+	fprintf(stderr, "done\n"); \
 	[p release]; 
 #include "index.h"
 #undef CHECK
