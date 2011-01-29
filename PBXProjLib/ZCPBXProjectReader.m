@@ -16,7 +16,6 @@
 
 @implementation ZCPBXProjectReader
 @synthesize file = file_;
-
 @synthesize errorMessage = errorMessage_;
 @synthesize plist = plist_;
 
@@ -40,14 +39,14 @@
 	NSInteger archiveVersion = [[self.plist objectForKey:@"archiveVersion"] intValue];
 	if (archiveVersion != 1)
 	{
-		self.errorMessage = [NSString stringWithFormat:@"pbxproj archive version %d is not supported", archiveVersion];
+		self.errorMessage = [NSString stringWithFormat:@"pbxproj archive version %d is not supported", (int)archiveVersion];
 		return self;
 	}
 
 	NSInteger objectVersion = [[self.plist objectForKey:@"objectVersion"] intValue];
 	if(objectVersion != 45)
 	{
-		NSLog(@"we are only verified to load pbxproj plists of objectVersion 45; currently loading %d", objectVersion);
+		NSLog(@"we are only verified to load pbxproj plists of objectVersion 45; currently loading %d", (int)objectVersion);
 	}
 
 	return self;
@@ -63,22 +62,6 @@
 
 - (BOOL)errorOccurred {
 	return (self.errorMessage != nil);
-}
-
-- (NSDictionary *)plist {
-	if (plist_)
-		return plist_;
-
-	NSString* errstr = nil;
-	NSData *data = [NSData dataWithContentsOfFile:self.file];
-	plist_ = [NSPropertyListSerialization propertyListFromData:data mutabilityOption:0 format:0 errorDescription:&errstr];
-	if (!plist_)
-	{
-		self.errorMessage = errstr;
-		return nil;
-	}
-
-	return [plist_ retain];
 }
 
 - (NSDictionary *)objects {

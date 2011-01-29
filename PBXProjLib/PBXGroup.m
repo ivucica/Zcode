@@ -28,7 +28,6 @@
 
 @implementation PBXGroup
 @synthesize owner = owner_;
-@synthesize children = children_;
 @synthesize name = name_;
 @synthesize sourceTree = sourceTree_;
 
@@ -46,6 +45,11 @@
   self.sourceTree = nil;
   [super dealloc];
 
+}
+
+-(NSMutableArray *)children
+{
+  return children_;
 }
 
 -(void)setChildren:(NSMutableArray *)children

@@ -37,7 +37,7 @@
 {
   [items release];
   items = [_items retain];
-  NSLog(@"Now handling %d items", items.count);
+  NSLog(@"Now handling %d items", (int)items.count);
   
   [ownerTableView reloadData];
 }

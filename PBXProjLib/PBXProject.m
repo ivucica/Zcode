@@ -31,7 +31,11 @@
 
 @synthesize owner = owner_;
 
-@synthesize mainGroup = mainGroup_;
+-(PBXGroup *)mainGroup
+{
+  return mainGroup_;
+}
+
 -(void)setMainGroup:(PBXGroup *)mainGroup
 {
   [mainGroup_ autorelease];
