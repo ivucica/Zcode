@@ -3,7 +3,7 @@
  
  Copyright (C) 2011 Jason Felice
  
- Author: Jason Felice,,,
+ Author: Jason Felice
  
  Created: 2011-01-26 22:10:55 -0500 by eraserhd
  

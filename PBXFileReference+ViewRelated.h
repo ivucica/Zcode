@@ -3,7 +3,7 @@
  
  Copyright (C) 2011 Ivan Vučica
  
- Author: Ivan Vucica,,,
+ Author: Ivan Vucica
  
  Created: 2011-01-23 12:17:25 -0500 by eraserhd
  

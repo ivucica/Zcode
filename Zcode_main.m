@@ -1,7 +1,7 @@
 /* 
    Project: Zcode
 
-   Author: Ivan Vucica,,,
+   Author: Ivan Vucica
 
    Created: 2010-12-05 21:43:57 +0100 by ivucica
 */

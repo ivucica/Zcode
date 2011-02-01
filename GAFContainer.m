@@ -3,7 +3,7 @@
 
    Copyright (C) 2010 Free Software Foundation
 
-   Author: Ivan Vucica,,,
+   Author: Ivan Vucica
 
    Created: 2010-12-31 19:00:09 +0100 by ivucica
 
