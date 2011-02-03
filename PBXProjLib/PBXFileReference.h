@@ -26,12 +26,13 @@
 #define _PBXFILEREFERENCE_H_
 
 #import <Foundation/Foundation.h>
+#import "ZCPathedItem.h"
 
 @class ProjectDocument;
 @class PBXGroup;
 @interface PBXFileReference : NSObject
 {
-  PBXGroup *ownerGroup;
+    id <ZCPathedItem> owner_; // weak reference
   
   NSInteger fileEncoding_;
   NSString *lastKnownFileType_;
@@ -41,13 +42,12 @@
 
 -(NSString*)description;
 
-@property (assign) PBXGroup *ownerGroup;
+@property (readwrite, assign) id <ZCPathedItem> owner;
 @property (readwrite, assign) NSInteger fileEncoding;
 @property (readwrite, copy) NSString *lastKnownFileType;
 @property (readwrite, copy) NSString *path;
 @property (readwrite, copy) NSString *sourceTree;
 
-- (NSString *)fullPath;
 
 @end
 

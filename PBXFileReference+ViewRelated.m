@@ -30,7 +30,7 @@
 
 -(NSImage *)img
 {
-  NSImage *img = [[NSWorkspace sharedWorkspace] iconForFile:[self fullPath]];
+  NSImage *img = [[NSWorkspace sharedWorkspace] iconForFile:[self path]];
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   return img;
@@ -54,7 +54,7 @@
 
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
-  [[cell image] release]; // FIXME xcode's static analysis warns that we are releasing object which we don't own
+  //[[cell image] release]; // FIXME xcode's static analysis warns that we are releasing object which we don't own
   
   [cell setImage:[[self img] retain]];
 }

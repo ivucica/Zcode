@@ -63,7 +63,7 @@
 }
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
-  [[cell image] release]; // FIXME xcode static analysis says we should not do this
+  //[[cell image] release]; // FIXME xcode static analysis says we should not do this
   [cell setImage:[[self img] retain]];
 }
 

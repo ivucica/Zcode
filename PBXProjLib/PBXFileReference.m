@@ -26,7 +26,7 @@
 #import "ProjectDocument.h"
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
-@synthesize ownerGroup;
+@synthesize owner = owner_;
 @synthesize fileEncoding = fileEncoding_;
 @synthesize lastKnownFileType = lastKnownFileType_;
 @synthesize path = path_;
@@ -48,18 +48,18 @@
 }
 
 
--(NSString*)fullPath
+-(NSString*)path
 {
   if([self.sourceTree isEqualToString:@"<absolute>"])
   {
-    return self.path;
+    return path_;
   }
   if([self.sourceTree isEqualToString:@"<group>"])
   {
-    return [[ownerGroup fullPath] stringByAppendingPathComponent:self.path];
+    return [[owner_ path] stringByAppendingPathComponent:path_];
   }
 
-  return self.path;
+  return path_;
 }
 
 -(NSString*)description
