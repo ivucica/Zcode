@@ -30,23 +30,17 @@
 
 @class ProjectDocument;
 @class PBXGroup;
-@interface PBXFileReference : NSObject
+@interface PBXFileReference : ZCPathedItem
 {
-    id <ZCPathedItem> owner_; // weak reference
   
   NSInteger fileEncoding_;
   NSString *lastKnownFileType_;
-  NSString *path_;
-  NSString *sourceTree_;
 }
 
 -(NSString*)description;
 
-@property (readwrite, assign) id <ZCPathedItem> owner;
 @property (readwrite, assign) NSInteger fileEncoding;
 @property (readwrite, copy) NSString *lastKnownFileType;
-@property (readwrite, copy) NSString *path;
-@property (readwrite, copy) NSString *sourceTree;
 
 
 @end

@@ -2,8 +2,9 @@
    Project: Zcode
 
    Copyright (C) 2011 Jason Felice
+   Copyright (C) 2011 Ivan Vučica
 
-   Author: Jason Felice
+   Author: Jason Felice, Ivan Vučica
 
    Created: 2011-01-26 20:39:47 -0500 by eraserhd
 
@@ -27,8 +28,19 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ZCPathedItem
-- (NSString *)path;
+@interface ZCPathedItem : NSObject
+{
+  ZCPathedItem* owner_; // weak reference
+
+  NSString *path_;
+  NSString *sourceTree_;
+}
+
+@property (readwrite, assign) ZCPathedItem* owner;
+@property (readwrite, copy) NSString *path;
+@property (readwrite, copy) NSString *sourceTree;
+
+
 @end
 
 #endif // ndef ZCPathedItem_h_INCLUDED

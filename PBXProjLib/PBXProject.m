@@ -29,8 +29,6 @@
 
 @implementation PBXProject
 
-@synthesize owner = owner_;
-
 -(PBXGroup *)mainGroup
 {
   return mainGroup_;

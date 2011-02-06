@@ -32,9 +32,8 @@
 @class ProjectDocument;
 @class PBXGroup;
 
-@interface PBXProject : NSObject <ZCPathedItem>
+@interface PBXProject : ZCPathedItem
 {
-  id <ZCPathedItem> owner_; // weak reference
 
   //XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
@@ -48,7 +47,6 @@
 }
 
 @property (readwrite, retain) PBXGroup* mainGroup;
-@property (readwrite, assign) id <ZCPathedItem> owner;
 
 @end
 

@@ -30,9 +30,8 @@
 #import <Foundation/Foundation.h>
 #import "ZCPathedItem.h"
 
-@interface PBXGroup : NSObject <ZCPathedItem>
+@interface PBXGroup : ZCPathedItem
 {
-  id <ZCPathedItem> owner_; // weak reference
   
   // children can be:
   // * PBXGroup
@@ -40,14 +39,11 @@
   
   NSMutableArray *children_;
   NSString *name_;
-  NSString *sourceTree_;
   
 }
 
-@property (readwrite, assign) id <ZCPathedItem> owner;
 @property (readwrite, retain) NSMutableArray *children;
 @property (readwrite, copy) NSString *name;
-@property (readwrite, copy) NSString *sourceTree;
 
 -(NSString*)description;
 @end

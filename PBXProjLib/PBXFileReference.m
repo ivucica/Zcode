@@ -26,11 +26,8 @@
 #import "ProjectDocument.h"
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
-@synthesize owner = owner_;
 @synthesize fileEncoding = fileEncoding_;
 @synthesize lastKnownFileType = lastKnownFileType_;
-@synthesize path = path_;
-@synthesize sourceTree = sourceTree_;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone

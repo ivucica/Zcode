@@ -27,9 +27,7 @@
 #import <unistd.h> // get_current_dir_name()
 
 @implementation PBXGroup
-@synthesize owner = owner_;
 @synthesize name = name_;
-@synthesize sourceTree = sourceTree_;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -63,16 +61,6 @@
   }
 }
 
--(NSString*)path
-{
-// FIXME sourceTree decoding should be a global utility function
-// FIXME sourceTree can contain environment variable name, e.g. "BUILT_PRODUCTS_DIR"
-  if([self.sourceTree isEqualToString:@"<absolute>"])
-    return nil; // group cannot have an absolute path specified... hopefully
-  if([self.sourceTree isEqualToString:@"<group>"])
-    return [self.owner path];
-  return self.sourceTree;
-}
 
 -(NSString*)description
 {
