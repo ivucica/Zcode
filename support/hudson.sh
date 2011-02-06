@@ -27,16 +27,6 @@ find_usable_make() {
 	fi
 }
 
-cache_and_unpack() {
-       local url="$1"
-       local name=$(basename "$url")
-       if ! [[ -f "../$name" ]]
-       then
-               curl "$url" > "../$name"
-       fi
-       tar xzf "../$name"
-}
-
 declare -a MAKE_OPTS
 detect_clang() {
 	MAKE_OPTS=()
@@ -46,7 +36,7 @@ detect_clang() {
 
 		# Steal gcc's objc runtime
 		OBJC_RUNTIME_PATH=$(dirname $(dirname $(dpkg -S objc/objc.h |awk '{print $2}' |sort |head -n 1)))
-		MAKE_OPTS+=( "OBJCFLAGS+= -I$OBJC_RUNTIME_PATH" )
+		MAKE_OPTS+=( "CPPFLAGS+=-I$OBJC_RUNTIME_PATH" )
 	fi
 }
 
