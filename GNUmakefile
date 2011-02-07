@@ -39,6 +39,7 @@ Zcode_HEADER_FILES = \
 PBXProjLib/PBXFileReference.h \
 PBXProjLib/PBXGroup.h \
 PBXProjLib/PBXProject.h \
+PBXProjLib/ZCPathedItem.h \
 PBXProjLib/ZCPBXProjectReader.h \
 PBXProjLib/PBXVariantGroup.h \
 AppController.h \
@@ -58,6 +59,7 @@ Zcode_OBJC_FILES = \
 PBXProjLib/PBXFileReference.m \
 PBXProjLib/PBXGroup.m \
 PBXProjLib/PBXProject.m \
+PBXProjLib/ZCPathedItem.m \
 PBXProjLib/ZCPBXProjectReader.m \
 PBXProjLib/PBXVariantGroup.m \
 AppController.m \
