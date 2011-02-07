@@ -14,3 +14,7 @@ build/*
 .DS_Store
 check/index.h
 config.h
+config.status
+config.log
+autom4te.cache
+config.h.in
