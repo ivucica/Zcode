@@ -151,13 +151,14 @@
 
 		id value = [self resolveObjectReferencesFor:[props objectForKey:propName]];
 
-		@try
+		NS_DURING
 		{
 			[instance setValue:value forKey:propName];
 		}
-		@catch (...)
+		NS_HANDLER
 		{
 		}
+		NS_ENDHANDLER
 	}
 
 	[foundObjects_ setObject:instance forKey:key];
