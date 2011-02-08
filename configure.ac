@@ -59,39 +59,52 @@ AC_CHECK_HEADER(objc/objc.h,, [
 ])
 AC_SUBST(ADDITIONAL_INCLUDE_DIRS)
 
+# GNUSTEP_MAKE_IFELSE(source, action-if-success [, action-if-failure])
+# -------------------------------------------------------------------
+m4_define([GNUSTEP_MAKE_IFELSE],
+  [{ mkdir -p conftest.d
+     cat > conftest.d/test.m <<__END
+$1
+__END
+     cat > conftest.d/GNUmakefile <<__END
+include \$(GNUSTEP_MAKEFILES)/common.make
+
+VERSION = 1.0
+PACKAGE_NAME = TestProg
+APP_NAME = TestProg
+
+TestProg_OBJC_FILES=test.m
+
+$SET_CC
+$SET_CPP
+include \$(GNUSTEP_MAKEFILES)/application.make
+__END
+
+     echo "Running make in conftest.d" >&AS_MESSAGE_LOG_FD
+     $MAKE -C conftest.d >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
+     gnustep_make_result=$?
+     rm -rf conftest.d
+
+     if test $gnustep_make_result -eq 0 ; then
+       :; $2
+     else
+       :; $3
+     fi }])
+
 # Check for NSViewController
 AC_MSG_CHECKING([for NSViewController])
-mkdir conftest.d
-cat > conftest.d/test.m << __END
+GNUSTEP_MAKE_IFELSE([
 #import <AppKit/AppKit.h>
 #import <AppKit/NSViewController.h>
 
 NSViewController* vc;
 main() { return 0; }
-__END
-
-cat > conftest.d/GNUmakefile << __END
-include \$(GNUSTEP_MAKEFILES)/common.make
-
-VERSION = 1.0
-PACKAGE_NAME = Zcode
-APP_NAME = Zcode
-
-Zcode_OBJC_FILES=test.m
-
-include \$(GNUSTEP_MAKEFILES)/application.make
-__END
-
-echo "Running make in conftest.d" >&AS_MESSAGE_LOG_FD
-if $MAKE >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD ; then
-  AC_DEFINE([HAVE_NSVIEWCONTROLLER_H])
+],[
+  AC_DEFINE([HAVE_NSVIEWCONTROLLER_H], 1, [Define to 1 if GNUstep-base has NSViewController.])
   AC_MSG_RESULT([found])
-else
+],[
   AC_MSG_RESULT([not found])
-fi
-
-rm -rf conftest.d
-
+])
 
 AC_CONFIG_FILES([GNUmakefile.preamble
                  check/GNUmakefile.preamble])
