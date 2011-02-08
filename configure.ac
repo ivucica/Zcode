@@ -59,13 +59,39 @@ AC_CHECK_HEADER(objc/objc.h,, [
 ])
 AC_SUBST(ADDITIONAL_INCLUDE_DIRS)
 
-# Checks for libraries.
+# Check for NSViewController
+AC_MSG_CHECKING([for NSViewController])
+mkdir conftest.d
+cat > conftest.d/test.m << __END
+#import <AppKit/AppKit.h>
+#import <AppKit/NSViewController.h>
 
-# Checks for header files.
+NSViewController* vc;
+main() { return 0; }
+__END
 
-# Checks for typedefs, structures, and compiler characteristics.
+cat > conftest.d/GNUmakefile << __END
+include \$(GNUSTEP_MAKEFILES)/common.make
 
-# Checks for library functions.
+VERSION = 1.0
+PACKAGE_NAME = Zcode
+APP_NAME = Zcode
+
+Zcode_OBJC_FILES=test.m
+
+include \$(GNUSTEP_MAKEFILES)/application.make
+__END
+
+echo "Running make in conftest.d" >&AS_MESSAGE_LOG_FD
+if $MAKE >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD ; then
+  AC_DEFINE([HAVE_NSVIEWCONTROLLER_H])
+  AC_MSG_RESULT([found])
+else
+  AC_MSG_RESULT([not found])
+fi
+
+rm -rf conftest.d
+
 
 AC_CONFIG_FILES([GNUmakefile.preamble
                  check/GNUmakefile.preamble])
