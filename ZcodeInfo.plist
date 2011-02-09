@@ -4,10 +4,11 @@
     ApplicationName = Zcode;
     ApplicationRelease = 1.0;
     Authors = (
-	"Ivan Vucica"
+	"Ivan Vucica",
+	"Jason Felice"
     );
-    Copyright = "Copyright (C) 2010 Ivan Vucica";
-    CopyrightDescription = "Released under GNU General Public LIcense v2 or later";
+    Copyright = "Copyright (C) 2010-11 Ivan Vucica and Jason Felice";
+    CopyrightDescription = "Released under GNU General Public License v2 or later";
     FullVersionID = 1.0;
     NSExecutable = Zcode;
     NSIcon = "apple-green.png";
