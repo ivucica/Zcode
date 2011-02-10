@@ -188,7 +188,9 @@
   pbxProject.owner = self;
 
   [gafContainers release];
-  gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], nil];
+  NSLog(@"%@", pbxProject.targets);
+  gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], 
+                                                   [pbxProject.targets retain], nil];
 
   return YES;
 }
@@ -213,8 +215,10 @@ willBeInsertedIntoToolbar: (BOOL)flag
   [ti setTarget:self];
   [ti setAction:@selector(build:)];
   NSSize sz = {48,48};
-  [ti setMinSize:sz];
-  [ti setImage:[[[NSImage alloc] initWithContentsOfFile:@"/usr/share/icons/gnome/48x48/actions/system-run.png"] autorelease]];
+  [ti setMinSize:sz];  
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"build" ofType:@"png"];
+  [ti setImage:[[[NSImage alloc] initWithContentsOfFile:path] autorelease]];
+  
 
   return ti;
 }

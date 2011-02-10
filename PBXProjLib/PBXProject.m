@@ -26,6 +26,7 @@
 #import "PBXProject.h"
 #import "ProjectDocument.h"
 #import "PBXGroup.h"
+#import "ZCPBXTargetList.h"
 
 @implementation PBXProject
 
@@ -40,6 +41,50 @@
   mainGroup_ = [mainGroup retain];
   [mainGroup_ setOwner:self];
 }
+
+
+-(NSMutableArray *)targets
+{
+  return targets_;
+}
+
+-(void)setTargets:(NSMutableArray *)targets
+{
+  NSLog(@"Targets");
+  [targets_ autorelease];
+  NSLog(@"initWithArray %@", [targets class]);
+  
+  // I couldn't get this to work:
+  /*
+  NS_DURING
+  {
+    targets_ = [[ZCPBXTargetList alloc] initWithArray:targets copyItems:NO];
+  }
+  NS_HANDLER
+  {
+    NSLog(@":( %@", [localException name]);
+    return;
+  }
+  NS_ENDHANDLER
+  */
+  
+  // So let's try it somewhat different:
+  targets_ = [[ZCPBXTargetList alloc] initWithTargets:targets];
+  /*for(id i in targets)
+  {
+    [targets_ addObject:i];
+  }*/
+  // Ok, let's move on.
+  
+  
+  for (id target in targets_)
+  {
+    if ([target respondsToSelector:@selector(setOwner:)])
+      [target setOwner:self];
+  }
+}
+
+
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -57,7 +102,7 @@
   self.mainGroup = nil;
   [projectDirPath release];
   [projectRoot release];
-  [targets release];
+  [targets_ release];
   [super dealloc ];
 }
 

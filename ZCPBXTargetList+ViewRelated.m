@@ -1,11 +1,11 @@
 /*
  Project: Zcode
  
- Copyright (C) 2011 Ivan Vučica
+ Copyright (C) 2011 Ivan Vucica
  
  Author: Ivan Vucica
  
- Created: 2011-01-23 12:17:25 -0500 by eraserhd
+ Created: 2011-02-10 17:11:05 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,19 +22,17 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import "PBXGroup+ViewRelated.h"
-#import <AppKit/AppKit.h>
+#import "ZCPBXTargetList+ViewRelated.h"
 
-@implementation PBXGroup (ViewRelated)
+
+@implementation ZCPBXTargetList (ViewRelated)
 
 -(NSImage *)img
 {
   NSImage *img;
-  #if GNUSTEP
-  img = [NSImage imageNamed:@"common_Folder"];
-  #else
-  img = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)];
-  #endif
+  
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"target" ofType:@"png"];
+  img = [[[NSImage alloc] initWithContentsOfFile:path] autorelease];
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   return img;
@@ -46,21 +44,24 @@
 
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
 {
-  return [self.children count];
+  return [self count];
 }
 -(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView
 {
-  return [self.children objectAtIndex:index];
+  return [self objectAtIndex:index];
 }
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
 {
   return YES;
 }
--(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn
+/*
+ // dont allow rename
+ -(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn
 {
-// FIXME check if 'object' is string, etc
+  // FIXME check if 'object' is string, etc
   self.name = object;
 }
+ */
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
   //[[cell image] release]; // FIXME xcode static analysis says we should not do this
@@ -69,31 +70,10 @@
 
 #pragma mark -
 #pragma mark For table view
-
-
-// FIXME Why needed? This should never be displayed in table view!
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn
-{
-  if([[tableColumn identifier] isEqualToString:@"Icon"])
-  {
-    return [[self img] retain];
-  }
-  
-  if([[tableColumn identifier] isEqualToString:@"File Name"])
-  {
-    return [self description];
-  }
-  
-  return nil;
-}
+// never displayed in table view!
 
 - (void)addLeafsToArray:(NSMutableArray*)leafs
 {
-  for(id child in self.children)
-  {
-    [child addLeafsToArray:leafs];
-  }
-}
-
+  // nothing!
+}  
 @end
-

@@ -157,6 +157,14 @@
 		}
 		NS_HANDLER
 		{
+      if ([[localException name] isEqualToString:@"NSUnknownKeyException"]) 
+      {
+        NSLog(@"Project reader got an unknown key in %@: %@", isaStr, propName, localException);
+      }
+      else
+      {
+        NSLog(@"Project reader ignored exception: %@)", localException);
+      }
 		}
 		NS_ENDHANDLER
 	}

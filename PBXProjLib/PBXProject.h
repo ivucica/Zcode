@@ -31,6 +31,7 @@
 
 @class ProjectDocument;
 @class PBXGroup;
+@class ZCPBXTargetList;
 
 @interface PBXProject : ZCPathedItem
 {
@@ -43,10 +44,11 @@
   PBXGroup *mainGroup_;
   NSString *projectDirPath;
   NSString *projectRoot;
-  NSArray *targets; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
+  ZCPBXTargetList *targets_; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
 }
 
 @property (readwrite, retain) PBXGroup* mainGroup;
+@property (readwrite, retain) NSMutableArray* targets;
 
 @end
 
