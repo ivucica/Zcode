@@ -62,11 +62,14 @@ PBXProjLib/PBXProject.m \
 PBXProjLib/ZCPathedItem.m \
 PBXProjLib/ZCPBXProjectReader.m \
 PBXProjLib/PBXVariantGroup.m \
+PBXProjLib/ZCPBXTargetList.m \
+PBXProjLib/PBXNativeTarget.m \
 AppController.m \
 ProjectDocument.m \
 GAFContainer.m \
 PBXGroup+ViewRelated.m \
 PBXFileReference+ViewRelated.m \
+ZCPBXTargetList+ViewRelated.m \
 ImageAndTextCell.m \
 ProjectDetailListDataSource.m \
 ZCTextEditorViewController.m \
