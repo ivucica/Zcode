@@ -132,11 +132,7 @@
 	}
 
 	Class classFromIsa;
-#if GNUSTEP
-	classFromIsa = objc_lookup_class([isaStr UTF8String]);
-#else
-	classFromIsa = objc_lookUpClass([isaStr UTF8String]);
-#endif
+	classFromIsa = NSClassFromString(isaStr);
   	if(!classFromIsa)
 	{
 		//FIXME:

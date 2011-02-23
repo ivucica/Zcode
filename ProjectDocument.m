@@ -333,11 +333,7 @@ willBeInsertedIntoToolbar: (BOOL)flag
   NSString *editorType = [item desiredEditor];
   
   Class classFromIsa;
-#if GNUSTEP
-  classFromIsa = objc_lookup_class([editorType UTF8String]);
-#else
-  classFromIsa = objc_lookUpClass([editorType UTF8String]);
-#endif
+  classFromIsa = NSClassFromString(editorType);
 
   editorViewController = [[classFromIsa alloc] initWithNibName:editorType bundle:nil];
   if(editorViewController)
