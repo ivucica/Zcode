@@ -32,11 +32,12 @@
 @class ProjectDocument;
 @class PBXGroup;
 @class ZCPBXTargetList;
+@class XCConfigurationList;
 
 @interface PBXProject : ZCPathedItem
 {
 
-  //XCConfigurationList *buildConfigurationList;
+  XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
   NSString *developmentRegion;
   BOOL hasScannedForEncodings;
@@ -49,7 +50,7 @@
 
 @property (readwrite, retain) PBXGroup* mainGroup;
 @property (readwrite, retain) NSMutableArray* targets;
-
+@property (readwrite, retain) XCConfigurationList* buildConfigurationList;
 @end
 
 #endif // _PBXPROJECT_H_

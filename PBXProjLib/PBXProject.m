@@ -30,6 +30,8 @@
 
 @implementation PBXProject
 
+@synthesize buildConfigurationList;
+
 -(PBXGroup *)mainGroup
 {
   return mainGroup_;

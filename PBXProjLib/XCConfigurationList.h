@@ -1,11 +1,11 @@
 /*
  Project: Zcode
  
- Copyright (C) 2011 Ivan Vucica
+ Copyright (C) 2011 Ivan Vučica
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 17:08:55 +0100 by ivucica
+ Created: 2011-02-23 23:11:52 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -25,14 +25,15 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ZCPBXTargetList : NSObject <NSFastEnumeration>
+@interface XCConfigurationList : NSObject
 {
-  NSMutableArray *targets;
+    NSMutableArray *buildConfigurations;
+    NSString *defaultConfigurationName;
+    NSString *defaultConfigurationIsVisible; // FIXME this is 0 or 1, should be bool or int
 }
--(id)initWithTargets:(NSMutableArray *)array;
--(void)addObject:(id)anObject;
--(id)objectAtIndex:(int)index;
--(int)count;
+@property (retain) NSMutableArray *buildConfigurations;
+@property (retain) NSString *defaultConfigurationName;
+@property (assign) NSString *defaultConfigurationIsVisible;
 -(NSString*)description;
 
 @end

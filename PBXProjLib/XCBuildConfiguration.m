@@ -5,7 +5,7 @@
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 17:08:55 +0100 by ivucica
+ Created: 2011-02-23 21:50:03 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,17 +22,31 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import <Foundation/Foundation.h>
+#import "XCBuildConfiguration.h"
 
 
-@interface ZCPBXTargetList : NSObject <NSFastEnumeration>
+@implementation XCBuildConfiguration
+
+@synthesize buildSettings;
+@synthesize name;
+
+#if !GNUSTEP
+-(id)copyWithZone:(NSZone*)zone
 {
-  NSMutableArray *targets;
+    return [self retain]; // faking because Cocoa NSMenu is for some reason copyWithZone'ing its items
 }
--(id)initWithTargets:(NSMutableArray *)array;
--(void)addObject:(id)anObject;
--(id)objectAtIndex:(int)index;
--(int)count;
--(NSString*)description;
+#endif
+
+-(void)setName:(NSString *)_name
+{
+    [_name retain];
+    [name release];
+    name = _name;
+}
+
+-(NSString*)description
+{
+    return name;
+}
 
 @end

@@ -1,11 +1,11 @@
 /*
  Project: Zcode
  
- Copyright (C) 2011 Ivan Vucica
+ Copyright (C) 2011 Ivan Vučica
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 17:08:55 +0100 by ivucica
+ Created: 2011-02-23 23:05:25 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,17 +22,9 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
+#import "PBXNativeTarget.h"
 
-
-@interface ZCPBXTargetList : NSObject <NSFastEnumeration>
-{
-  NSMutableArray *targets;
-}
--(id)initWithTargets:(NSMutableArray *)array;
--(void)addObject:(id)anObject;
--(id)objectAtIndex:(int)index;
--(int)count;
--(NSString*)description;
+@interface PBXNativeTarget (ViewRelated)
 
 @end

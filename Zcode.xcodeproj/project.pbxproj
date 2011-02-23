@@ -32,6 +32,10 @@
 		7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD0912E9DD0D00536F3D /* apple-green.icns */; };
 		7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */; };
 		7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */; };
+		7F855DC71315AA8100196C59 /* XCBuildConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855DC61315AA8100196C59 /* XCBuildConfiguration.m */; };
+		7F855E5A1315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */; };
+		7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E761315BD9E00196C59 /* XCConfigurationList.m */; };
+		7F855EA61315BF3B00196C59 /* XCConfigurationList+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */; };
 		7F96ADE012FEB69D0062F4A2 /* ZCPathedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */; };
@@ -86,6 +90,14 @@
 		7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextEditorViewController.h; sourceTree = "<group>"; };
 		7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextEditorViewController.m; sourceTree = "<group>"; };
 		7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCTextEditorViewController.xib; sourceTree = "<group>"; };
+		7F855DC51315AA8100196C59 /* XCBuildConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildConfiguration.h; sourceTree = "<group>"; };
+		7F855DC61315AA8100196C59 /* XCBuildConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildConfiguration.m; sourceTree = "<group>"; };
+		7F855E581315BC2C00196C59 /* PBXNativeTarget+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXNativeTarget+ViewRelated.h"; sourceTree = "<group>"; };
+		7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PBXNativeTarget+ViewRelated.m"; sourceTree = "<group>"; };
+		7F855E751315BD9E00196C59 /* XCConfigurationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCConfigurationList.h; sourceTree = "<group>"; };
+		7F855E761315BD9E00196C59 /* XCConfigurationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCConfigurationList.m; sourceTree = "<group>"; };
+		7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCConfigurationList+ViewRelated.h"; sourceTree = "<group>"; };
+		7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCConfigurationList+ViewRelated.m"; sourceTree = "<group>"; };
 		7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPathedItem.m; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Zcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969956BF12EC99C0005B1A5F /* PBXFileReference+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXFileReference+ViewRelated.h"; sourceTree = "<group>"; };
@@ -158,6 +170,10 @@
 				969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */,
 				969956C112EC99C0005B1A5F /* PBXGroup+ViewRelated.h */,
 				969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */,
+				7F855E581315BC2C00196C59 /* PBXNativeTarget+ViewRelated.h */,
+				7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */,
+				7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */,
+				7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */,
 				7F11AE63130445A400D2B67A /* ZCPBXTargetList+ViewRelated.h */,
 				7F11AE64130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m */,
 				7F6ACAD612E9A15500536F3D /* AppController.h */,
@@ -234,6 +250,10 @@
 				7F11AE291304333E00D2B67A /* PBXNativeTarget.m */,
 				7F11AE5D130444DE00D2B67A /* ZCPBXTargetList.h */,
 				7F11AE5E130444DE00D2B67A /* ZCPBXTargetList.m */,
+				7F855DC51315AA8100196C59 /* XCBuildConfiguration.h */,
+				7F855DC61315AA8100196C59 /* XCBuildConfiguration.m */,
+				7F855E751315BD9E00196C59 /* XCConfigurationList.h */,
+				7F855E761315BD9E00196C59 /* XCConfigurationList.m */,
 			);
 			path = PBXProjLib;
 			sourceTree = "<group>";
@@ -328,6 +348,10 @@
 				7F11AE2A1304333E00D2B67A /* PBXNativeTarget.m in Sources */,
 				7F11AE5F130444DE00D2B67A /* ZCPBXTargetList.m in Sources */,
 				7F11AE65130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m in Sources */,
+				7F855DC71315AA8100196C59 /* XCBuildConfiguration.m in Sources */,
+				7F855E5A1315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m in Sources */,
+				7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */,
+				7F855EA61315BF3B00196C59 /* XCConfigurationList+ViewRelated.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

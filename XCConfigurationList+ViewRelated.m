@@ -1,11 +1,11 @@
 /*
  Project: Zcode
  
- Copyright (C) 2011 Ivan Vucica
+ Copyright (C) 2011 Ivan Vučica
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 17:08:55 +0100 by ivucica
+ Created: 2011-02-23 23:18:40 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,17 +22,24 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import <Foundation/Foundation.h>
+#import "XCConfigurationList+ViewRelated.h"
 
 
-@interface ZCPBXTargetList : NSObject <NSFastEnumeration>
+@implementation XCConfigurationList (ViewRelated)
+
+-(NSInteger)numberOfItemsInMenu:(NSMenu*)menu
 {
-  NSMutableArray *targets;
+    return buildConfigurations.count + 1;
 }
--(id)initWithTargets:(NSMutableArray *)array;
--(void)addObject:(id)anObject;
--(id)objectAtIndex:(int)index;
--(int)count;
--(NSString*)description;
 
+- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
+{
+    if (index == 0) 
+    {
+        // TODO update to something appropraite based on currently selected config
+        return YES;
+    }
+    item.title = [[buildConfigurations objectAtIndex:index-1] description];
+    return YES;
+}
 @end

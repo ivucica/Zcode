@@ -54,6 +54,10 @@
 {
   return [targets objectAtIndex:index];
 }
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
+{
+  return [targets countByEnumeratingWithState:state objects:stackbuf count:len];
+}
 -(NSString*)description
 {
   return @"Targets";

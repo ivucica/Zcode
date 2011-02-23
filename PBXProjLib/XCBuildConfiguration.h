@@ -5,7 +5,7 @@
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 17:08:55 +0100 by ivucica
+ Created: 2011-02-23 21:50:03 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -25,14 +25,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ZCPBXTargetList : NSObject <NSFastEnumeration>
-{
-  NSMutableArray *targets;
+@interface XCBuildConfiguration : NSObject {
+    NSDictionary *buildSettings;
+    NSString *name;
 }
--(id)initWithTargets:(NSMutableArray *)array;
--(void)addObject:(id)anObject;
--(id)objectAtIndex:(int)index;
--(int)count;
--(NSString*)description;
 
+@property (nonatomic, retain) NSDictionary *buildSettings;
+@property (nonatomic, retain) NSString *name;
 @end

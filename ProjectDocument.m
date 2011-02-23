@@ -208,30 +208,62 @@
     itemForItemIdentifier: (NSString*)itemIdentifier
 willBeInsertedIntoToolbar: (BOOL)flag
 {
-  NSToolbarItem* ti = [[[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier] autorelease];
-  [ti setLabel:@"Build"];
-  [ti setPaletteLabel:@"Build"];
-  [ti setToolTip:@"Build"];
-  [ti setTarget:self];
-  [ti setAction:@selector(build:)];
-  NSSize sz = {48,48};
-  [ti setMinSize:sz];  
-  NSString *path = [[NSBundle mainBundle] pathForResource:@"build" ofType:@"png"];
-  [ti setImage:[[[NSImage alloc] initWithContentsOfFile:path] autorelease]];
+  if([itemIdentifier isEqualToString:@"overview"])
+  {
+    NSToolbarItem* ti = [[[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier] autorelease];
+    [ti setLabel:@"Overview"];
+    [ti setPaletteLabel:@"Overview"];  
+    [ti setToolTip:@"Overview"];
+/*
+ // TODO this doesn't work and fails an assertion in Apple Cocoa
+ // why?
+    NSMenuItem *toolbarItemMenu = [[[NSMenuItem alloc] initWithTitle:@"Dummy" action:nil keyEquivalent:nil] autorelease];
+    NSMenu* overviewMenu = [[[NSMenu alloc] initWithTitle:@"Menu"] autorelease];
+    NSArray *configurations = [[[NSArray alloc] initWithObjects:@"Dummy 1", @"Dummy 2", nil] autorelease];
+    for(id configuration in configurations)
+    {
+      [overviewMenu addItemWithTitle:configuration action:nil keyEquivalent:nil];
+    }
+    
+    [ti setMenuFormRepresentation:toolbarItemMenu];
+ */
+    NSPopUpButton *pub = [[[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 250, 24)] autorelease];
+    [pub addItemsWithTitles:[NSArray arrayWithObjects:@"Overview list", @"Dummy 1", @"Dummy 2", nil]]; 
+    [pub setBezelStyle:NSTexturedRoundedBezelStyle];
+    [pub setPullsDown:YES];
+    [[pub cell] setArrowPosition:NSPopUpArrowAtBottom];
+    [[[pub cell] menu] setDelegate:pbxProject.buildConfigurationList];
+    [ti setView:pub];
+    
+    return ti;
+  }
+  else if([itemIdentifier isEqualToString:@"build"])
+  {
+    NSToolbarItem* ti = [[[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier] autorelease];
+    [ti setLabel:@"Build"];
+    [ti setPaletteLabel:@"Build"];
+    [ti setToolTip:@"Build"];
+    [ti setTarget:self];
+    [ti setAction:@selector(build:)];
+    NSSize sz = {48,48};
+    [ti setMinSize:sz];  
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"build" ofType:@"png"];
+    [ti setImage:[[[NSImage alloc] initWithContentsOfFile:path] autorelease]];
   
-
-  return ti;
+    return ti;
+  }
+  return nil;
 }
 // required method
 - (NSArray*) toolbarAllowedItemIdentifiers: (NSToolbar*)toolbar
 {
-  return [NSArray arrayWithObjects:@"build", nil];
+  return [NSArray arrayWithObjects:@"overview", @"build", nil];
 
 }
 // required method
 - (NSArray*) toolbarDefaultItemIdentifiers: (NSToolbar*)toolbar
 {
-  return [NSArray arrayWithObjects:@"build", nil];
+  return [NSArray arrayWithObjects:@"overview", @"build", nil];
 
 }
 
