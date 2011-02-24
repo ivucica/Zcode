@@ -24,12 +24,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class XCConfigurationList;
 
 @interface XCBuildConfiguration : NSObject {
     NSDictionary *buildSettings;
     NSString *name;
+  
+    XCConfigurationList* owner; // weak reference
 }
 
 @property (nonatomic, retain) NSDictionary *buildSettings;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, assign) XCConfigurationList *owner;
 @end

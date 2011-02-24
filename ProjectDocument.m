@@ -188,9 +188,8 @@
   pbxProject.owner = self;
 
   [gafContainers release];
-  NSLog(@"%@", pbxProject.targets);
   gafContainers = [[NSArray alloc] initWithObjects:[pbxProject.mainGroup retain], 
-                                                   [pbxProject.targets retain], nil];
+                                                   [pbxProject.targetList retain], nil];
 
   return YES;
 }
@@ -228,11 +227,15 @@ willBeInsertedIntoToolbar: (BOOL)flag
     [ti setMenuFormRepresentation:toolbarItemMenu];
  */
     NSPopUpButton *pub = [[[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 250, 24)] autorelease];
-    [pub addItemsWithTitles:[NSArray arrayWithObjects:@"Overview list", @"Dummy 1", @"Dummy 2", nil]]; 
+    [pub addItemsWithTitles:[NSArray arrayWithObjects:@"Overview", @"Active Configurations", nil]]; 
     [pub setBezelStyle:NSTexturedRoundedBezelStyle];
     [pub setPullsDown:YES];
     [[pub cell] setArrowPosition:NSPopUpArrowAtBottom];
-    [[[pub cell] menu] setDelegate:pbxProject.buildConfigurationList];
+    
+    NSMenu *activeConfigurationsMenu = [[[NSMenu alloc] initWithTitle:@"Active Configurations"] autorelease];
+    [activeConfigurationsMenu setDelegate:pbxProject.buildConfigurationList];
+    [[[[pub cell] menu] itemAtIndex:1] setSubmenu:activeConfigurationsMenu];
+
     [ti setView:pub];
     
     return ti;

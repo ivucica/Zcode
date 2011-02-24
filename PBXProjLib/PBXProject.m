@@ -31,6 +31,12 @@
 @implementation PBXProject
 
 @synthesize buildConfigurationList;
+@synthesize targetList = targetList_;
+
+-(NSString *)fileName
+{
+  return [(ProjectDocument*)self.owner fileName];
+}
 
 -(PBXGroup *)mainGroup
 {
@@ -52,41 +58,23 @@
 
 -(void)setTargets:(NSMutableArray *)targets
 {
-  NSLog(@"Targets");
   [targets_ autorelease];
-  NSLog(@"initWithArray %@", [targets class]);
+  targets_ = targets;
+  targetList_ = [[ZCPBXTargetList alloc] initWithTargets:targets];  
   
-  // I couldn't get this to work:
-  /*
-  NS_DURING
-  {
-    targets_ = [[ZCPBXTargetList alloc] initWithArray:targets copyItems:NO];
-  }
-  NS_HANDLER
-  {
-    NSLog(@":( %@", [localException name]);
-    return;
-  }
-  NS_ENDHANDLER
-  */
-  
-  // So let's try it somewhat different:
-  targets_ = [[ZCPBXTargetList alloc] initWithTargets:targets];
-  /*for(id i in targets)
-  {
-    [targets_ addObject:i];
-  }*/
-  // Ok, let's move on.
-  
-  
-  for (id target in targets_)
+  for (id target in targetList_)
   {
     if ([target respondsToSelector:@selector(setOwner:)])
       [target setOwner:self];
   }
 }
 
-
+-(void)setBuildConfigurationList:(XCConfigurationList*)_buildConfigurationList
+{
+  [buildConfigurationList release];
+  buildConfigurationList = [_buildConfigurationList retain];
+  [buildConfigurationList setOwner:self];
+}
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -113,12 +101,14 @@
   return [NSString stringWithFormat:
   @"\n"
   "PBXProject at 0x%p:\n"
+  "- path: %@\n"
   //"- buildConfigurationList: %@\n"
   "- compatibilityVersion: %@\n"
   "- developmentRegion: %@\n"
   "- hasScannedForEncodings: %s\n"
   "- knownRegions: (count: %d)\n",
   self, 
+  self.path,
   //buildConfigurationList, 
   compatibilityVersion, 
   developmentRegion,

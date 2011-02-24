@@ -35,4 +35,6 @@
 -(int)count;
 -(NSString*)description;
 
+@property (retain) NSMutableArray *targetsArray;
+
 @end

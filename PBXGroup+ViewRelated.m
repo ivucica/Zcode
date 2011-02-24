@@ -24,17 +24,27 @@
 
 #import "PBXGroup+ViewRelated.h"
 #import <AppKit/AppKit.h>
+#import "PBXProject.h"
 
 @implementation PBXGroup (ViewRelated)
 
 -(NSImage *)img
 {
   NSImage *img;
-  #if GNUSTEP
-  img = [NSImage imageNamed:@"common_Folder"];
-  #else
-  img = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)];
-  #endif
+  
+  if([self.owner isKindOfClass:[PBXProject class]])
+  {
+    img = [[NSWorkspace sharedWorkspace] iconForFile:[(PBXProject*)self.owner fileName]];
+    //[(PBXProject*)self.owner img];
+  }
+  else
+  {
+    #if GNUSTEP
+    img = [NSImage imageNamed:@"common_Folder"];
+    #else
+    img = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)];
+    #endif
+  }
   [img setScalesWhenResized:YES];
   [img setSize:NSMakeSize(16,16)];
   return img;

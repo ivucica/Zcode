@@ -29,17 +29,21 @@
 
 -(NSInteger)numberOfItemsInMenu:(NSMenu*)menu
 {
-    return buildConfigurations.count + 1;
+    return buildConfigurations.count;
 }
 
 - (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel
 {
-    if (index == 0) 
-    {
-        // TODO update to something appropraite based on currently selected config
-        return YES;
-    }
-    item.title = [[buildConfigurations objectAtIndex:index-1] description];
+    item.title = [[buildConfigurations objectAtIndex:index] description];
+    item.target = self;
+    item.tag = index;
+    item.action = @selector(configurationSelected:);
     return YES;
 }
+
+- (void)configurationSelected:(id)sender
+{
+    NSLog(@"Selected %@", [buildConfigurations objectAtIndex:[sender tag]]);
+}
+
 @end

@@ -32,6 +32,7 @@
 @synthesize productName;
 @synthesize productType;
 @synthesize owner;
+@synthesize buildConfigurationList;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone

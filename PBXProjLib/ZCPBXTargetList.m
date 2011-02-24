@@ -27,6 +27,8 @@
 
 @implementation ZCPBXTargetList
 
+@synthesize targetsArray = targets;
+
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
 {
@@ -39,6 +41,7 @@
   if(self=[super init])
   {
     targets = [array retain];
+    NSLog(@"Targetlist");
   }
   return self;
 }

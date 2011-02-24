@@ -24,16 +24,21 @@
 
 #import <Foundation/Foundation.h>
 
+@class PBXProject;
 
 @interface XCConfigurationList : NSObject
 {
     NSMutableArray *buildConfigurations;
     NSString *defaultConfigurationName;
     NSString *defaultConfigurationIsVisible; // FIXME this is 0 or 1, should be bool or int
+    
+    PBXProject *owner; // weak reference
 }
 @property (retain) NSMutableArray *buildConfigurations;
 @property (retain) NSString *defaultConfigurationName;
 @property (assign) NSString *defaultConfigurationIsVisible;
+
+@property (assign) PBXProject *owner;
 -(NSString*)description;
 
 @end

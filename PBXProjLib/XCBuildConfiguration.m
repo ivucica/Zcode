@@ -29,6 +29,7 @@
 
 @synthesize buildSettings;
 @synthesize name;
+@synthesize owner;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -36,6 +37,11 @@
     return [self retain]; // faking because Cocoa NSMenu is for some reason copyWithZone'ing its items
 }
 #endif
+
+-(void)setOwner:(XCConfigurationList *)_config
+{
+    owner = _config;
+}
 
 -(void)setName:(NSString *)_name
 {
@@ -46,7 +52,7 @@
 
 -(NSString*)description
 {
-    return name;
+  return name;
 }
 
 @end

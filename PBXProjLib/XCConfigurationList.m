@@ -23,13 +23,15 @@
  */
 
 #import "XCConfigurationList.h"
-
+#import "XCBuildConfiguration.h"
 
 @implementation XCConfigurationList
 
 @synthesize buildConfigurations;
 @synthesize defaultConfigurationName;
 @synthesize defaultConfigurationIsVisible;
+
+@synthesize owner;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -43,5 +45,15 @@
     return @"Configuration List";
 }
 
+-(void)setBuildConfigurations:(NSMutableArray *)_buildConfigurations
+{
+    [buildConfigurations autorelease];
+    buildConfigurations = [_buildConfigurations retain];
+    
+    for (XCBuildConfiguration* bc in buildConfigurations)
+    {
+      [bc setOwner:self];
+    }
+}
 
 @end

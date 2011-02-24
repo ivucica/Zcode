@@ -28,10 +28,11 @@
 #import <Foundation/Foundation.h>
 
 @class PBXProject;
+@class XCConfigurationList;
 
 @interface PBXNativeTarget : NSObject 
 {
-  NSArray* buildConfigurationList;
+  XCConfigurationList* buildConfigurationList;
   /*NSArray* buildPhases;*/
   /*NSArray* buildRules;*/
   /*NSArray* dependencies;*/
@@ -45,6 +46,7 @@
   PBXProject* owner;
 }
 
+@property (readwrite, copy) XCConfigurationList *buildConfigurationList;
 @property (readwrite, copy) NSString *name;
 @property (readwrite, copy) NSString *productInstallPath;
 @property (readwrite, copy) NSString *productName;

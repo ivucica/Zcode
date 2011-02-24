@@ -45,12 +45,16 @@
   PBXGroup *mainGroup_;
   NSString *projectDirPath;
   NSString *projectRoot;
-  ZCPBXTargetList *targets_; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
+  NSMutableArray *targets_;
+  ZCPBXTargetList *targetList_; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
 }
 
 @property (readwrite, retain) PBXGroup* mainGroup;
 @property (readwrite, retain) NSMutableArray* targets;
+@property (readwrite, retain) ZCPBXTargetList* targetList;
 @property (readwrite, retain) XCConfigurationList* buildConfigurationList;
+
+@property (readonly) NSString* fileName;
 @end
 
 #endif // _PBXPROJECT_H_
