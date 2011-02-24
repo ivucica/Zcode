@@ -227,12 +227,12 @@ willBeInsertedIntoToolbar: (BOOL)flag
     [ti setMenuFormRepresentation:toolbarItemMenu];
  */
     NSPopUpButton *pub = [[[NSPopUpButton alloc] initWithFrame:NSMakeRect(0, 0, 250, 24)] autorelease];
-    [pub addItemsWithTitles:[NSArray arrayWithObjects:@"Overview", @"Active Configurations", nil]]; 
+    [pub addItemsWithTitles:[NSArray arrayWithObjects:@"Overview", @"Active Configuration", nil]]; 
     [pub setBezelStyle:NSTexturedRoundedBezelStyle];
     [pub setPullsDown:YES];
     [[pub cell] setArrowPosition:NSPopUpArrowAtBottom];
     
-    NSMenu *activeConfigurationsMenu = [[[NSMenu alloc] initWithTitle:@"Active Configurations"] autorelease];
+    NSMenu *activeConfigurationsMenu = [[[NSMenu alloc] initWithTitle:@"Active Configuration"] autorelease];
     [activeConfigurationsMenu setDelegate:pbxProject.buildConfigurationList];
     [[[[pub cell] menu] itemAtIndex:1] setSubmenu:activeConfigurationsMenu];
 

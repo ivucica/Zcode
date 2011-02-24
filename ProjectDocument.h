@@ -46,6 +46,7 @@
   IBOutlet NSView *editorViewContainer;
   NSArray *gafContainers;
   ZCEditorViewController *editorViewController;
+  IBOutlet NSPanel *inspector;
 
   // gorm does not support toolbar design. too bad. we'll build our own toolbar
   NSToolbar* toolbar; 

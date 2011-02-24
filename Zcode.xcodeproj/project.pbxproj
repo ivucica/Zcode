@@ -60,7 +60,7 @@
 		7F11AFB11304541F00D2B67A /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
 		7F11AFBE130454B900D2B67A /* app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app.png; sourceTree = "<group>"; };
 		7F11AFBF130454B900D2B67A /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
-		7F6ACAC212E99F5C00536F3D /* Zcode_main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zcode_main.m; sourceTree = "<group>"; };
+		7F6ACAC212E99F5C00536F3D /* Zcode_main.m */ = {isa = PBXFileReference; comments = "Main file\n\nContains main code"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zcode_main.m; sourceTree = "<group>"; };
 		7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Zcode-Info-cocoa.plist"; sourceTree = "<group>"; };
 		7F6ACAD612E9A15500536F3D /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		7F6ACAD712E9A15500536F3D /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
