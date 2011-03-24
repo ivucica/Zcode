@@ -326,7 +326,7 @@ willBeInsertedIntoToolbar: (BOOL)flag
     return;
   if([item respondsToSelector:@selector(outlineView:setObjectValue:forTableColumn:)])
   {
-    [item outlineView:outlineView setObjectValue:objectValue forTableColumn:tableColumn];
+    [(id<NSOutlineViewDelegate>)item outlineView:outlineView setObjectValue:objectValue forTableColumn:tableColumn];
   }
 }
 

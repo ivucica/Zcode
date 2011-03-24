@@ -34,8 +34,9 @@
 @class ZCEditorViewController;
 
 @interface ProjectDocument : NSDocument
-//<NSToolbarDelegate> // GNUstep does not define this as a protocol
-//<NSOutlineViewDataSource> // GNUstep does not define this as a protocol
+#if !GNUSTEP
+<NSToolbarDelegate, NSOutlineViewDelegate> // GNUstep does not define these as a protocol
+#endif
 {
   ///////////////////////////////////////
   ////
