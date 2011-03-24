@@ -40,11 +40,15 @@ Resources/target.png
 #
 Zcode_HEADER_FILES = \
 PBXProjLib/PBXFileReference.h \
+PBXProjLib/PBXBuildPhase.h \
+PBXProjLib/PBXShellScriptBuildPhase.h \
 PBXProjLib/PBXGroup.h \
 PBXProjLib/PBXProject.h \
 PBXProjLib/ZCPathedItem.h \
 PBXProjLib/ZCPBXProjectReader.h \
+PBXProjLib/ZCPBXTargetList.h \
 PBXProjLib/PBXVariantGroup.h \
+PBXProjLib/PBXNativeTarget.h \
 AppController.h \
 ProjectDocument.h \
 GAFContainer.h \
@@ -63,6 +67,8 @@ ZCEditorViewController.h
 #
 Zcode_OBJC_FILES = \
 PBXProjLib/PBXFileReference.m \
+PBXProjLib/PBXBuildPhase.m \
+PBXProjLib/PBXShellScriptBuildPhase.m \
 PBXProjLib/PBXGroup.m \
 PBXProjLib/PBXProject.m \
 PBXProjLib/ZCPathedItem.m \

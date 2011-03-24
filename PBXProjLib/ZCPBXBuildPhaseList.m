@@ -5,7 +5,7 @@
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 15:53:55 +0100 by ivucica
+ Created: 2011-02-10 17:08:55 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,18 +22,12 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import "PBXNativeTarget.h"
+#import "ZCPBXTargetList.h"
 
 
-@implementation PBXNativeTarget
+@implementation ZCPBXTargetList
 
-@synthesize name;
-@synthesize productInstallPath;
-@synthesize productName;
-@synthesize productType;
-@synthesize owner;
-@synthesize buildConfigurationList;
-@synthesize buildPhases;
+@synthesize targetsArray = targets;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -42,17 +36,34 @@
 }
 #endif
 
--(void)dealloc
+-(id)initWithTargets:(NSMutableArray*)array
 {
-  [name release];
-  [productInstallPath release];
-  [productName release];
-  [productType release];
-  [super dealloc ];
+  if(self=[super init])
+  {
+    targets = [array retain];
+    NSLog(@"Targetlist");
+  }
+  return self;
 }
-
+-(void)addObject:(id)anObject
+{
+  [targets addObject:anObject];
+}
+-(int)count
+{
+  return targets.count;
+}
+-(id)objectAtIndex:(int)index
+{
+  return [targets objectAtIndex:index];
+}
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len
+{
+  return [targets countByEnumeratingWithState:state objects:stackbuf count:len];
+}
 -(NSString*)description
 {
-  return name;
+  return @"Targets";
 }
+
 @end

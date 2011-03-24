@@ -29,11 +29,12 @@
 
 @class PBXProject;
 @class XCConfigurationList;
+@class ZCPBXBuildPhaseList;
 
 @interface PBXNativeTarget : NSObject 
 {
   XCConfigurationList* buildConfigurationList;
-  /*NSArray* buildPhases;*/
+  NSMutableArray* buildPhases;
   /*NSArray* buildRules;*/
   /*NSArray* dependencies;*/
   
@@ -47,6 +48,7 @@
 }
 
 @property (readwrite, copy) XCConfigurationList *buildConfigurationList;
+@property (readwrite, copy) NSMutableArray *buildPhases;
 @property (readwrite, copy) NSString *name;
 @property (readwrite, copy) NSString *productInstallPath;
 @property (readwrite, copy) NSString *productName;

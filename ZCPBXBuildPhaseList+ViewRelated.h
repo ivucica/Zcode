@@ -5,7 +5,7 @@
  
  Author: Ivan Vucica
  
- Created: 2011-02-10 15:53:55 +0100 by ivucica
+ Created: 2011-03-24 15:39:02 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,37 +22,10 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import "PBXNativeTarget.h"
+#import <AppKit/AppKit.h>
+#import "ZCPBXTargetList.h"
 
 
-@implementation PBXNativeTarget
+@interface ZCPBXBuildPhaseList (ViewRelated) 
 
-@synthesize name;
-@synthesize productInstallPath;
-@synthesize productName;
-@synthesize productType;
-@synthesize owner;
-@synthesize buildConfigurationList;
-@synthesize buildPhases;
-
-#if !GNUSTEP
--(id)copyWithZone:(NSZone*)zone
-{
-  return [self retain]; // faking because Cocoa NSOutlineView is for some reason copyWithZone'ing its items
-}
-#endif
-
--(void)dealloc
-{
-  [name release];
-  [productInstallPath release];
-  [productName release];
-  [productType release];
-  [super dealloc ];
-}
-
--(NSString*)description
-{
-  return name;
-}
 @end

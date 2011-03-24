@@ -1,11 +1,11 @@
 /*
  Project: Zcode
  
- Copyright (C) 2011 Ivan Vučica
+ Copyright (C) 2011 Ivan Vucica
  
  Author: Ivan Vucica
  
- Created: 2011-02-23 23:05:25 +0100 by ivucica
+ Created: 2011-03-24 15:39:02 +0100 by ivucica
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -22,22 +22,21 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import "PBXNativeTarget+ViewRelated.h"
+#import "ZCPBXBuildPhaseList+ViewRelated.h"
 
 
-@implementation PBXNativeTarget (ViewRelated)
-
+@implementation ZCPBXBuildPhaseList (ViewRelated)
 
 -(NSImage *)img
 {
-    NSImage *img;
-    
-    // FIXME file should reflect the type of target
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"app" ofType:@"png"];
-    img = [[[NSImage alloc] initWithContentsOfFile:path] autorelease];
-    [img setScalesWhenResized:YES];
-    [img setSize:NSMakeSize(16,16)];
-    return img;
+  NSImage *img;
+ 
+  // FIXME should have a "build phase" icon of some sort
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"target" ofType:@"png"];
+  img = [[[NSImage alloc] initWithContentsOfFile:path] autorelease];
+  [img setScalesWhenResized:YES];
+  [img setSize:NSMakeSize(16,16)];
+  return img;
 }
 
 #pragma mark -
@@ -46,28 +45,28 @@
 
 -(NSInteger)numberOfChildrenForOutlineView:(NSOutlineView*)outlineView
 {
-    return [buildPhases count];
+  return [self count];
 }
 -(id)child:(NSInteger)index forOutlineView:(NSOutlineView*)outlineView
 {
-    return [buildPhases objectAtIndex:index];
+  return [self objectAtIndex:index];
 }
 -(BOOL)isExpandableForOutlineView:(NSOutlineView*)outlineView
 {
-    return YES;
+  return YES;
 }
 /*
- // TODO we should allow rename
+ // dont allow rename
  -(void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn
- {
- // FIXME check if 'object' is string, etc
- self.name = object;
- }
+{
+  // FIXME check if 'object' is string, etc
+  self.name = object;
+}
  */
 - (void)outlineView:(NSOutlineView *)outlineView willDisplayCell:(NSCell*)cell forTableColumn:(NSTableColumn*)tableColumn
 {
-    //[[cell image] release]; // FIXME xcode static analysis says we should not do this
-    [cell setImage:[[self img] retain]];
+  //[[cell image] release]; // FIXME xcode static analysis says we should not do this
+  [cell setImage:[[self img] retain]];
 }
 
 #pragma mark -
@@ -76,8 +75,6 @@
 
 - (void)addLeafsToArray:(NSMutableArray*)leafs
 {
-    // nothing!
+  // nothing!
 }  
-
-
 @end
