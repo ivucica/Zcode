@@ -35,13 +35,14 @@
   
   NSInteger fileEncoding_;
   NSString *lastKnownFileType_;
+  NSString *explicitFileType_;
 }
 
 -(NSString*)description;
 
 @property (readwrite, assign) NSInteger fileEncoding;
 @property (readwrite, copy) NSString *lastKnownFileType;
-
+@property (readwrite, copy) NSString *explicitFileType;
 
 @end
 

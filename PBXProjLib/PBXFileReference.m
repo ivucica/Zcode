@@ -28,6 +28,7 @@
 @implementation PBXFileReference
 @synthesize fileEncoding = fileEncoding_;
 @synthesize lastKnownFileType = lastKnownFileType_;
+@synthesize explicitFileType = explicitFileType_;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -41,6 +42,7 @@
   self.path = nil;
   self.sourceTree = nil;
   self.lastKnownFileType = nil;
+  self.explicitFileType = nil;
   [super dealloc];
 }
 
