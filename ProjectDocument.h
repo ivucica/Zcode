@@ -61,7 +61,7 @@
 }
 
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
-
+@property (assign, nonatomic) IBOutlet NSPanel *inspector;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 
 @end

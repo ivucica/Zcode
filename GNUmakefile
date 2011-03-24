@@ -29,8 +29,11 @@ Resources/MainMenu-GNUstep.gsmarkup \
 Resources/MainMenu-OSX.gsmarkup \
 Resources/ProjectDocument.gorm \
 Resources/ZCEditorViewController.gorm \
-Resources/apple-green.png 
-
+Resources/apple-green.png \
+Resources/app.png \
+Resources/build.png \
+Resources/run.png \
+Resources/target.png
 
 #
 # Header files
@@ -47,6 +50,9 @@ ProjectDocument.h \
 GAFContainer.h \
 PBXGroup+ViewRelated.h \
 PBXFileReference+ViewRelated.h \
+XCConfigurationList+ViewRelated.h \
+ZCPBXTargetList+ViewRelated.h \
+PBXNativeTarget+ViewRelated.h \
 ImageAndTextCell.h \
 ProjectDetailListDataSource.h \
 ZCTextEditorViewController.h \
@@ -70,6 +76,7 @@ GAFContainer.m \
 PBXGroup+ViewRelated.m \
 PBXFileReference+ViewRelated.m \
 ZCPBXTargetList+ViewRelated.m \
+PBXNativeTarget+ViewRelated.m \
 ImageAndTextCell.m \
 ProjectDetailListDataSource.m \
 ZCTextEditorViewController.m \
@@ -85,8 +92,8 @@ Zcode_main.m
 #
 # Subprojects
 #
-SUBPROJECTS = \
-check
+#SUBPROJECTS = \
+#check
 
 #
 # Makefiles

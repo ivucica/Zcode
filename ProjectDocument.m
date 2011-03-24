@@ -36,7 +36,7 @@
 @implementation ProjectDocument
 
 @synthesize groupsAndFilesView;
-
+@synthesize inspector;
 #pragma mark -
 #pragma mark Init and deinit
 
@@ -86,11 +86,14 @@
     }
     
   }
+  
   return self;
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
+  ////// TOOLBAR SETUP /////
+
   toolbar = [[NSToolbar alloc] initWithIdentifier:@"toolbar"]; // FIXME toolbar must be inited only once.
   NSWindow* w = [self windowForSheet]; // FIXME is the right way to get NSWindow for this NSDocument?
   //[toolbar insertItemWithItemIdentifier:@"tb_build" atIndex:[[toolbar items] count]];
@@ -98,6 +101,13 @@
   [w setToolbar:toolbar];
   //[window toggleToolbarShown:self];
   [toolbar setVisible:YES];
+
+  ////// INSPECTOR SETUP /////
+  [inspector setFloatingPanel:YES];
+  [inspector orderFront:nil];
+  NSLog(@"Presented inspector %@", inspector);
+
+  ////// EDITOR SETUP /////
 
   NSRect editorRect = NSZeroRect;
   if(editorViewContainer)
