@@ -68,10 +68,16 @@
 
 -(NSString*)desiredEditor
 {
-  if([self.lastKnownFileType isEqualToString:@"sourcecode.c.objc"])
-  {
+  NSString *fileType = nil;
+  if(self.explicitFileType)
+    fileType = self.explicitFileType;
+  else if(self.lastKnownFileType)
+    fileType = self.lastKnownFileType;
+  
+
+  if([fileType isEqualToString:@"sourcecode.c.objc"])
     return @"ZCTextEditorViewController";
-  }
+  
   return @"ZCEditorViewController";
 }
 
