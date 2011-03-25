@@ -66,6 +66,7 @@
 
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
 @property (assign, nonatomic) IBOutlet NSPanel *inspectorViewContainer;
+@property (retain, nonatomic) NSString *fileName_undeprecated;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 
 @end

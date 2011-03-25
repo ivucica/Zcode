@@ -35,7 +35,7 @@
 
 -(NSString *)fileName
 {
-  return [(ProjectDocument*)self.owner fileName];
+  return [(ProjectDocument*)self.owner fileName_undeprecated];
 }
 
 -(PBXGroup *)mainGroup
