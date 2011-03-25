@@ -32,10 +32,11 @@
 @class PBXProject;
 @class ProjectDetailListDataSource;
 @class ZCEditorViewController;
+@class ZCInspectorViewController;
 
 @interface ProjectDocument : NSDocument
 #if !GNUSTEP
-<NSToolbarDelegate, NSOutlineViewDelegate> // GNUstep does not define these as a protocol
+<NSToolbarDelegate, NSOutlineViewDelegate, NSWindowDelegate> // GNUstep does not define these as a protocol
 #endif
 {
   ///////////////////////////////////////
@@ -45,9 +46,11 @@
   IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
   IBOutlet ProjectDetailListDataSource *projectDetailListDataSource;
   IBOutlet NSView *editorViewContainer;
+  IBOutlet NSPanel *inspectorViewContainer;
+
   NSArray *gafContainers;
   ZCEditorViewController *editorViewController;
-  IBOutlet NSPanel *inspector;
+  ZCInspectorViewController *inspectorViewController;
 
   // gorm does not support toolbar design. too bad. we'll build our own toolbar
   NSToolbar* toolbar; 
@@ -62,7 +65,7 @@
 }
 
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
-@property (assign, nonatomic) IBOutlet NSPanel *inspector;
+@property (assign, nonatomic) IBOutlet NSPanel *inspectorViewContainer;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 
 @end

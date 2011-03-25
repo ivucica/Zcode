@@ -27,6 +27,7 @@
 #import "PBXProject.h"
 #import "ProjectDetailListDataSource.h"
 #import "ZCEditorViewController.h"
+#import "ZCInspectorViewController.h"
 #import "PBXProjLib/ZCPBXProjectReader.h"
 
 #if !GNUSTEP
@@ -36,7 +37,7 @@
 @implementation ProjectDocument
 
 @synthesize groupsAndFilesView;
-@synthesize inspector;
+@synthesize inspectorViewContainer;
 #pragma mark -
 #pragma mark Init and deinit
 
@@ -48,6 +49,7 @@
     gafContainers = [[NSArray alloc] initWithObjects:[pbxProject mainGroup],
                                                      nil];
     editorViewController = [[ZCEditorViewController alloc] initWithNibName:@"ZCEditorViewController" bundle:nil];
+    inspectorViewController = [[ZCInspectorViewController alloc] initWithNibName:@"ZCInspectorViewController" bundle:nil];
   }
   return self;
 }
@@ -69,6 +71,7 @@
     {
       [self setFileName:file];
       editorViewController = [[ZCEditorViewController alloc] initWithNibName:@"ZCEditorViewController" bundle:nil];
+      inspectorViewController = [[ZCInspectorViewController alloc] initWithNibName:@"ZCInspectorViewController" bundle:nil];
     }
     else
     {
@@ -92,10 +95,18 @@
 
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
+  
+  // FIXME is the right way to get NSWindow for this NSDocument?
+  // it should be, at the moment. we probably have only one window controller at the moment.
+  NSWindowController *wc = [[self windowControllers] objectAtIndex:0];
+  NSWindow* w = [wc window]; 
+  
+  /////// WINDOW SETUP /////
+  w.delegate = self;
+  
   ////// TOOLBAR SETUP /////
-
+  
   toolbar = [[NSToolbar alloc] initWithIdentifier:@"toolbar"]; // FIXME toolbar must be inited only once.
-  NSWindow* w = [self windowForSheet]; // FIXME is the right way to get NSWindow for this NSDocument?
   //[toolbar insertItemWithItemIdentifier:@"tb_build" atIndex:[[toolbar items] count]];
   [toolbar setDelegate:self];
   [w setToolbar:toolbar];
@@ -103,9 +114,35 @@
   [toolbar setVisible:YES];
 
   ////// INSPECTOR SETUP /////
-  [inspector setFloatingPanel:YES];
-  [inspector orderFront:nil];
-  NSLog(@"Presented inspector %@", inspector);
+  [inspectorViewContainer setFloatingPanel:YES];
+  [inspectorViewContainer orderFront:nil];
+  NSRect inspectorRect = NSZeroRect;
+  if(inspectorViewContainer)
+  {
+    inspectorRect.size = inspectorViewContainer.frame.size;
+    if(inspectorViewController)
+    {
+      if(inspectorViewController.view)
+      {
+        inspectorViewController.view.frame = inspectorRect;
+        
+        [inspectorViewContainer.contentView addSubview:inspectorViewController.view];
+      }
+      else
+      {
+        NSLog(@"Inspector view does not exist!");
+      }
+    }
+    else
+    {
+      NSLog(@"Inspector view controller failed to load!");
+    }
+  }
+  else
+  {
+    NSLog(@"Inspector panel does not exist!");
+  }
+
 
   ////// EDITOR SETUP /////
 
@@ -153,6 +190,7 @@
     [container release];
   }
 #endif
+  [inspectorViewController release];
   [editorViewController release];
   [gafContainers release];
   [pbxProject release];
@@ -209,6 +247,17 @@
 -(IBAction)build:(id)sender
 {
   NSLog(@"build");
+}
+
+#pragma mark -
+#pragma mark Window delegate
+- (void)windowDidBecomeMain:(NSNotification *)notification
+{
+  [inspectorViewContainer orderFront:nil];
+}
+-(void)windowDidResignMain:(NSNotification*)notification
+{
+  [inspectorViewContainer orderOut:nil];
 }
 
 #pragma mark -
@@ -375,7 +424,15 @@ willBeInsertedIntoToolbar: (BOOL)flag
   }
   [editorViewController.view removeFromSuperview];
   [editorViewController release];
-  NSString *editorType = [item desiredEditor];
+  NSString *editorType = nil;
+  if ([item respondsToSelector:@selector(desiredEditor)]) 
+  {
+    editorType = [item desiredEditor];
+  }
+  else
+  {
+    editorType = @"ZCEditorViewController";
+  }
   
   Class classFromIsa;
   classFromIsa = NSClassFromString(editorType);
@@ -393,6 +450,46 @@ willBeInsertedIntoToolbar: (BOOL)flag
     NSLog(@"Editor view controller %@ failed to load", editorType);
   }
 }
+
+#pragma mark -
+#pragma mark Inspector management
+- (void)switchInspector:(id)item
+{
+  if(!inspectorViewContainer)
+  {
+    NSLog(@"Cannot switch inspector, inspector panel does not exist!");
+    return;
+  }
+  [inspectorViewController.view removeFromSuperview];
+  [inspectorViewController release];
+  NSString *inspectorType = nil;
+  if ([item respondsToSelector:@selector(desiredInspector)]) 
+  {
+    inspectorType = [item desiredInspector];
+  }
+  else
+  {
+    inspectorType = @"ZCInspectorViewController";
+  }
+  
+  Class classFromIsa;
+  classFromIsa = NSClassFromString(inspectorType);
+  
+  inspectorViewController = [[classFromIsa alloc] initWithNibName:inspectorType bundle:nil];
+  if(inspectorViewController)
+  {
+    [inspectorViewContainer.contentView addSubview:inspectorViewController.view];
+    NSRect inspectorRect = NSZeroRect;
+    inspectorRect.size = inspectorViewContainer.frame.size;
+    inspectorViewController.view.frame = inspectorRect;
+  }
+  else
+  {
+    NSLog(@"Inspector view controller %@ failed to load", inspectorType);
+  }
+}
+
+
 
 #pragma mark -
 #pragma mark PBXPathedItem
