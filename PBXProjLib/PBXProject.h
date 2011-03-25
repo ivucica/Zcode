@@ -51,8 +51,8 @@
 
 @property (readwrite, retain) PBXGroup* mainGroup;
 @property (readwrite, retain) NSMutableArray* targets;
-@property (readwrite, retain) ZCPBXTargetList* targetList;
-@property (readwrite, retain) XCConfigurationList* buildConfigurationList;
+@property (nonatomic, retain) ZCPBXTargetList* targetList;
+@property (nonatomic, retain) XCConfigurationList* buildConfigurationList;
 
 @property (readonly) NSString* fileName;
 @end

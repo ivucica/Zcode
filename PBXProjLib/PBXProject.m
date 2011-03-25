@@ -32,6 +32,7 @@
 
 @synthesize buildConfigurationList;
 @synthesize targetList = targetList_;
+@dynamic targets;
 
 -(NSString *)fileName
 {

@@ -34,11 +34,11 @@
     
     PBXProject *owner; // weak reference
 }
-@property (retain) NSMutableArray *buildConfigurations;
-@property (retain) NSString *defaultConfigurationName;
-@property (assign) NSString *defaultConfigurationIsVisible;
+@property (nonatomic, retain) NSMutableArray *buildConfigurations;
+@property (readwrite, retain) NSString *defaultConfigurationName;
+@property (readwrite, assign) NSString *defaultConfigurationIsVisible;
 
-@property (assign) PBXProject *owner;
+@property (readwrite, assign) PBXProject *owner;
 -(NSString*)description;
 
 @end

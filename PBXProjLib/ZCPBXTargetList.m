@@ -38,7 +38,7 @@
 
 -(id)initWithTargets:(NSMutableArray*)array
 {
-  if(self=[super init])
+  if((self=[super init]))
   {
     targets = [array retain];
     NSLog(@"Targetlist");

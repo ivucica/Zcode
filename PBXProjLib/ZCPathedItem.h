@@ -37,8 +37,8 @@
 }
 
 @property (readwrite, assign) ZCPathedItem* owner;
-@property (readwrite, copy) NSString *path;
-@property (readwrite, copy) NSString *sourceTree;
+@property (nonatomic, retain) NSString *path;
+@property (readwrite, retain) NSString *sourceTree;
 
 
 @end
