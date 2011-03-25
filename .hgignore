@@ -11,6 +11,8 @@ build/*
 *.pch
 *.pbxuser
 *.mode1v3
+*.xcodeproj/xcuserdata/*
+*.xcodeproj/project.xcworkspace/*
 .DS_Store
 check/index.h
 config.h
@@ -20,3 +22,4 @@ autom4te.cache
 config.h.in
 GNUmakefile.preamble
 configure
+
