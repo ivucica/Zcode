@@ -41,12 +41,12 @@
 
 -(void)dealloc
 {
-  self.buildActionMask = nil;
+  self.buildActionMask = 0;
   self.files = nil;
   self.inputPaths = nil;
   self.outputPaths = nil;
   self.name = nil;
-  self.runOnlyForDeploymentPostProcessing = nil;
+  self.runOnlyForDeploymentPostProcessing = 0;
   [super dealloc];
 }
 

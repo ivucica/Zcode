@@ -26,6 +26,9 @@
 #import "ProjectDocument.h"
 @implementation PBXShellScriptBuildPhase
 
+@synthesize shellPath;
+@synthesize shellScript;
+
 -(void)dealloc
 {
   [super dealloc];
