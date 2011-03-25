@@ -18,7 +18,6 @@ PACKAGE_NAME = Zcode
 APP_NAME = Zcode
 Zcode_APPLICATION_ICON = apple-green.png
 
-
 #
 # Resource files
 #
@@ -36,7 +35,7 @@ Resources/run.png \
 Resources/target.png
 
 #
-# Header files
+# PBXProjLib Header files
 #
 Zcode_HEADER_FILES = \
 PBXProjLib/PBXFileReference.h \
@@ -48,22 +47,27 @@ PBXProjLib/ZCPathedItem.h \
 PBXProjLib/ZCPBXProjectReader.h \
 PBXProjLib/ZCPBXTargetList.h \
 PBXProjLib/PBXVariantGroup.h \
-PBXProjLib/PBXNativeTarget.h \
-AppController.h \
-ProjectDocument.h \
-GAFContainer.h \
-PBXGroup+ViewRelated.h \
-PBXFileReference+ViewRelated.h \
-XCConfigurationList+ViewRelated.h \
-ZCPBXTargetList+ViewRelated.h \
-PBXNativeTarget+ViewRelated.h \
-ImageAndTextCell.h \
-ProjectDetailListDataSource.h \
-ZCTextEditorViewController.h \
-ZCEditorViewController.h
+PBXProjLib/PBXNativeTarget.h
 
 #
-# Class files
+# IDE Header Files
+#
+Zcode_HEADER_FILES += \
+IDE/AppController.h \
+IDE/ProjectDocument.h \
+IDE/GAFContainer.h \
+IDE/PBXGroup+ViewRelated.h \
+IDE/PBXFileReference+ViewRelated.h \
+IDE/XCConfigurationList+ViewRelated.h \
+IDE/ZCPBXTargetList+ViewRelated.h \
+IDE/PBXNativeTarget+ViewRelated.h \
+IDE/ImageAndTextCell.h \
+IDE/ProjectDetailListDataSource.h \
+IDE/ZCTextEditorViewController.h \
+IDE/ZCEditorViewController.h
+
+#
+# PBXProjLib Class files
 #
 Zcode_OBJC_FILES = \
 PBXProjLib/PBXFileReference.m \
@@ -75,25 +79,25 @@ PBXProjLib/ZCPathedItem.m \
 PBXProjLib/ZCPBXProjectReader.m \
 PBXProjLib/PBXVariantGroup.m \
 PBXProjLib/ZCPBXTargetList.m \
-PBXProjLib/PBXNativeTarget.m \
-AppController.m \
-ProjectDocument.m \
-GAFContainer.m \
-PBXGroup+ViewRelated.m \
-PBXFileReference+ViewRelated.m \
-ZCPBXTargetList+ViewRelated.m \
-PBXNativeTarget+ViewRelated.m \
-ImageAndTextCell.m \
-ProjectDetailListDataSource.m \
-ZCTextEditorViewController.m \
-ZCEditorViewController.m \
-gnustep_more.m
+PBXProjLib/PBXNativeTarget.m
 
 #
-# Other sources
+# IDE Class Files
 #
 Zcode_OBJC_FILES += \
-Zcode_main.m 
+IDE/AppController.m \
+IDE/ProjectDocument.m \
+IDE/GAFContainer.m \
+IDE/PBXGroup+ViewRelated.m \
+IDE/PBXFileReference+ViewRelated.m \
+IDE/ZCPBXTargetList+ViewRelated.m \
+IDE/PBXNativeTarget+ViewRelated.m \
+IDE/ImageAndTextCell.m \
+IDE/ProjectDetailListDataSource.m \
+IDE/ZCTextEditorViewController.m \
+IDE/ZCEditorViewController.m \
+IDE/gnustep_more.m \
+IDE/Zcode_main.m 
 
 #
 # Subprojects

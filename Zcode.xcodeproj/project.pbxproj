@@ -171,31 +171,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7FD67AD2133CFFA500BEF030 /* IDE */,
 				96EABD0812EC9BBB006239A6 /* PBXProjLib */,
-				969956BF12EC99C0005B1A5F /* PBXFileReference+ViewRelated.h */,
-				969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */,
-				969956C112EC99C0005B1A5F /* PBXGroup+ViewRelated.h */,
-				969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */,
-				7F855E581315BC2C00196C59 /* PBXNativeTarget+ViewRelated.h */,
-				7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */,
-				7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */,
-				7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */,
-				7F11AE63130445A400D2B67A /* ZCPBXTargetList+ViewRelated.h */,
-				7F11AE64130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m */,
-				7F6ACAD612E9A15500536F3D /* AppController.h */,
-				7F6ACAD712E9A15500536F3D /* AppController.m */,
-				7F6ACAD812E9A15500536F3D /* GAFContainer.h */,
-				7F6ACAD912E9A15500536F3D /* GAFContainer.m */,
-				7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */,
-				7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */,
-				7F6ACAE612E9A15500536F3D /* ProjectDocument.h */,
-				7F6ACAE712E9A15500536F3D /* ProjectDocument.m */,
-				7F6ACC1F12E9BBA200536F3D /* ProjectDetailListDataSource.h */,
-				7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */,
-				7F6ACC8112E9D69F00536F3D /* ZCEditorViewController.h */,
-				7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */,
-				7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */,
-				7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -203,7 +180,6 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7F6ACAC212E99F5C00536F3D /* Zcode_main.m */,
 				2564AD2C0F5327BB00F57823 /* Zcode_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -233,6 +209,38 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7FD67AD2133CFFA500BEF030 /* IDE */ = {
+			isa = PBXGroup;
+			children = (
+				969956BF12EC99C0005B1A5F /* PBXFileReference+ViewRelated.h */,
+				969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */,
+				969956C112EC99C0005B1A5F /* PBXGroup+ViewRelated.h */,
+				969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */,
+				7F855E581315BC2C00196C59 /* PBXNativeTarget+ViewRelated.h */,
+				7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */,
+				7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */,
+				7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */,
+				7F11AE63130445A400D2B67A /* ZCPBXTargetList+ViewRelated.h */,
+				7F11AE64130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m */,
+				7F6ACAD612E9A15500536F3D /* AppController.h */,
+				7F6ACAD712E9A15500536F3D /* AppController.m */,
+				7F6ACAD812E9A15500536F3D /* GAFContainer.h */,
+				7F6ACAD912E9A15500536F3D /* GAFContainer.m */,
+				7F6ACADA12E9A15500536F3D /* ImageAndTextCell.h */,
+				7F6ACADB12E9A15500536F3D /* ImageAndTextCell.m */,
+				7F6ACAE612E9A15500536F3D /* ProjectDocument.h */,
+				7F6ACAE712E9A15500536F3D /* ProjectDocument.m */,
+				7F6ACC1F12E9BBA200536F3D /* ProjectDetailListDataSource.h */,
+				7F6ACC2012E9BBA200536F3D /* ProjectDetailListDataSource.m */,
+				7F6ACC8112E9D69F00536F3D /* ZCEditorViewController.h */,
+				7F6ACC8212E9D69F00536F3D /* ZCEditorViewController.m */,
+				7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */,
+				7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */,
+				7F6ACAC212E99F5C00536F3D /* Zcode_main.m */,
+			);
+			path = IDE;
 			sourceTree = "<group>";
 		};
 		96EABD0812EC9BBB006239A6 /* PBXProjLib */ = {
@@ -409,6 +417,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -422,6 +431,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)";
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
