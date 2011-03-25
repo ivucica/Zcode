@@ -102,7 +102,7 @@
 }
 
 - (void)editWithFrame:(NSRect)aRect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)anObject event:(NSEvent *)theEvent {
-    NSRect textFrame, imageFrame;
+    NSRect textFrame = aRect, imageFrame;
     if (image != nil)
     {
       NSDivideRect (aRect, &imageFrame, &textFrame, 3 + [image size].width, NSMinXEdge);
@@ -111,7 +111,7 @@
 }
 
 - (void)selectWithFrame:(NSRect)aRect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)anObject start:(NSInteger)selStart length:(NSInteger)selLength {
-    NSRect textFrame, imageFrame;
+    NSRect textFrame = aRect, imageFrame;
     if(image != nil) {
       NSDivideRect (aRect, &imageFrame, &textFrame, 3 + [image size].width, NSMinXEdge);
     }
