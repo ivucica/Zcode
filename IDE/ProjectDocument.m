@@ -410,6 +410,7 @@ willBeInsertedIntoToolbar: (BOOL)flag
   
   if (leafs.count == 1) {
 	  [self switchEditor:item];
+    [self switchInspector:item];
   }
 }
 

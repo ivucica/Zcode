@@ -69,6 +69,8 @@
 @property (retain, nonatomic) NSString *fileName_undeprecated;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 
+- (void)switchEditor:(id)item;
+- (void)switchInspector:(id)item;
 @end
 
 #endif // _PBXPROJECT_H_
