@@ -32,6 +32,7 @@
 		7F6ACD0A12E9DD0D00536F3D /* apple-green.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD0912E9DD0D00536F3D /* apple-green.icns */; };
 		7F6ACD3E12E9DF5A00536F3D /* ZCTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */; };
 		7F6ACD4912E9E18B00536F3D /* ZCTextEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */; };
+		7F7D13AF134DAF9E00530F39 /* PBXBuildSettingsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D13AE134DAF9E00530F39 /* PBXBuildSettingsDictionary.m */; };
 		7F855DC71315AA8100196C59 /* XCBuildConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855DC61315AA8100196C59 /* XCBuildConfiguration.m */; };
 		7F855E5A1315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E591315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m */; };
 		7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E761315BD9E00196C59 /* XCConfigurationList.m */; };
@@ -94,6 +95,8 @@
 		7F6ACD3C12E9DF5A00536F3D /* ZCTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCTextEditorViewController.h; sourceTree = "<group>"; };
 		7F6ACD3D12E9DF5A00536F3D /* ZCTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCTextEditorViewController.m; sourceTree = "<group>"; };
 		7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCTextEditorViewController.xib; sourceTree = "<group>"; };
+		7F7D13AD134DAF9E00530F39 /* PBXBuildSettingsDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildSettingsDictionary.h; sourceTree = "<group>"; };
+		7F7D13AE134DAF9E00530F39 /* PBXBuildSettingsDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildSettingsDictionary.m; sourceTree = "<group>"; };
 		7F855DC51315AA8100196C59 /* XCBuildConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildConfiguration.h; sourceTree = "<group>"; };
 		7F855DC61315AA8100196C59 /* XCBuildConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildConfiguration.m; sourceTree = "<group>"; };
 		7F855E581315BC2C00196C59 /* PBXNativeTarget+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXNativeTarget+ViewRelated.h"; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 			children = (
 				7FE7EE07133BA9B700066C1E /* PBXBuildPhase.h */,
 				7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */,
+				7F7D13AD134DAF9E00530F39 /* PBXBuildSettingsDictionary.h */,
+				7F7D13AE134DAF9E00530F39 /* PBXBuildSettingsDictionary.m */,
 				7FE7EE09133BA9B700066C1E /* PBXShellScriptBuildPhase.h */,
 				7FE7EE0A133BA9B700066C1E /* PBXShellScriptBuildPhase.m */,
 				96A380F812EFB82800AEFB83 /* PBXBuildFile.h */,
@@ -382,6 +387,7 @@
 				7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */,
 				7FE7EE0C133BA9B700066C1E /* PBXShellScriptBuildPhase.m in Sources */,
 				7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */,
+				7F7D13AF134DAF9E00530F39 /* PBXBuildSettingsDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

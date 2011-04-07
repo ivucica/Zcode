@@ -102,8 +102,8 @@ IDE/Zcode_main.m
 #
 # Subprojects
 #
-#SUBPROJECTS = \
-#check
+SUBPROJECTS = \
+check
 
 #
 # Makefiles

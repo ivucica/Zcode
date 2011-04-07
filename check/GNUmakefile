@@ -20,7 +20,7 @@ include $(GNUSTEP_MAKEFILES)/tool.make
 
 main.m:: index.h
 index.h: $(wildcard check_*.m)
-	grep ^CHECK $^ > index.h
+	grep ^CHECK $^ | sed 's/^check_.*\.m:CHECK/CHECK/' > index.h
 
 # `make check' is not documented, but we seem to have the hooks here for this purpose.
 internal-check:: $(addprefix $(GNUSTEP_OBJ_DIR)/,$(TOOL_NAME))
