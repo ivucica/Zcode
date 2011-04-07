@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.67])
 AC_INIT(Zcode, 1.0, [ivan@vucica.net])
-AC_CONFIG_SRCDIR([Zcode_main.m])
+AC_CONFIG_SRCDIR([IDE/Zcode_main.m])
 AC_CONFIG_HEADERS([config.h])
 
 # We need GNUstep

@@ -557,7 +557,7 @@ PACKAGE_STRING='Zcode 1.0'
 PACKAGE_BUGREPORT='ivan@vucica.net'
 PACKAGE_URL=''
 
-ac_unique_file="Zcode_main.m"
+ac_unique_file="IDE/Zcode_main.m"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
