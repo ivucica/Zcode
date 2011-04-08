@@ -32,6 +32,8 @@
 
 #if !GNUSTEP
 #import <objc/runtime.h>
+#else
+#define NSTexturedRoundedBezelStyle NSTexturedRoundBezelStyle
 #endif
 
 @implementation ProjectDocument
@@ -376,7 +378,11 @@ willBeInsertedIntoToolbar: (BOOL)flag
     return;
   if([item respondsToSelector:@selector(outlineView:setObjectValue:forTableColumn:)])
   {
-    [(id<NSOutlineViewDelegate>)item outlineView:outlineView setObjectValue:objectValue forTableColumn:tableColumn];
+    [(id
+#if !GNUSTEP
+		    <NSOutlineViewDelegate>
+#endif
+		    )item outlineView:outlineView setObjectValue:objectValue forTableColumn:tableColumn];
   }
 }
 

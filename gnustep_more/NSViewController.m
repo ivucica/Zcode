@@ -25,6 +25,8 @@
 #import "AppKit/NSViewController.h"
 #import "AppKit/NSNib.h"
 
+static NSString *NSNibOwner = @"NSOwner";
+
 @implementation NSViewController
 
 - (void) dealloc

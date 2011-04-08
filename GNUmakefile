@@ -64,7 +64,8 @@ IDE/PBXNativeTarget+ViewRelated.h \
 IDE/ImageAndTextCell.h \
 IDE/ProjectDetailListDataSource.h \
 IDE/ZCTextEditorViewController.h \
-IDE/ZCEditorViewController.h
+IDE/ZCEditorViewController.h \
+IDE/ZCInspectorViewController.h
 
 #
 # PBXProjLib Class files
@@ -96,6 +97,7 @@ IDE/ImageAndTextCell.m \
 IDE/ProjectDetailListDataSource.m \
 IDE/ZCTextEditorViewController.m \
 IDE/ZCEditorViewController.m \
+IDE/ZCInspectorViewController.m \
 IDE/gnustep_more.m \
 IDE/Zcode_main.m 
 
