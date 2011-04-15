@@ -90,7 +90,8 @@ ADDITIONAL_INCLUDE_DIRS = $ADDITIONAL_INCLUDE_DIRS
 include \$(GNUSTEP_MAKEFILES)/aggregate.make
 include \$(GNUSTEP_MAKEFILES)/application.make
 __END
-     
+     echo "+++ Next test: " >&AS_MESSAGE_LOG_FD
+     cat conftest.d/test.m >&AS_MESSAGE_LOG_FD
      echo "Running make in conftest.d" >&AS_MESSAGE_LOG_FD
      $MAKE -C conftest.d >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
      gnustep_make_result=$?
@@ -127,9 +128,9 @@ GNUSTEP_MAKE_IFELSE([
 main() { NSGradientType testVariable = NSTexturedRoundBezelStyle; return 0; }
 ],[
   AC_DEFINE([HAVE_NSTEXTUREDROUNDBEZELSTYLE], 1, [Define to 1 if NSTexturedRoundBezelStyle is defined. Older GNUstep versions had a bug with having this defined, instead of NSTexturedRoundedBezelStyle.])
-  AC_MSG_RESULT([found])
+  AC_MSG_RESULT([old gnustep])
 ],[
-  AC_MSG_RESULT([not found])
+  AC_MSG_RESULT([newer gnustep])
 ])
 
 
@@ -144,6 +145,25 @@ main() { NSString *testVariable = NSNibOwner; return 0; }
 ],[
   AC_MSG_RESULT([not found])
 ])
+
+
+
+# Check for compiler not allowing 'inner for loop'
+AC_MSG_CHECKING([for c99])
+GNUSTEP_MAKE_IFELSE([
+#import <AppKit/AppKit.h>
+main() { for(int i = 0; i<0; i++); return 0; }
+],[
+  AC_MSG_RESULT([default])
+],[
+  AC_MSG_RESULT([not default, passing argument])
+  ADDITIONAL_CFLAGS="$ADDITIONAL_CFLAGS -std=c99"
+  ADDITIONAL_OBJCFLAGS="$ADDITIONAL_OBJCFLAGS -std=c99"
+  AC_SUBST(ADDITIONAL_CFLAGS)
+  AC_SUBST(ADDITIONAL_OBJCFLAGS)
+])
+
+
 
 
 AC_CONFIG_FILES([GNUmakefile.preamble
