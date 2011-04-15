@@ -67,6 +67,15 @@ m4_define([GNUSTEP_MAKE_IFELSE],
 $1
 __END
      cat > conftest.d/GNUmakefile <<__END
+
+ifeq (\$(GNUSTEP_MAKEFILES),)
+ GNUSTEP_MAKEFILES := \$(shell gnustep-config --variable=GNUSTEP_MAKEFILES 2>/dev/null)
+endif
+ifeq (\$(GNUSTEP_MAKEFILES),)
+ \$(error You need to set GNUSTEP_MAKEFILES before compiling!)
+endif
+
+
 include \$(GNUSTEP_MAKEFILES)/common.make
 
 VERSION = 1.0
@@ -77,9 +86,11 @@ TestProg_OBJC_FILES=test.m
 
 $SET_CC
 $SET_CPP
+ADDITIONAL_INCLUDE_DIRS = $ADDITIONAL_INCLUDE_DIRS
+include \$(GNUSTEP_MAKEFILES)/aggregate.make
 include \$(GNUSTEP_MAKEFILES)/application.make
 __END
-
+     
      echo "Running make in conftest.d" >&AS_MESSAGE_LOG_FD
      $MAKE -C conftest.d >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
      gnustep_make_result=$?
@@ -105,6 +116,35 @@ main() { return 0; }
 ],[
   AC_MSG_RESULT([not found])
 ])
+
+
+ 
+# Check for buggy name of NSTexturedRoundedBezelStyle,
+# that is, NSTexturedRoundBezelStyle
+AC_MSG_CHECKING([for NSTexturedRoundBezelStyle])
+GNUSTEP_MAKE_IFELSE([
+#import <AppKit/AppKit.h>
+main() { NSGradientType testVariable = NSTexturedRoundBezelStyle; return 0; }
+],[
+  AC_DEFINE([HAVE_NSTEXTUREDROUNDBEZELSTYLE], 1, [Define to 1 if NSTexturedRoundBezelStyle is defined. Older GNUstep versions had a bug with having this defined, instead of NSTexturedRoundedBezelStyle.])
+  AC_MSG_RESULT([found])
+],[
+  AC_MSG_RESULT([not found])
+])
+
+
+# Check for missing NSNibOwner in older GNUstep
+AC_MSG_CHECKING([for NSNibOwner])
+GNUSTEP_MAKE_IFELSE([
+#import <AppKit/AppKit.h>
+main() { NSString *testVariable = NSNibOwner; return 0; }
+],[
+  AC_DEFINE([HAVE_NSNIBOWNER], 1, [Define to 1 if NSNibOwner is properly defined.])
+  AC_MSG_RESULT([found])
+],[
+  AC_MSG_RESULT([not found])
+])
+
 
 AC_CONFIG_FILES([GNUmakefile.preamble
                  check/GNUmakefile.preamble])

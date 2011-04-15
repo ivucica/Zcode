@@ -24,8 +24,10 @@
 
 #import "AppKit/NSViewController.h"
 #import "AppKit/NSNib.h"
-
+#import "config.h"
+#if !HAVE_NSNIBOWNER
 static NSString *NSNibOwner = @"NSOwner";
+#endif
 
 @implementation NSViewController
 

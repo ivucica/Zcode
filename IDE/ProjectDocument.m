@@ -30,9 +30,12 @@
 #import "ZCInspectorViewController.h"
 #import "PBXProjLib/ZCPBXProjectReader.h"
 
-#if !GNUSTEP
+#if !GNUSTEP 
 #import <objc/runtime.h>
-#else
+#endif
+
+#if HAVE_NSTEXTUREDROUNDBEZELSTYLE
+// older GNUstep have incorrectly named this enum member
 #define NSTexturedRoundedBezelStyle NSTexturedRoundBezelStyle
 #endif
 
