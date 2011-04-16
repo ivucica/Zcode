@@ -26,11 +26,24 @@
 
 
 @implementation ZCEditorViewController
+@synthesize fileName;
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   if ((self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-    NSLog(@"New ZCEditorViewController!");
+    NSLog(@"New %@", [[self class] description], nibNameOrNil);
   }
   return self;
 }
+
+-(void)loadView
+{
+    [super loadView];
+    [self _loadFile];
+}
+
+-(void)_loadFile
+{
+    //
+}
+
 @end

@@ -26,5 +26,15 @@
 
 
 @implementation ZCTextEditorViewController
+@synthesize textView;
+-(void)_loadFile
+{
+    [textView setRichText:NO];
+    NSString *fileContents = [NSString stringWithContentsOfFile:fileName];
+    if(!fileContents)
+        return;
+    [textView setString:fileContents];
+    NSLog(@"%@ %@", textView, fileContents);
+}
 
 @end

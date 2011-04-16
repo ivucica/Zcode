@@ -451,6 +451,7 @@ willBeInsertedIntoToolbar: (BOOL)flag
   editorViewController = [[classFromIsa alloc] initWithNibName:editorType bundle:nil];
   if(editorViewController)
   {
+    [editorViewController setFileName:[item path]];
     [editorViewContainer addSubview:editorViewController.view];
     NSRect editorRect = NSZeroRect;
     editorRect.size = editorViewContainer.frame.size;

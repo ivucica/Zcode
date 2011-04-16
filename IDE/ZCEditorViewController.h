@@ -34,7 +34,8 @@
 #endif
 
 @interface ZCEditorViewController : NSViewController {
-
+    NSString *fileName;
 }
-
+@property (nonatomic, retain) NSString *fileName;
+-(void)_loadFile;
 @end

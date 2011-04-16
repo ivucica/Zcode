@@ -74,10 +74,12 @@
   else if(self.lastKnownFileType)
     fileType = self.lastKnownFileType;
   
-
   if([fileType isEqualToString:@"sourcecode.c.objc"])
     return @"ZCTextEditorViewController";
-  
+    
+  if([fileType substringToIndex:10]) // strlen("sourcecode")
+    return @"ZCTextEditorViewController";
+    
   return @"ZCEditorViewController";
 }
 

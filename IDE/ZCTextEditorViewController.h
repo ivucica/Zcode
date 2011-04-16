@@ -36,7 +36,7 @@
 #import "ZCEditorViewController.h"
 
 @interface ZCTextEditorViewController : ZCEditorViewController {
-
+    IBOutlet NSTextView *textView;
 }
-
+@property (nonatomic, retain) NSTextView *textView;
 @end
