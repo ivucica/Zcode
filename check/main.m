@@ -27,5 +27,7 @@ main(int argc, const char *argv[])
 	[p release]; 
 #include "index.h"
 #undef CHECK
+
+        fprintf(stderr, "-- check complete without failures --\n");
 	exit(0);
 }

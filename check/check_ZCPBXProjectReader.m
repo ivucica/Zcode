@@ -95,6 +95,8 @@ CHECK(ZCPBXProjectReader_sets_property_values)
 {
 	ZCPBXProjectReader *r = [[ZCPBXProjectReader alloc] initWithFile:@"simple.pbxproj"];
 	PBXFileReference *fr = [r objectForKey:@"7F6ACADE12E9A15500536F3D"];
+        assert(fr);
+        assert(fr.path);
 	assert(fr.fileEncoding == 4);
 	assert([fr.lastKnownFileType isEqualToString:@"sourcecode.c.h"]);
 	assert([fr.path isEqualToString:@"PBXFileReference.h"]);
