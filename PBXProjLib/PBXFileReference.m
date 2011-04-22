@@ -46,7 +46,7 @@
   [super dealloc];
 }
 
-
+/*
 -(NSString*)path
 {
   if([self.sourceTree isEqualToString:@"<absolute>"])
@@ -60,6 +60,7 @@
 
   return path_;
 }
+*/
 
 -(NSString*)description
 {
@@ -77,7 +78,7 @@
   if([fileType isEqualToString:@"sourcecode.c.objc"])
     return @"ZCTextEditorViewController";
     
-  if([fileType substringToIndex:10]) // strlen("sourcecode")
+  if([fileType length] >= 10 && [[fileType substringToIndex:10] isEqualToString:@"sourcecode"]) // strlen("sourcecode")
     return @"ZCTextEditorViewController";
     
   return @"ZCEditorViewController";
