@@ -28,6 +28,7 @@ Resources/MainMenu-GNUstep.gsmarkup \
 Resources/MainMenu-OSX.gsmarkup \
 Resources/ProjectDocument.gorm \
 Resources/ZCEditorViewController.gorm \
+Resources/ZCTextEditorViewController.gorm \
 Resources/apple-green.png \
 Resources/app.png \
 Resources/build.png \
