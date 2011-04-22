@@ -82,10 +82,7 @@
 +(NSString*)expandedBuildSettingForString:(NSString*)string withExpansionDictionaries:(NSArray*)expansionDictionaries
 {
     NSString *currentString = string;
-    
-    int currentDictionaryIndex = 0;
-    PBXBuildSettingsDictionary *currentDictionary = [expansionDictionaries objectAtIndex:currentDictionaryIndex];
-    
+     
     for (int i = 0; i < [currentString length]-2; i++) 
     {
         NSString *variableOpening = [currentString substringWithRange:NSMakeRange(i, 2)];
@@ -95,18 +92,22 @@
             locationOfVariableCloser.location != NSNotFound) 
         {
             NSString *variableName = [currentString substringWithRange:NSMakeRange(i+2, locationOfVariableCloser.location - (i+2))];
-            NSString *variableValue = [currentDictionary objectForKey:variableName];
-            if ([currentDictionary objectForKey:variableName]) 
-            {
-                
-                NSString *newString = [currentString substringToIndex:i];
+
             
-                newString = [newString stringByAppendingString:variableValue];
-                newString = [newString stringByAppendingString:[currentString substringFromIndex:locationOfVariableCloser.location+1]];
+            for(PBXBuildSettingsDictionary *currentDictionary in expansionDictionaries)
+            {
+                if ([currentDictionary objectForKey:variableName]) 
+                {
+                    NSString *variableValue = [currentDictionary objectForKey:variableName];
+                    NSString *newString = [currentString substringToIndex:i];
                 
-                currentString = newString;
-                
-                i--; // repeat the comparison in case we inserted something that is, again, a variable
+                    newString = [newString stringByAppendingString:variableValue];
+                    newString = [newString stringByAppendingString:[currentString substringFromIndex:locationOfVariableCloser.location+1]];
+                    
+                    currentString = newString;
+                    
+                    i--; // repeat the comparison in case we inserted something that is, again, a variable
+                }
             }
             // FIXME break evaluation in case variable is already evaluated in
             // this pass over the dictionary!
