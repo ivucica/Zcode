@@ -190,12 +190,14 @@
 {
   NSLog(@"PD dealloc");
   [toolbar release];
+/*
 #if GNUSTEP
   for(id container in gafContainers)
   {
     [container release];
   }
 #endif
+*/
   [inspectorViewController release];
   [editorViewController release];
   [gafContainers release];
