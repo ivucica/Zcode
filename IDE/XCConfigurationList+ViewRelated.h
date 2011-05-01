@@ -24,8 +24,11 @@
 #import "XCConfigurationList.h"
 
 @interface XCConfigurationList (ViewRelated)
-// NSMenuDelegate
+#if !GNUSTEP && !_WIN32
+<NSMenuDelegate>
+#endif
 
+// NSMenuDelegate
 - (NSInteger)numberOfItemsInMenu:(NSMenu *)menu;
 - (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel;
 @end

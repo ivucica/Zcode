@@ -33,7 +33,7 @@
 @class ZCInspectorViewController;
 
 @interface ProjectDocument : NSDocument
-#if !GNUSTEP
+#if !GNUSTEP && !_WIN32
 <NSToolbarDelegate, NSOutlineViewDelegate, NSWindowDelegate> // GNUstep does not define these as a protocol
 #endif
 {

@@ -37,7 +37,7 @@
   }
   else
   {
-    #if GNUSTEP
+    #if GNUSTEP || _WIN32
     img = [NSImage imageNamed:@"common_Folder"];
     #else
     img = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)];
