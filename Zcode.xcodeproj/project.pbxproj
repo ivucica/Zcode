@@ -48,6 +48,12 @@
 		7F050856136D9A5700754FDE /* ZCInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */; };
 		7F050857136D9A5700754FDE /* PBXBuildSettingsDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7D13AE134DAF9E00530F39 /* PBXBuildSettingsDictionary.m */; };
 		7F050858136D9A5700754FDE /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */; };
+		7F08B615136DF58E00577310 /* PBXCompilerSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B614136DF58E00577310 /* PBXCompilerSpecification.m */; };
+		7F08B616136DF58E00577310 /* PBXCompilerSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B614136DF58E00577310 /* PBXCompilerSpecification.m */; };
+		7F08B619136DF67C00577310 /* XCSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B618136DF67C00577310 /* XCSpecification.m */; };
+		7F08B61A136DF67C00577310 /* XCSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B618136DF67C00577310 /* XCSpecification.m */; };
+		7F08B621136E061B00577310 /* XCCompilerSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B620136E061B00577310 /* XCCompilerSpecification.m */; };
+		7F08B622136E061B00577310 /* XCCompilerSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F08B620136E061B00577310 /* XCCompilerSpecification.m */; };
 		7F11AE2A1304333E00D2B67A /* PBXNativeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11AE291304333E00D2B67A /* PBXNativeTarget.m */; };
 		7F11AE5F130444DE00D2B67A /* ZCPBXTargetList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11AE5E130444DE00D2B67A /* ZCPBXTargetList.m */; };
 		7F11AE65130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F11AE64130445A400D2B67A /* ZCPBXTargetList+ViewRelated.m */; };
@@ -100,6 +106,12 @@
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		7F05085F136D9A5700754FDE /* Zcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F050861136D9A5800754FDE /* Zcode-Info-win32.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Zcode-Info-win32.plist"; sourceTree = "<group>"; };
+		7F08B613136DF58E00577310 /* PBXCompilerSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCompilerSpecification.h; sourceTree = "<group>"; };
+		7F08B614136DF58E00577310 /* PBXCompilerSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCompilerSpecification.m; sourceTree = "<group>"; };
+		7F08B617136DF67C00577310 /* XCSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSpecification.h; sourceTree = "<group>"; };
+		7F08B618136DF67C00577310 /* XCSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSpecification.m; sourceTree = "<group>"; };
+		7F08B61F136E061B00577310 /* XCCompilerSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCCompilerSpecification.h; sourceTree = "<group>"; };
+		7F08B620136E061B00577310 /* XCCompilerSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCCompilerSpecification.m; sourceTree = "<group>"; };
 		7F11AE281304333E00D2B67A /* PBXNativeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXNativeTarget.h; sourceTree = "<group>"; };
 		7F11AE291304333E00D2B67A /* PBXNativeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTarget.m; sourceTree = "<group>"; };
 		7F11AE5D130444DE00D2B67A /* ZCPBXTargetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBXTargetList.h; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F050B50136DAAB400754FDE /* Builder */,
 				7FD67AD2133CFFA500BEF030 /* IDE */,
 				96EABD0812EC9BBB006239A6 /* PBXProjLib */,
 			);
@@ -276,6 +289,19 @@
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F050B50136DAAB400754FDE /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				7F08B613136DF58E00577310 /* PBXCompilerSpecification.h */,
+				7F08B614136DF58E00577310 /* PBXCompilerSpecification.m */,
+				7F08B617136DF67C00577310 /* XCSpecification.h */,
+				7F08B618136DF67C00577310 /* XCSpecification.m */,
+				7F08B61F136E061B00577310 /* XCCompilerSpecification.h */,
+				7F08B620136E061B00577310 /* XCCompilerSpecification.m */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		7FD67AD2133CFFA500BEF030 /* IDE */ = {
@@ -551,6 +577,9 @@
 				7F050856136D9A5700754FDE /* ZCInspectorViewController.m in Sources */,
 				7F050857136D9A5700754FDE /* PBXBuildSettingsDictionary.m in Sources */,
 				7F050858136D9A5700754FDE /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */,
+				7F08B616136DF58E00577310 /* PBXCompilerSpecification.m in Sources */,
+				7F08B61A136DF67C00577310 /* XCSpecification.m in Sources */,
+				7F08B622136E061B00577310 /* XCCompilerSpecification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +616,9 @@
 				7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */,
 				7F7D13AF134DAF9E00530F39 /* PBXBuildSettingsDictionary.m in Sources */,
 				7F427DAD136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */,
+				7F08B615136DF58E00577310 /* PBXCompilerSpecification.m in Sources */,
+				7F08B619136DF67C00577310 /* XCSpecification.m in Sources */,
+				7F08B621136E061B00577310 /* XCCompilerSpecification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,6 +711,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
+				IBC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = "Zcode-Info-cocoa.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Zcode;
