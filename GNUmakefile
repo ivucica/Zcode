@@ -66,7 +66,16 @@ IDE/ImageAndTextCell.h \
 IDE/ProjectDetailListDataSource.h \
 IDE/ZCTextEditorViewController.h \
 IDE/ZCEditorViewController.h \
-IDE/ZCInspectorViewController.h
+IDE/ZCInspectorViewController.h \
+IDE/ZCPBXShellScriptBuildPhaseInspectorViewController.h
+
+#
+# Builder Header Files
+#
+Zcode_HEADER_FILES += \
+Builder/XCSpecification.h \
+Builder/XCCompilerSpecification.h \
+Builder/PBXCompilerSpecification.h
 
 #
 # PBXProjLib Class files
@@ -99,8 +108,17 @@ IDE/ProjectDetailListDataSource.m \
 IDE/ZCTextEditorViewController.m \
 IDE/ZCEditorViewController.m \
 IDE/ZCInspectorViewController.m \
+IDE/ZCPBXShellScriptBuildPhaseInspectorViewController.m \
 IDE/gnustep_more.m \
 IDE/Zcode_main.m 
+
+#
+# Builder Class Files
+#
+Zcode_OBJC_FILES += \
+Builder/XCSpecification.m \
+Builder/XCCompilerSpecification.m \
+Builder/PBXCompilerSpecification.m
 
 #
 # Subprojects

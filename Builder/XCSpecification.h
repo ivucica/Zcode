@@ -25,6 +25,8 @@
 @interface XCSpecification : NSObject {
     NSDictionary *properties;
     NSString *identifier;
+
+    XCSpecification *superSpecification;
 }
 
 @property (nonatomic, readonly) NSString *identifier;
