@@ -3,9 +3,7 @@
  
  Copyright (C) 2011 Ivan Vučica
  
- Author: Ivan Vucica
- 
- Created: 2011-02-23 23:18:40 +0100 by ivucica
+ Author: Ivan Vučica 
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public

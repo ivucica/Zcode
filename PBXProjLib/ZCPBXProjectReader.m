@@ -3,9 +3,7 @@
  
  Copyright (C) 2011 Jason Felice
  
- Author: Jason Felice
- 
- Created: 2011-01-26 22:10:55 -0500 by eraserhd
+ Author: Jason Felice 
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
