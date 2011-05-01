@@ -30,6 +30,7 @@ Resources/ProjectDocument.gorm \
 Resources/ZCEditorViewController.gorm \
 Resources/ZCTextEditorViewController.gorm \
 Resources/ZCInspectorViewController.gorm \
+Resources/ZCPBXShellScriptBuildPhaseInspectorViewController.gorm \
 Resources/apple-green.png \
 Resources/app.png \
 Resources/build.png \
