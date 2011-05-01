@@ -28,6 +28,8 @@
 #import "ZCInspectorViewController.h"
 #import "PBXProjLib/ZCPBXProjectReader.h"
 
+#import "XCConfigurationList+ViewRelated.h"
+
 #if !GNUSTEP 
 #import <objc/runtime.h>
 #endif
@@ -40,7 +42,9 @@
 @implementation ProjectDocument
 
 @synthesize groupsAndFilesView;
+@synthesize editorViewContainer;
 @synthesize inspectorViewContainer;
+@synthesize inspectorPanel;
 @dynamic fileName_undeprecated;
 #pragma mark -
 #pragma mark Init and deinit
@@ -118,8 +122,8 @@
   [toolbar setVisible:YES];
 
   ////// INSPECTOR SETUP /////
-  [inspectorViewContainer setFloatingPanel:YES];
-  [inspectorViewContainer orderFront:nil];
+  [inspectorPanel setFloatingPanel:YES];
+  [inspectorPanel orderFront:nil];
   NSRect inspectorRect = NSZeroRect;
   if(inspectorViewContainer)
   {
@@ -130,7 +134,7 @@
       {
         inspectorViewController.view.frame = inspectorRect;
         
-        [inspectorViewContainer.contentView addSubview:inspectorViewController.view];
+        [inspectorViewContainer addSubview:inspectorViewController.view];
       }
       else
       {
@@ -196,8 +200,9 @@
   }
 #endif
 */
-  [inspectorViewController release];
-  [editorViewController release];
+  self.inspectorPanel = nil;
+  self.inspectorViewContainer = nil;
+  self.editorViewContainer = nil;
   [gafContainers release];
   [pbxProject release];
   [super dealloc];
@@ -259,11 +264,11 @@
 #pragma mark Window delegate
 - (void)windowDidBecomeMain:(NSNotification *)notification
 {
-  [inspectorViewContainer orderFront:nil];
+  [inspectorPanel orderFront:nil];
 }
 -(void)windowDidResignMain:(NSNotification*)notification
 {
-  [inspectorViewContainer orderOut:nil];
+  [inspectorPanel orderOut:nil];
 }
 
 #pragma mark -
@@ -419,8 +424,9 @@ willBeInsertedIntoToolbar: (BOOL)flag
   
   if (leafs.count == 1) {
 	  [self switchEditor:item];
-    [self switchInspector:item];
   }
+
+  [self switchInspector:item];
 }
 
 
@@ -483,17 +489,19 @@ willBeInsertedIntoToolbar: (BOOL)flag
   {
     inspectorType = @"ZCInspectorViewController";
   }
-  
+
   Class classFromIsa;
   classFromIsa = NSClassFromString(inspectorType);
   
   inspectorViewController = [[classFromIsa alloc] initWithNibName:inspectorType bundle:nil];
   if(inspectorViewController)
   {
-    [inspectorViewContainer.contentView addSubview:inspectorViewController.view];
+    [inspectorViewContainer addSubview:inspectorViewController.view];
     NSRect inspectorRect = NSZeroRect;
     inspectorRect.size = inspectorViewContainer.frame.size;
     inspectorViewController.view.frame = inspectorRect;
+    
+    inspectorViewController.item = item;
   }
   else
   {

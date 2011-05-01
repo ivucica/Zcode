@@ -39,6 +39,10 @@
   
   NSLog(@"Shell script: \n\n%@", shellScript);
 }
+-(NSString*)desiredInspector
+{    
+    return @"ZCPBXShellScriptBuildPhaseInspectorViewController";
+}
 
 @end
 

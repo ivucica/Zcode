@@ -14,6 +14,8 @@
 		7F11AFB31304541F00D2B67A /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFB11304541F00D2B67A /* run.png */; };
 		7F11AFC0130454B900D2B67A /* app.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFBE130454B900D2B67A /* app.png */; };
 		7F11AFC1130454B900D2B67A /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFBF130454B900D2B67A /* target.png */; };
+		7F427DA9136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F427DA8136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib */; };
+		7F427DAD136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */; };
 		7F6ACAC312E99F5C00536F3D /* Zcode_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAC212E99F5C00536F3D /* Zcode_main.m */; };
 		7F6ACAE812E9A15500536F3D /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD712E9A15500536F3D /* AppController.m */; };
 		7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAD912E9A15500536F3D /* GAFContainer.m */; };
@@ -65,6 +67,9 @@
 		7F11AFB11304541F00D2B67A /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
 		7F11AFBE130454B900D2B67A /* app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app.png; sourceTree = "<group>"; };
 		7F11AFBF130454B900D2B67A /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		7F427DA8136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCPBXShellScriptBuildPhaseInspectorViewController.xib; sourceTree = "<group>"; };
+		7F427DAB136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBXShellScriptBuildPhaseInspectorViewController.h; sourceTree = "<group>"; };
+		7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBXShellScriptBuildPhaseInspectorViewController.m; sourceTree = "<group>"; };
 		7F6ACAC212E99F5C00536F3D /* Zcode_main.m */ = {isa = PBXFileReference; comments = "Main file\n\nContains main code"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zcode_main.m; sourceTree = "<group>"; };
 		7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Zcode-Info-cocoa.plist"; sourceTree = "<group>"; };
 		7F6ACAD612E9A15500536F3D /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 				7F6ACC8412E9D6F600536F3D /* ZCEditorViewController.xib */,
 				7F6ACD4812E9E18B00536F3D /* ZCTextEditorViewController.xib */,
 				7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */,
+				7F427DA8136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -250,6 +256,8 @@
 				7F6ACAC212E99F5C00536F3D /* Zcode_main.m */,
 				7FD67AD3133D03A600BEF030 /* ZCInspectorViewController.h */,
 				7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */,
+				7F427DAB136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.h */,
+				7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */,
 			);
 			path = IDE;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
+				7F427DB0136D868000679719 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -350,10 +359,27 @@
 				7F11AFC0130454B900D2B67A /* app.png in Resources */,
 				7F11AFC1130454B900D2B67A /* target.png in Resources */,
 				7FD67AD7133D03A700BEF030 /* ZCInspectorViewController.xib in Resources */,
+				7F427DA9136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F427DB0136D868000679719 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# test script\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D15AC300486D014006FF6A4 /* Sources */ = {
@@ -388,6 +414,7 @@
 				7FE7EE0C133BA9B700066C1E /* PBXShellScriptBuildPhase.m in Sources */,
 				7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */,
 				7F7D13AF134DAF9E00530F39 /* PBXBuildSettingsDictionary.m in Sources */,
+				7F427DAD136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

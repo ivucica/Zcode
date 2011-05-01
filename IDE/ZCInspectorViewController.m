@@ -25,6 +25,8 @@
 
 @implementation ZCInspectorViewController
 
+@synthesize item;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,7 +39,21 @@
 
 - (void)dealloc
 {
+    self.item = nil;
     [super dealloc];
+}
+
+- (void)setItem:(id)_item
+{
+    [_item retain];
+    [item release];
+    item = _item;
+    
+    [self itemWasSwitched];
+}
+- (void)itemWasSwitched
+{
+    
 }
 
 @end

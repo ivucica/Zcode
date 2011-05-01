@@ -27,12 +27,19 @@
 @synthesize textView;
 -(void)_loadFile
 {
-    [textView setRichText:NO];
     NSString *fileContents = [NSString stringWithContentsOfFile:fileName];
+    
     if(!fileContents)
         return;
-    [textView setString:fileContents];
-    NSLog(@"%@ %@", textView, fileContents);
+    
+    NSAttributedString *fileText = 
+    [[[NSAttributedString alloc] initWithString:fileContents 
+                                     attributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                 [NSFont fontWithName:@"Andale Mono"
+                                                                 size:12], NSFontAttributeName, 
+                                                 nil]] autorelease];
+    
+    [[textView textStorage] setAttributedString:fileText];
 }
 
 @end

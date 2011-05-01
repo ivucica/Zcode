@@ -4,7 +4,7 @@
  Copyright (C) 2011 Ivan Vučica
  
  Author: Ivan Vučica
- 
+  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
@@ -20,23 +20,16 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#if GNUSTEP
-#import "config.h"
-#else
-#define HAVE_NSVIEWCONTROLLER_H 1
-#endif
-
-#import <AppKit/AppKit.h>
-#if !(HAVE_NSVIEWCONTROLLER_H)
-#import "gnustep_more/AppKit/NSViewController.h"
-#endif
-
-
-@interface ZCInspectorViewController : NSViewController 
+#import "ZCInspectorViewController.h"
+#import "PBXShellScriptBuildPhase.h"
+@interface ZCPBXShellScriptBuildPhaseInspectorViewController : ZCInspectorViewController 
 {
-    id item;
-}
-@property (nonatomic, retain) id item;
+    PBXShellScriptBuildPhase* shellScriptBuildPhase;
 
--(void)itemWasSwitched;
+    IBOutlet NSTextView* shellScript;
+    IBOutlet NSTextField* shell;
+    
+}
+
+@property (assign) PBXShellScriptBuildPhase* shellScriptBuildPhase;
 @end

@@ -44,7 +44,8 @@
   IBOutlet NSOutlineView *groupsAndFilesView; // gui list of all project objects
   IBOutlet ProjectDetailListDataSource *projectDetailListDataSource;
   IBOutlet NSView *editorViewContainer;
-  IBOutlet NSPanel *inspectorViewContainer;
+  IBOutlet NSView *inspectorViewContainer;
+  IBOutlet NSPanel *inspectorPanel;
 
   NSArray *gafContainers;
   ZCEditorViewController *editorViewController;
@@ -63,7 +64,9 @@
 }
 
 @property (assign, nonatomic) IBOutlet NSOutlineView *groupsAndFilesView;
-@property (assign, nonatomic) IBOutlet NSPanel *inspectorViewContainer;
+@property (assign, nonatomic) IBOutlet NSView *editorViewContainer;
+@property (assign, nonatomic) IBOutlet NSView *inspectorViewContainer;
+@property (assign, nonatomic) IBOutlet NSPanel *inspectorPanel;
 @property (retain, nonatomic) NSString *fileName_undeprecated;
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item;
 
