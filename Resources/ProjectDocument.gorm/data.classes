@@ -20,7 +20,7 @@
 	    "setDelegate:"
 	);
 	Outlets = (
-	    _delegate
+	    "_delegate"
 	);
 	Super = NSObject;
     };
@@ -41,7 +41,8 @@
 	    groupsAndFilesView,
 	    editorViewContainer,
 	    projectDetailListDataSource,
-	    inspector
+	    inspectorPanel,
+	    inspectorViewContainer
 	);
 	Super = NSDocument;
     };

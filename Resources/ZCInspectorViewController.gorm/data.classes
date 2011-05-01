@@ -18,10 +18,11 @@
 	);
 	Super = NSResponder;
     };
-    ZCEditorViewController = {
+    ZCInspectorViewController = {
 	Actions = (
 	);
 	Outlets = (
+	    item
 	);
 	Super = NSViewController;
     };
