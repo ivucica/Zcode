@@ -24,3 +24,4 @@ GNUmakefile.preamble
 configure
 .LSOverride
 _samples
+zcode-xib-crash/*
