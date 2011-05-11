@@ -8,7 +8,7 @@
 	"Jason Felice"
     );
     Copyright = "Copyright (C) 2010-11 Ivan Vucica and Jason Felice";
-    CopyrightDescription = "Released under GNU General Public License v2 or later";
+    CopyrightDescription = "Released under GNU Lesser General Public License v2.1 or later";
     FullVersionID = 1.0;
     NSExecutable = Zcode;
     NSIcon = "apple-green.png";
