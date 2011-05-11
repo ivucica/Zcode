@@ -12,7 +12,7 @@
     FullVersionID = 1.0;
     NSExecutable = Zcode;
     NSIcon = "apple-green.png";
-    NSMainNibFile = Zcode.gorm;
+    NSMainNibFile = Zcode;
     NSPrincipalClass = NSApplication;
     NSRole = Application;
     NSTypes = (
