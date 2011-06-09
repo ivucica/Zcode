@@ -26,5 +26,24 @@
 @implementation XCSpecification
 @synthesize identifier;
 @synthesize superSpecification;
+@synthesize type;
+@synthesize name;
+
++(Class)specificationTypeBaseClass
+{
+    return [XCSpecification class];
+}
++(NSString*)specificationType
+{
+    return @"Generic";
+}
++(NSString*)localizedSpecificationTypeName
+{
+    return [self specificationType];
+}
++(NSSet*)specificationTypePathExtensions
+{
+    return [NSSet setWithObjects:@"pbspec", nil];
+}
 
 @end

@@ -33,4 +33,9 @@
 @property (nonatomic, readonly) XCSpecification *superSpecification;
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) NSString *name;
+
++(Class)specificationTypeBaseClass;
++(NSString*)specificationType;
++(NSString*)localizedSpecificationTypeName;
++(NSSet*)specificationTypePathExtensions;
 @end
