@@ -24,8 +24,28 @@
 
 @interface XCSpecification : NSObject {
     NSDictionary *properties;
+    
+    // name: 
+    // - examples: "Headers Build Phase"
+    // type:
+    // - string specifying what is being specified
+    // - case insensitive
+    // - not required everywhere
+    // - examples: BuildSystem, BuildPhase
+    // identifier:
+    // - identifies uniquely the object
+    // - mostly everywhere
+    // - can be a string, a reverse-dns string, etc
+    // - examples: com.apple.buildphase.headers
+    // very similar to a specification for a build system property!
+    // example name there: HEADER_SEARCH_PATH (variable name)
+    // example types there: PathList, Path, String, StringList, Enumeration, Boolean, CodeSigningIdentity
+    // example identifier there: no identifier!
+    NSString *name;
+    NSString *type;
     NSString *identifier;
 
+    
     XCSpecification *superSpecification;
 }
 

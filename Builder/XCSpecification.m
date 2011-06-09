@@ -24,8 +24,8 @@
 
 
 @implementation XCSpecification
-@synthesize identifier;
 @synthesize superSpecification;
+@synthesize identifier;
 @synthesize type;
 @synthesize name;
 
