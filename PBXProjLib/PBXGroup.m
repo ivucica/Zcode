@@ -22,8 +22,8 @@
 
 #import "PBXGroup.h"
 #import "ProjectDocument.h"
+#import "PBXProject.h"
 #import <unistd.h> // get_current_dir_name()
-
 @implementation PBXGroup
 @synthesize name = name_;
 
@@ -62,6 +62,8 @@
 
 -(NSString*)description
 {
+  if([self.owner isKindOfClass:[PBXProject class]])
+    return [[[self.owner fileName] lastPathComponent] stringByDeletingPathExtension];
   if (self.name)
     return self.name;
   return [[self path] lastPathComponent];
