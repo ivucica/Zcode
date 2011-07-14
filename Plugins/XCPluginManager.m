@@ -75,6 +75,10 @@ static XCPluginManager* pluginManager = nil;
 }
 -(BOOL)loadPluginBundle:(NSString *)path
 {
+    NSLog(@"Loading plugin %@", path);
+    
+    // TODO: load specifications found in the bundle
+    
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     
     if([bundle load])

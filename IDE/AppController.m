@@ -21,6 +21,7 @@
  */
 
 #import "AppController.h"
+#import "XCPluginManager.h"
 
 @implementation AppController
 
@@ -45,7 +46,6 @@
 {
   if ((self = [super init]))
   {
-    
   }
   return self;
 }
@@ -63,6 +63,8 @@
 {
 // Uncomment if your application is Renaissance-based
 //  [NSBundle loadGSMarkupNamed: @"Main" owner: self];
+    [[XCPluginManager sharedPluginManager] findAndLoadPlugins];
+
 }
 
 - (BOOL) applicationShouldTerminate: (id)sender
