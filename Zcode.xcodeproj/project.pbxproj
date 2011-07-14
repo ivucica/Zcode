@@ -61,6 +61,8 @@
 		7F11AFB31304541F00D2B67A /* run.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFB11304541F00D2B67A /* run.png */; };
 		7F11AFC0130454B900D2B67A /* app.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFBE130454B900D2B67A /* app.png */; };
 		7F11AFC1130454B900D2B67A /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F11AFBF130454B900D2B67A /* target.png */; };
+		7F24C24513CF86E0007B3928 /* XCPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F24C24413CF86E0007B3928 /* XCPluginManager.m */; };
+		7F24C24613CF86E0007B3928 /* XCPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F24C24413CF86E0007B3928 /* XCPluginManager.m */; };
 		7F427DA9136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F427DA8136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib */; };
 		7F427DAD136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */; };
 		7F6ACAC312E99F5C00536F3D /* Zcode_main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6ACAC212E99F5C00536F3D /* Zcode_main.m */; };
@@ -122,6 +124,8 @@
 		7F11AFB11304541F00D2B67A /* run.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = run.png; sourceTree = "<group>"; };
 		7F11AFBE130454B900D2B67A /* app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app.png; sourceTree = "<group>"; };
 		7F11AFBF130454B900D2B67A /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		7F24C24313CF86E0007B3928 /* XCPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCPluginManager.h; sourceTree = "<group>"; };
+		7F24C24413CF86E0007B3928 /* XCPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCPluginManager.m; sourceTree = "<group>"; };
 		7F427DA8136D859500679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZCPBXShellScriptBuildPhaseInspectorViewController.xib; sourceTree = "<group>"; };
 		7F427DAB136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCPBXShellScriptBuildPhaseInspectorViewController.h; sourceTree = "<group>"; };
 		7F427DAC136D85AD00679719 /* ZCPBXShellScriptBuildPhaseInspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPBXShellScriptBuildPhaseInspectorViewController.m; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F24C24213CF86E0007B3928 /* Plugins */,
 				7F050B50136DAAB400754FDE /* Builder */,
 				7FD67AD2133CFFA500BEF030 /* IDE */,
 				96EABD0812EC9BBB006239A6 /* PBXProjLib */,
@@ -302,6 +307,15 @@
 				7F08B620136E061B00577310 /* XCCompilerSpecification.m */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		7F24C24213CF86E0007B3928 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				7F24C24313CF86E0007B3928 /* XCPluginManager.h */,
+				7F24C24413CF86E0007B3928 /* XCPluginManager.m */,
+			);
+			path = Plugins;
 			sourceTree = "<group>";
 		};
 		7FD67AD2133CFFA500BEF030 /* IDE */ = {
@@ -580,6 +594,7 @@
 				7F08B616136DF58E00577310 /* PBXCompilerSpecification.m in Sources */,
 				7F08B61A136DF67C00577310 /* XCSpecification.m in Sources */,
 				7F08B622136E061B00577310 /* XCCompilerSpecification.m in Sources */,
+				7F24C24613CF86E0007B3928 /* XCPluginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +634,7 @@
 				7F08B615136DF58E00577310 /* PBXCompilerSpecification.m in Sources */,
 				7F08B619136DF67C00577310 /* XCSpecification.m in Sources */,
 				7F08B621136E061B00577310 /* XCCompilerSpecification.m in Sources */,
+				7F24C24513CF86E0007B3928 /* XCPluginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
