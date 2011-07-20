@@ -81,6 +81,11 @@ static XCPluginManager* pluginManager = nil;
     
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     
+    for (NSString* file in [bundle pathsForResourcesOfType:@"xcspec" inDirectory:nil]) 
+    {
+        
+    }
+    
     if([bundle load])
     {
         [plugins addObject:bundle];
