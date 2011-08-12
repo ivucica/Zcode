@@ -77,7 +77,6 @@
 
     if([self readFromURL:[NSURL fileURLWithPath:file] ofType:type error:&error])
     {
-      [self setFileName_undeprecated:file]; 
       editorViewController = [[ZCEditorViewController alloc] initWithNibName:@"ZCEditorViewController" bundle:nil];
       inspectorViewController = [[ZCInspectorViewController alloc] initWithNibName:@"ZCInspectorViewController" bundle:nil];
     }
@@ -234,7 +233,13 @@
   NSString *path = [url path];
   NSString *pbxProjPath = [path stringByAppendingPathComponent:@"project.pbxproj"];
 
-  [self setFileName_undeprecated:pbxProjPath];
+  if([type isEqualToString:@"pbxproj"])
+  {
+    pbxProjPath = path;
+    path = [pbxProjPath stringByDeletingLastPathComponent];
+  }
+
+  [self setFileName_undeprecated:path];
 
 
   if(pbxProject)
@@ -544,9 +549,11 @@ willBeInsertedIntoToolbar: (BOOL)flag
 {
 #if GNUSTEP
   [self setFileName:fileName_undeprecated];
-#else
-  [self setFileURL:[NSURL fileURLWithPath:fileName_undeprecated]];
 #endif
+  if([self respondsToSelector:@selector(setFileURL:)])
+  {
+    [self setFileURL:[NSURL fileURLWithPath:fileName_undeprecated]];
+  }
 }
 
 - (NSString*)fileName_undeprecated
