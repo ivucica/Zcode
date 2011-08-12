@@ -24,8 +24,8 @@ fi
 AC_PROG_SED
 AC_PROG_GREP
 
-# Detect whether clang is installed.  If so, use it instead.
-AC_PROG_CC([clang gcc cc])
+# Detect whether gcc-4.6 or clang is installed.  If so, use it instead.
+AC_PROG_CC([gcc-4.6 clang gcc cc])
 SET_CC="CC = $CC"
 SET_CPP="CPP = $CPP"
 AC_SUBST(SET_CC)
