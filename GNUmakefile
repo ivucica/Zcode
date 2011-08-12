@@ -80,6 +80,12 @@ Builder/XCCompilerSpecification.h \
 Builder/PBXCompilerSpecification.h
 
 #
+# Plugins Header Files
+#
+Zcode_HEADER_FILES += \
+Plugins/XCPluginManager.h
+
+#
 # PBXProjLib Class files
 #
 Zcode_OBJC_FILES = \
@@ -121,6 +127,12 @@ Zcode_OBJC_FILES += \
 Builder/XCSpecification.m \
 Builder/XCCompilerSpecification.m \
 Builder/PBXCompilerSpecification.m
+
+#
+# Plugins Class Files
+#
+Zcode_OBJC_FILES += \
+Plugins/XCPluginManager.m
 
 #
 # Subprojects
