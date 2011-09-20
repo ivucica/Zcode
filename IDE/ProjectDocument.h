@@ -25,7 +25,7 @@
 
 #import <AppKit/AppKit.h>
 #import <AppKit/NSOutlineView.h>
-#import "PBXProjLib/ZCPathedItem.h"
+#import "ZCPathedItem.h"
 
 @class PBXProject;
 @class ProjectDetailListDataSource;
