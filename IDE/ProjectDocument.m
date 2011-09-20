@@ -26,7 +26,7 @@
 #import "ProjectDetailListDataSource.h"
 #import "ZCEditorViewController.h"
 #import "ZCInspectorViewController.h"
-#import "PBXProjLib/ZCPBXProjectReader.h"
+#import "ZCPBXProjectReader.h"
 
 #import "XCConfigurationList+ViewRelated.h"
 
