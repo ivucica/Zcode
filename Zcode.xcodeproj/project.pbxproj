@@ -87,6 +87,9 @@
 		7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E761315BD9E00196C59 /* XCConfigurationList.m */; };
 		7F855EA61315BF3B00196C59 /* XCConfigurationList+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */; };
 		7F96ADE012FEB69D0062F4A2 /* ZCPathedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */; };
+		7F9B729F14DCA44C002A0B48 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
+		7F9B72A014DCA44F002A0B48 /* libclang.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
+		7F9B72A214DCA773002A0B48 /* libLLVM-2.9.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */; };
 		7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */; };
 		7FD67AD7133D03A700BEF030 /* ZCInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */; };
 		7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */; };
@@ -97,6 +100,21 @@
 		96A380FB12EFB82800AEFB83 /* PBXBuildFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 96A380F912EFB82800AEFB83 /* PBXBuildFile.m */; };
 		96EABD2912ECA594006239A6 /* ZCPBXProjectReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EABD2812ECA594006239A6 /* ZCPBXProjectReader.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7F9B729C14DCA41B002A0B48 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/lib;
+			dstSubfolderSpec = 1;
+			files = (
+				7F9B72A214DCA773002A0B48 /* libLLVM-2.9.dylib in Copy Files */,
+				7F9B72A014DCA44F002A0B48 /* libclang.dylib in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -166,6 +184,8 @@
 		7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCConfigurationList+ViewRelated.h"; sourceTree = "<group>"; };
 		7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCConfigurationList+ViewRelated.m"; sourceTree = "<group>"; };
 		7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPathedItem.m; sourceTree = "<group>"; };
+		7F9B729E14DCA44C002A0B48 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = ../../../../../opt/local/lib/libclang.dylib; sourceTree = "<group>"; };
+		7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libLLVM-2.9.dylib"; path = "../../../../../opt/local/lib/libLLVM-2.9.dylib"; sourceTree = "<group>"; };
 		7FD67AD3133D03A600BEF030 /* ZCInspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCInspectorViewController.h; sourceTree = "<group>"; };
 		7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCInspectorViewController.m; sourceTree = "<group>"; };
 		7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCInspectorViewController.xib; sourceTree = "<group>"; };
@@ -197,6 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F9B729F14DCA44C002A0B48 /* libclang.dylib in Frameworks */,
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +255,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* Zcode */ = {
 			isa = PBXGroup;
 			children = (
+				7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */,
+				7F9B729E14DCA44C002A0B48 /* libclang.dylib */,
 				7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */,
 				7F050861136D9A5800754FDE /* Zcode-Info-win32.plist */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
@@ -415,6 +438,7 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
+				7F9B729C14DCA41B002A0B48 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -719,9 +743,16 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=1";
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/clang-c",
+					"$(SOURCE_ROOT)",
+				);
 				IBC_FLATTEN_NIBS = NO;
 				INFOPLIST_FILE = "Zcode-Info-cocoa.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../lib/";
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = Zcode;
 			};
 			name = Debug;
@@ -734,8 +765,15 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=1";
+				HEADER_SEARCH_PATHS = (
+					"/opt/local/include/clang-c",
+					"$(SOURCE_ROOT)",
+				);
 				INFOPLIST_FILE = "Zcode-Info-cocoa.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../lib/";
+				LIBRARY_SEARCH_PATHS = /opt/local/lib;
 				PRODUCT_NAME = Zcode;
 			};
 			name = Release;
