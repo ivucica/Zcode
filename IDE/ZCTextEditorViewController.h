@@ -41,10 +41,13 @@
 }
 @property (nonatomic, retain) NSTextView *textView;
 
+#if HAVE_LIBCLANG
 // code completion stuff should be kept and ran in the project, not in the text editor.
 // in text editor, we may refer to the data stored in the project, but it should not
 // be the primary source of info.
 
 @property (nonatomic, assign) CXIndex codeCompletionIndex; 
-@property (nonatomic, assign) CXTranslationUnit codeCompletionTranslationUnit; 
+@property (nonatomic, assign) CXTranslationUnit codeCompletionTranslationUnit;
+#endif
+
 @end

@@ -21,7 +21,17 @@
  */
 
 #import "ZCTextEditorViewController.h"
+#define DEFINE_ARGS const char* args[] = { \
+    "-x", "objective-c", \
+    "-isysroot", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk", \
+    "-I", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/c++/4.2.1/tr1", \
+    "-mmacosx-version-min=10.6", \
+    "-I", [[self.fileURL path] stringByDeletingLastPathComponent].UTF8String \
+    };
 
+@interface ZCTextEditorViewController ()
+@property (nonatomic, retain, readonly) NSURL * fileURL;
+@end
 
 @implementation ZCTextEditorViewController
 @synthesize textView;
@@ -33,12 +43,11 @@
     [textView setDelegate:self];
 #if HAVE_LIBCLANG
     self.codeCompletionIndex = clang_createIndex(0, 0);
+
+    DEFINE_ARGS;
     
-    struct CXUnsavedFile unsavedFile;
-    unsavedFile.Contents = [[self.textView.textStorage string] UTF8String];
-    unsavedFile.Filename = [self.fileName UTF8String];
-    unsavedFile.Length = [[self.textView.textStorage string] length];
-    self.codeCompletionTranslationUnit = clang_parseTranslationUnit(self.codeCompletionIndex, [self.fileName UTF8String], (const char*[]){"codecompletion", "-x","objective-c","-isysroot","/Xcode4/SDKs/MacOSX10.6.sdk","-mmacosx-version-min=10.6","-I",[self.fileName stringByDeletingLastPathComponent].UTF8String}, 8, &unsavedFile, 1, clang_defaultEditingTranslationUnitOptions());
+    self.codeCompletionTranslationUnit = clang_parseTranslationUnit(self.codeCompletionIndex, [self.fileName UTF8String], args, 8, NULL, 0, clang_defaultEditingTranslationUnitOptions());
+    [self printDiagnostics];
     
 #endif
 }
@@ -49,7 +58,25 @@
     unsavedFile.Contents = [[self.textView.textStorage string] UTF8String];
     unsavedFile.Filename = [self.fileName UTF8String];
     unsavedFile.Length = [[self.textView.textStorage string] length];
-    return clang_reparseTranslationUnit(self.codeCompletionTranslationUnit, 1, &unsavedFile, clang_defaultReparseOptions(self.codeCompletionTranslationUnit) | CXTranslationUnit_CacheCompletionResults);
+    int returnValue = clang_reparseTranslationUnit(self.codeCompletionTranslationUnit, 1, &unsavedFile, clang_defaultReparseOptions(self.codeCompletionTranslationUnit) | CXTranslationUnit_CacheCompletionResults);
+    [self printDiagnostics];
+    return returnValue;
+}
+-(void)printDiagnostics
+{
+    if(!self.codeCompletionTranslationUnit)
+    {
+        NSLog(@"No file parsed ok, cannot code-complete");
+        return;
+    }
+    int num = clang_getNumDiagnostics(self.codeCompletionTranslationUnit);
+    for(int i = 0; i < num; i++)
+    {
+        CXDiagnostic d = clang_getDiagnostic(self.codeCompletionTranslationUnit, i);
+        CXString s = clang_formatDiagnostic(d,                                          clang_defaultDiagnosticDisplayOptions());
+        fprintf(stderr, "%s\n", clang_getCString(s));
+        clang_disposeString(s);
+    }
 }
 #endif
 -(void)dealloc
@@ -60,7 +87,7 @@
 }
 -(void)_loadFile
 {
-    NSString *fileContents = [NSString stringWithContentsOfFile:fileName];
+    NSString *fileContents = [NSString stringWithContentsOfFile:fileName encoding:NSUTF8StringEncoding error:NULL];
     
     if(!fileContents)
         return;
@@ -182,4 +209,9 @@
     //[self reparseTranslationUnit];
 }
 #endif
+
+-(NSURL *)fileURL
+{
+    return [NSURL fileURLWithPath:self.fileName];
+}
 @end
