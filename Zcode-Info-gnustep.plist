@@ -25,6 +25,17 @@
 	    NSUnixExtensions = (
 		xcodeproj
 	    );
+	},
+
+	{
+	    NSDocumentClass = ProjectDocument;
+	    NSHumanReadableName = "Xcode PBXProj";
+	    NSIcon = "apple-green.png";
+	    NSName = pbxproj;
+	    NSRole = Editor;
+	    NSUnixExtensions = (
+		pbxproj
+	    );
 	}
     );
     URL = "http://ivan.vucica.net/zcode/";
