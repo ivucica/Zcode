@@ -25,6 +25,7 @@
     "-x", "objective-c", \
     "-isysroot", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk", \
     "-I", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/c++/4.2.1/tr1", \
+    "-I", "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/c++/4.2.1", \
     "-mmacosx-version-min=10.6", \
     "-I", [[self.fileURL path] stringByDeletingLastPathComponent].UTF8String \
     };
@@ -46,7 +47,7 @@
 
     DEFINE_ARGS;
     
-    self.codeCompletionTranslationUnit = clang_parseTranslationUnit(self.codeCompletionIndex, [self.fileName UTF8String], args, 8, NULL, 0, clang_defaultEditingTranslationUnitOptions());
+    self.codeCompletionTranslationUnit = clang_parseTranslationUnit(self.codeCompletionIndex, [self.fileName UTF8String], args, sizeof(args)/sizeof(args[0]), NULL, 0, clang_defaultEditingTranslationUnitOptions());
     [self printDiagnostics];
     
 #endif
@@ -56,7 +57,7 @@
 {
     struct CXUnsavedFile unsavedFile;
     unsavedFile.Contents = [[self.textView.textStorage string] UTF8String];
-    unsavedFile.Filename = [self.fileName UTF8String];
+    unsavedFile.Filename = [self.fileURL.path UTF8String];
     unsavedFile.Length = [[self.textView.textStorage string] length];
     int returnValue = clang_reparseTranslationUnit(self.codeCompletionTranslationUnit, 1, &unsavedFile, clang_defaultReparseOptions(self.codeCompletionTranslationUnit) | CXTranslationUnit_CacheCompletionResults);
     [self printDiagnostics];
