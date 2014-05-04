@@ -87,9 +87,6 @@
 		7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855E761315BD9E00196C59 /* XCConfigurationList.m */; };
 		7F855EA61315BF3B00196C59 /* XCConfigurationList+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */; };
 		7F96ADE012FEB69D0062F4A2 /* ZCPathedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */; };
-		7F9B729F14DCA44C002A0B48 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
-		7F9B72A014DCA44F002A0B48 /* libclang.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
-		7F9B72A214DCA773002A0B48 /* libLLVM-2.9.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */; };
 		7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */; };
 		7FD67AD7133D03A700BEF030 /* ZCInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */; };
 		7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */; };
@@ -108,8 +105,6 @@
 			dstPath = Contents/lib;
 			dstSubfolderSpec = 1;
 			files = (
-				7F9B72A214DCA773002A0B48 /* libLLVM-2.9.dylib in Copy Files */,
-				7F9B72A014DCA44F002A0B48 /* libclang.dylib in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,8 +179,6 @@
 		7F855EA41315BF3B00196C59 /* XCConfigurationList+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCConfigurationList+ViewRelated.h"; sourceTree = "<group>"; };
 		7F855EA51315BF3B00196C59 /* XCConfigurationList+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCConfigurationList+ViewRelated.m"; sourceTree = "<group>"; };
 		7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPathedItem.m; sourceTree = "<group>"; };
-		7F9B729E14DCA44C002A0B48 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = ../../../../../opt/local/lib/libclang.dylib; sourceTree = "<group>"; };
-		7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libLLVM-2.9.dylib"; path = "../../../../../opt/local/lib/libLLVM-2.9.dylib"; sourceTree = "<group>"; };
 		7FD67AD3133D03A600BEF030 /* ZCInspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCInspectorViewController.h; sourceTree = "<group>"; };
 		7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCInspectorViewController.m; sourceTree = "<group>"; };
 		7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCInspectorViewController.xib; sourceTree = "<group>"; };
@@ -217,7 +210,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F9B729F14DCA44C002A0B48 /* libclang.dylib in Frameworks */,
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,8 +247,6 @@
 		2A37F4AAFDCFA73011CA2CEA /* Zcode */ = {
 			isa = PBXGroup;
 			children = (
-				7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */,
-				7F9B729E14DCA44C002A0B48 /* libclang.dylib */,
 				7F6ACACE12E9A06600536F3D /* Zcode-Info-cocoa.plist */,
 				7F050861136D9A5800754FDE /* Zcode-Info-win32.plist */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
@@ -455,6 +445,8 @@
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Zcode" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -743,7 +735,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=0";
 				HEADER_SEARCH_PATHS = (
 					"/opt/local/include/clang-c",
 					"$(SOURCE_ROOT)",
@@ -765,7 +757,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Zcode_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=1";
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_LIBCLANG=0";
 				HEADER_SEARCH_PATHS = (
 					"/opt/local/include/clang-c",
 					"$(SOURCE_ROOT)",
@@ -788,6 +780,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx;
@@ -803,6 +796,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PREBINDING = NO;
 				SDKROOT = macosx;
 			};
