@@ -36,8 +36,10 @@
 
 @implementation ZCTextEditorViewController
 @synthesize textView;
+#if HAVE_LIBCLANG
 @synthesize codeCompletionIndex;
 @synthesize codeCompletionTranslationUnit;
+#endif
 -(void)loadView
 {
     [super loadView];
@@ -82,8 +84,10 @@
 #endif
 -(void)dealloc
 {
+#if HAVE_LIBCLANG
     clang_disposeIndex(self.codeCompletionIndex);
     clang_disposeTranslationUnit(self.codeCompletionTranslationUnit);
+#endif
     [super dealloc];
 }
 -(void)_loadFile
