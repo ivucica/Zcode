@@ -77,7 +77,6 @@ IDE/ZCPBXShellScriptBuildPhaseInspectorViewController.h
 Zcode_HEADER_FILES += \
 Builder/XCSpecification.h \
 Builder/XCCompilerSpecification.h \
-Builder/PBXCompilerSpecification.h
 
 #
 # Plugins Header Files
@@ -126,7 +125,6 @@ IDE/Zcode_main.m
 Zcode_OBJC_FILES += \
 Builder/XCSpecification.m \
 Builder/XCCompilerSpecification.m \
-Builder/PBXCompilerSpecification.m
 
 #
 # Plugins Class Files
