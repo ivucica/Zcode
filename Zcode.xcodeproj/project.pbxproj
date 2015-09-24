@@ -90,6 +90,8 @@
 		7F9B729F14DCA44C002A0B48 /* libclang.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
 		7F9B72A014DCA44F002A0B48 /* libclang.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B729E14DCA44C002A0B48 /* libclang.dylib */; };
 		7F9B72A214DCA773002A0B48 /* libLLVM-2.9.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */; };
+		7FA214781BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA214771BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m */; };
+		7FA214791BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA214771BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m */; };
 		7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */; };
 		7FD67AD7133D03A700BEF030 /* ZCInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */; };
 		7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */; };
@@ -186,6 +188,8 @@
 		7F96ADDF12FEB69D0062F4A2 /* ZCPathedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCPathedItem.m; sourceTree = "<group>"; };
 		7F9B729E14DCA44C002A0B48 /* libclang.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclang.dylib; path = ../../../../../opt/local/lib/libclang.dylib; sourceTree = "<group>"; };
 		7F9B72A114DCA773002A0B48 /* libLLVM-2.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libLLVM-2.9.dylib"; path = "../../../../../opt/local/lib/libLLVM-2.9.dylib"; sourceTree = "<group>"; };
+		7FA214771BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCompilerSpecificationGcc.m; sourceTree = "<group>"; };
+		7FA2147A1BB3721200CCEAE0 /* PBXCompilerSpecificationGcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCompilerSpecificationGcc.h; sourceTree = "<group>"; };
 		7FD67AD3133D03A600BEF030 /* ZCInspectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCInspectorViewController.h; sourceTree = "<group>"; };
 		7FD67AD4133D03A600BEF030 /* ZCInspectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCInspectorViewController.m; sourceTree = "<group>"; };
 		7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZCInspectorViewController.xib; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				7F08B618136DF67C00577310 /* XCSpecification.m */,
 				7F08B61F136E061B00577310 /* XCCompilerSpecification.h */,
 				7F08B620136E061B00577310 /* XCCompilerSpecification.m */,
+				7FA2147A1BB3721200CCEAE0 /* PBXCompilerSpecificationGcc.h */,
+				7FA214771BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -455,6 +461,8 @@
 /* Begin PBXProject section */
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Zcode" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -585,6 +593,7 @@
 				7F05083E136D9A5700754FDE /* GAFContainer.m in Sources */,
 				7F05083F136D9A5700754FDE /* ImageAndTextCell.m in Sources */,
 				7F050840136D9A5700754FDE /* PBXFileReference.m in Sources */,
+				7FA214791BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m in Sources */,
 				7F050841136D9A5700754FDE /* PBXGroup.m in Sources */,
 				7F050842136D9A5700754FDE /* PBXProject.m in Sources */,
 				7F050843136D9A5700754FDE /* PBXVariantGroup.m in Sources */,
@@ -624,6 +633,7 @@
 				7F6ACAE912E9A15500536F3D /* GAFContainer.m in Sources */,
 				7F6ACAEA12E9A15500536F3D /* ImageAndTextCell.m in Sources */,
 				7F6ACAEC12E9A15500536F3D /* PBXFileReference.m in Sources */,
+				7FA214781BB371B000CCEAE0 /* PBXCompilerSpecificationGcc.m in Sources */,
 				7F6ACAED12E9A15500536F3D /* PBXGroup.m in Sources */,
 				7F6ACAEE12E9A15500536F3D /* PBXProject.m in Sources */,
 				7F6ACAEF12E9A15500536F3D /* PBXVariantGroup.m in Sources */,
