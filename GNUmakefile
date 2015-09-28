@@ -136,7 +136,8 @@ Plugins/XCPluginManager.m
 # Subprojects
 #
 SUBPROJECTS = \
-check
+check \
+zcbuild
 
 #
 # Makefiles

@@ -167,5 +167,6 @@ main() { for(int i = 0; i<0; i++); return 0; }
 
 
 AC_CONFIG_FILES([GNUmakefile.preamble
-                 check/GNUmakefile.preamble])
+                 check/GNUmakefile.preamble
+                 zcbuild/GNUmakefile.preamble])
 AC_OUTPUT
