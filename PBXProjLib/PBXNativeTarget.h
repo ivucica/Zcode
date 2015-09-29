@@ -28,29 +28,33 @@
 @class PBXProject;
 @class XCConfigurationList;
 @class ZCPBXBuildPhaseList;
+@class PBXFileReference;
 
 @interface PBXNativeTarget : NSObject 
 {
   XCConfigurationList* buildConfigurationList;
   NSMutableArray* buildPhases;
-  /*NSArray* buildRules;*/
-  /*NSArray* dependencies;*/
+  NSMutableArray* buildRules;
+  NSMutableArray* dependencies;
   
   NSString* name;
   NSString* productInstallPath;
   NSString* productName;
-  /*PBXFileReference* productReference;*/
+  PBXFileReference *productReference;
   NSString* productType;
-  
+
   PBXProject* owner;
 }
 
-@property (readwrite, copy) XCConfigurationList *buildConfigurationList;
+@property (readwrite, retain) XCConfigurationList *buildConfigurationList; // TODO(ivucica): possibly copy semantics?
 @property (readwrite, copy) NSMutableArray *buildPhases;
+@property (readwrite, copy) NSMutableArray *buildRules;
+@property (readwrite, copy) NSMutableArray *dependencies;
 @property (readwrite, copy) NSString *name;
 @property (readwrite, copy) NSString *productInstallPath;
 @property (readwrite, copy) NSString *productName;
 @property (readwrite, copy) NSString *productType;
+@property (readwrite, retain) PBXFileReference *productReference; // TODO(ivucica): possibly copy semantics?
 
 @property (readwrite, assign) PBXProject *owner;
 

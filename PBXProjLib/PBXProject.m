@@ -31,6 +31,7 @@
 @synthesize buildConfigurationList;
 @synthesize targetList = targetList_;
 @dynamic targets;
+@synthesize attributes = attributes_;
 
 -(NSString *)fileName
 {
@@ -92,6 +93,8 @@
   [projectDirPath release];
   [projectRoot release];
   [targets_ release];
+  [targetList_ release];
+  [attributes_ release];
   [super dealloc ];
 }
 

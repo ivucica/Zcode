@@ -145,6 +145,7 @@
 
 		id value = [self resolveObjectReferencesFor:[props objectForKey:propName]];
 
+		#if 1
 		NS_DURING
 		{
 			[instance setValue:value forKey:propName];
@@ -153,14 +154,18 @@
 		{
       if ([[localException name] isEqualToString:@"NSUnknownKeyException"]) 
       {
-        NSLog(@"Project reader got an unknown key in %@: %@", isaStr, propName, localException);
+        NSLog(@"Project reader got an unknown key in %@: %@ (%@)", isaStr, propName, localException);
       }
       else
       {
-        NSLog(@"Project reader ignored exception: %@)", localException);
+        NSLog(@"Project reader ignored exception in %@ setting %@: %@)", isaStr, propName, localException);
       }
 		}
 		NS_ENDHANDLER
+		#else
+		[instance setValue:value forKey:propName];
+		#endif
+		  
 	}
 
 	[foundObjects_ setObject:instance forKey:key];

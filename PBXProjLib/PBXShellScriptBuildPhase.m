@@ -26,6 +26,7 @@
 
 @synthesize shellPath;
 @synthesize shellScript;
+@synthesize runOnlyForDeploymentPostprocessing;
 
 -(void)dealloc
 {

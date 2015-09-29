@@ -29,9 +29,12 @@
 @synthesize productInstallPath;
 @synthesize productName;
 @synthesize productType;
+@synthesize productReference;
 @synthesize owner;
 @synthesize buildConfigurationList;
 @synthesize buildPhases;
+@synthesize buildRules;
+@synthesize dependencies;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -46,7 +49,12 @@
   [productInstallPath release];
   [productName release];
   [productType release];
-  [super dealloc ];
+  [productReference release];
+  [dependencies release];
+  [buildPhases release];
+  [buildConfigurationList release];
+  [buildRules release];
+  [super dealloc];
 }
 
 -(NSString*)description

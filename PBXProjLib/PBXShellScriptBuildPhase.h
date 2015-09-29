@@ -26,10 +26,12 @@
 {
   NSString *shellPath;
   NSString *shellScript;  
+  NSInteger runOnlyForDeploymentPostprocessing;
 }
 
 @property (readwrite, retain) NSString *shellPath;
 @property (readwrite, retain) NSString *shellScript;
+@property (readwrite, assign) NSInteger runOnlyForDeploymentPostprocessing;
 
 @end
 

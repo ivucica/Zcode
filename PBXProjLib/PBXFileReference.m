@@ -24,9 +24,14 @@
 #import "ProjectDocument.h"
 #import <AppKit/NSImage.h>
 @implementation PBXFileReference
+@synthesize name = name_;
 @synthesize fileEncoding = fileEncoding_;
 @synthesize lastKnownFileType = lastKnownFileType_;
 @synthesize explicitFileType = explicitFileType_;
+@synthesize includeInIndex = includeInIndex_;
+@synthesize tabWidth = tabWidth_;
+@synthesize indentWidth = indentWidth_;
+@synthesize comments = comments_;
 
 #if !GNUSTEP
 -(id)copyWithZone:(NSZone*)zone
@@ -37,10 +42,12 @@
 
 -(void)dealloc
 {
+  self.name = nil;
   self.path = nil;
   self.sourceTree = nil;
   self.lastKnownFileType = nil;
   self.explicitFileType = nil;
+  self.comments = nil;
   [super dealloc];
 }
 
@@ -62,6 +69,9 @@
 
 -(NSString*)description
 {
+  if (name_)
+    return self.name;
+
   return [self.path lastPathComponent];
 }
 

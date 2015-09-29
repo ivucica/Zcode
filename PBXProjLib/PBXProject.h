@@ -38,19 +38,21 @@
   XCConfigurationList *buildConfigurationList;
   NSString *compatibilityVersion;
   NSString *developmentRegion;
-  BOOL hasScannedForEncodings;
+  NSInteger hasScannedForEncodings; // boolean
   NSArray *knownRegions;
   PBXGroup *mainGroup_;
   NSString *projectDirPath;
   NSString *projectRoot;
   NSMutableArray *targets_;
   ZCPBXTargetList *targetList_; // contains PBXNativeTarget objects (possibly PBXTarget -- and PBXNativeTarget derived from that)
+  NSMutableDictionary *attributes_;
 }
 
 @property (readwrite, retain) PBXGroup* mainGroup;
 @property (readwrite, retain) NSMutableArray* targets;
 @property (nonatomic, retain) ZCPBXTargetList* targetList;
 @property (nonatomic, retain) XCConfigurationList* buildConfigurationList;
+@property (readwrite, copy) NSMutableDictionary* attributes;
 
 @property (readonly) NSString* fileName;
 @end

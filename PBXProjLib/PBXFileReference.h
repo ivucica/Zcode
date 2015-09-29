@@ -30,17 +30,28 @@
 @class PBXGroup;
 @interface PBXFileReference : ZCPathedItem
 {
-  
+  NSString *name_; 
   NSInteger fileEncoding_;
   NSString *lastKnownFileType_;
   NSString *explicitFileType_;
+  NSInteger includeInIndex_;
+  NSInteger tabWidth_;
+  NSInteger indentWidth_;
+  NSString *comments_;
 }
 
 -(NSString*)description;
 
+// TODO(ivucica): name might belong in ZCPathedItem et al
+// TODO(ivucica): -description may want to use 'name'.
+@property (readwrite, copy) NSString *name;
 @property (readwrite, assign) NSInteger fileEncoding;
 @property (readwrite, copy) NSString *lastKnownFileType;
 @property (readwrite, copy) NSString *explicitFileType;
+@property (readwrite, assign) NSInteger includeInIndex; // TODO(ivucica): this should default to 1
+@property (readwrite, assign) NSInteger tabWidth;
+@property (readwrite, assign) NSInteger indentWidth;
+@property (readwrite, copy) NSString *comments;
 
 @end
 
