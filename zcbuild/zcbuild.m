@@ -22,6 +22,7 @@
 
 #import "PBXProjLib/ZCPBXProjectReader.h"
 #import "PBXProjLib/PBXProject.h"
+#import "PBXProjLib/PBXNativeTarget.h"
 
 int main (int argc, char ** argv)
 {
@@ -43,6 +44,12 @@ int main (int argc, char ** argv)
   }
 
   pbxProject.owner = nil;
+
+  for (PBXNativeTarget * i in pbxProject.targets)
+    {
+      NSLog(@"target %@", i);
+      NSLog(@" product type %@", i.productType);
+    }
 
   [pool release];
   return 0;
