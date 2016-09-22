@@ -1,0 +1,20 @@
+(
+  {
+    Type = ProductType;
+    Identifier = com.apple.product-type.application;
+    BasedOn = com.apple.product-type.bundle;
+    Class = PBXApplicationProductType;
+    Name = "Application";
+    Description = "Application";
+    IconNamePrefix = "TargetIcon_App";
+    DefaultTargetName = "Application";
+    DefaultBuildProperties = {
+    	WRAPPER_SUFFIX = ".$(WRAPPER_EXTENSION)";
+	WRAPPER_EXTENSION = "app";
+	INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+    };
+    PackageTypes = (
+    	com.apple.package-type.wrapper.application
+    );
+  },
+)

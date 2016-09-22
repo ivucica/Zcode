@@ -1,0 +1,25 @@
+(
+	{
+		Type = ProductType;
+		Identifier = com.apple.product-type.bundle;
+		Class = PBXBundleProductType;
+		Name = "Bundle";
+		Description = "Generic bundle";
+		IconNamePrefix = "TargetIcon_Bundle";
+		DefaultTargetName = "Bundle";
+		DefaultBuildProperties = {
+		        FULL_PRODUCT_NAME = "$(WRAPPER_NAME)";
+			WRAPPER_PREFIX = "";
+			WRAPPER_SUFFIX = ".$(WRAPPER_EXTENSION)";
+			WRAPPER_EXTENSION = "bundle";
+			WRAPPER_NAME = "$(WRAPPER_PREFIX)$(PRODUCT_NAME)$(WRAPPER_SUFFIX)";
+			LIBRARY_FLAG_PREFIX = "-l";
+		};
+		PackageTypes = (
+		        com.apple.package-type.wrapper,
+		);
+		IsWrapper = YES;
+		HasInfoPlist = YES;
+		HasInfoPlistStrings = YES;
+	},
+)
