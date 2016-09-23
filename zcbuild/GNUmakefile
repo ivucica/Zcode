@@ -13,6 +13,7 @@ TOOL_NAME		= zcbuild
 zcbuild_OBJC_FILES	= \
 $(wildcard ../PBXProjLib/*.m) \
 $(wildcard ../Builder/*.m) \
+$(wildcard ../Plugins/*.m) \
 zcbuild.m
 
 -include GNUmakefile.preamble

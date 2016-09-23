@@ -23,6 +23,7 @@
 #import "PBXProjLib/ZCPBXProjectReader.h"
 #import "PBXProjLib/PBXProject.h"
 #import "PBXProjLib/PBXNativeTarget.h"
+#import "Plugins/XCPluginManager.h"
 
 int main (int argc, char ** argv)
 {
@@ -32,6 +33,8 @@ int main (int argc, char ** argv)
       fprintf(stderr, "zcbuild: you must specify the .pbxproj file to load");
       return 1;
     }
+
+  [[XCPluginManager sharedPluginManager] findAndLoadPlugins];
   
   NSString * pbxProjPath = [NSString stringWithUTF8String: argv[1]];
 

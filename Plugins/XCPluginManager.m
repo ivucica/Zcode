@@ -41,10 +41,23 @@ static XCPluginManager* pluginManager = nil;
                    [[NSBundle mainBundle] builtInPlugInsPath],
                    [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent],
                    nil];
-    
+
+    /* n.b. searchPaths might be empty at this point if mainBundle is nil.
+       this can happen if XCPluginManager's user is a tool and not an
+       application. */
+    // TODO(ivucica): consider replacing with [[NSFileManager defaultManager] URLsForDirectory:inDomains:].
+    // TODO(ivucica): is this best way to obtain .../Library/Bundles?
+    // TODO(ivucica): how about Library/Application Support/Zcode/PlugIns?
+    // TODO(ivucica): prioritize out-of-app dirs?
+    for (NSString * path in NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask, YES))
+      {
+	[searchPaths addObject: [path stringByAppendingPathComponent: @"Bundles"]];
+      }
+
     extensions = [[NSSet alloc] initWithObjects:@"zcplugin", nil];
     
     plugins = [[NSMutableArray alloc] init];
+
     return self;
 }
 -(void)dealloc
@@ -58,17 +71,18 @@ static XCPluginManager* pluginManager = nil;
 -(void)findAndLoadPlugins;
 {
     for (NSString* s in searchPaths) 
-    {
-        NSArray *directory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:nil];
+      {
+        NSArray *directory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:NULL];
         for (NSString *item in directory) 
-        {
+	  {
             if ([extensions containsObject:[item pathExtension]]) 
-            {
-                [self loadPluginBundle:item];
-            }
-        }
-    }
+	      {
+		[self loadPluginBundle: [s stringByAppendingPathComponent: item]];
+	      }
+	  }
+      }
 }
+
 -(NSArray*)loadedPlugins
 {
     return plugins;
@@ -77,20 +91,20 @@ static XCPluginManager* pluginManager = nil;
 {
     NSLog(@"Loading plugin %@", path);
     
-    // TODO: load specifications found in the bundle
-    
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     
-    for (NSString* file in [bundle pathsForResourcesOfType:@"xcspec" inDirectory:nil]) 
-    {
-        
-    }
-    
     if([bundle load])
-    {
+      {
         [plugins addObject:bundle];
+    
+	for (NSString* file in [bundle pathsForResourcesOfType:@"xcspec" inDirectory:nil]) 
+	  {
+	    // TODO: load specifications found in the bundle
+    
+	    NSLog(@"TODO: load %@", file);
+	  }
         return YES;
-    }
+      }
     
     [plugins release];
     return NO;
