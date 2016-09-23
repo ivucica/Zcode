@@ -58,4 +58,7 @@
 +(NSString*)specificationType;
 +(NSString*)localizedSpecificationTypeName;
 +(NSSet*)specificationTypePathExtensions;
+
+-(id) initWithPropertyListDictionary: (NSDictionary *)dict;
+
 @end

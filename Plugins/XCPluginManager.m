@@ -1,42 +1,47 @@
 /*
  Project: Zcode
- 
+
  Copyright (C) 2011 Ivan Vučica
- 
+
  Author: Ivan Vučica
- 
+
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
  version 2.1 of the License, or (at your option) any later version.
- 
+
  This application is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
- 
+
  You should have received a copy of the GNU Lesser General Public
  License along with this application; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- */
+*/
 
 #include "XCPluginManager.h"
+#include "Builder/XCSpecification.h"
+
 static XCPluginManager* pluginManager = nil;
 
 @implementation XCPluginManager
 
 +(XCPluginManager*)sharedPluginManager;
 {
-    if(!pluginManager)
-        pluginManager = [XCPluginManager new];
-    return pluginManager;
+  if(!pluginManager)
+    pluginManager = [XCPluginManager new];
+
+  return pluginManager;
 }
+
+
 -(id)init
 {
     self = [super init];
     if(!self)
         return nil;
-    
+
     searchPaths = [[NSMutableArray alloc] initWithObjects:
                    [[NSBundle mainBundle] builtInPlugInsPath],
                    [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent],
@@ -55,11 +60,13 @@ static XCPluginManager* pluginManager = nil;
       }
 
     extensions = [[NSSet alloc] initWithObjects:@"zcplugin", nil];
-    
+
     plugins = [[NSMutableArray alloc] init];
 
     return self;
 }
+
+
 -(void)dealloc
 {
     [searchPaths release];
@@ -68,16 +75,20 @@ static XCPluginManager* pluginManager = nil;
     [super dealloc];
 }
 
+
 -(void)findAndLoadPlugins;
 {
-    for (NSString* s in searchPaths) 
+    for (NSString* s in searchPaths)
       {
         NSArray *directory = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:NULL];
-        for (NSString *item in directory) 
+        for (NSString *item in directory)
 	  {
-            if ([extensions containsObject:[item pathExtension]]) 
+            if ([extensions containsObject:[item pathExtension]])
 	      {
-		[self loadPluginBundle: [s stringByAppendingPathComponent: item]];
+		if (![self loadPluginBundle: [s stringByAppendingPathComponent: item]])
+		  {
+		    NSLog(@"failed to load %@", item);
+		  }
 	      }
 	  }
       }
@@ -87,26 +98,60 @@ static XCPluginManager* pluginManager = nil;
 {
     return plugins;
 }
+
+
 -(BOOL)loadPluginBundle:(NSString *)path
 {
-    NSLog(@"Loading plugin %@", path);
-    
-    NSBundle *bundle = [NSBundle bundleWithPath:path];
-    
-    if([bundle load])
-      {
-        [plugins addObject:bundle];
-    
-	for (NSString* file in [bundle pathsForResourcesOfType:@"xcspec" inDirectory:nil]) 
-	  {
-	    // TODO: load specifications found in the bundle
-    
-	    NSLog(@"TODO: load %@", file);
-	  }
-        return YES;
-      }
-    
-    [plugins release];
-    return NO;
+  NSLog(@"Loading plugin %@", path);
+
+  NSBundle *bundle = [NSBundle bundleWithPath:path];
+
+  if(![bundle load])
+    {
+      NSLog(@"failed to load bundle %@", path);
+      return NO;
+    }
+
+  // TODO: use +[XCSpecification specificationTypePathExtensions]?
+  for (NSString* file in [bundle pathsForResourcesOfType:@"xcspec" inDirectory:nil])
+    {
+      // TODO: load specifications found in the bundle
+
+      NSArray * allSpecs = [NSArray arrayWithContentsOfFile: file];
+      if (![self _loadSpecsInArray: allSpecs])
+	{
+	  NSLog(@"Failed to load spec %@", file);
+	  return NO;
+	}
+    }
+
+  [plugins addObject:bundle];
+  return YES;
+}
+
+
+-(BOOL) _loadSpecsInArray: (NSArray*) specs
+{
+  for (NSDictionary * spec in specs)
+    {
+      NSString * class_str = [spec objectForKey: @"Class"];
+      if (!class_str)
+	{
+	  NSLog(@"no class property in spec");
+	  return NO; /* abort loading any remaining spec */
+	}
+      /* TODO(ivucica): clean up already loaded specs? */
+
+      Class cls = NSClassFromString(class_str);
+      if (!cls)
+	{
+	  NSLog(@"no class %@", class_str);
+	  return NO;
+	}
+
+      XCSpecification * specInstance = [[[cls alloc] initWithPropertyListDictionary: spec] autorelease];
+      NSLog(@"loaded %@", specInstance.name);
+    }
+  return YES;
 }
 @end

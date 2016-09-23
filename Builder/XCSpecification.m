@@ -46,4 +46,22 @@
     return [NSSet setWithObjects:@"pbspec", nil];
 }
 
+-(id) initWithPropertyListDictionary: (NSDictionary *)dict
+{
+  self = [super init];
+  if (!self)
+    return nil;
+
+  properties = [dict retain];
+  return self;
+}
+
+-(NSString*)name
+{
+  // TODO: use synthesized property instead
+  return [properties objectForKey:@"Name"];
+}
+
+
+// TODO: implement class methods to register specifications and proxies
 @end
