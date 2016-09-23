@@ -1,3 +1,5 @@
+// TODO(ivucica): with extension .pbprodspec, we can put in just one
+// dictionary, and skip the Type field
 (
   {
     Type = ProductType;
