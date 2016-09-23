@@ -127,6 +127,7 @@ IDE/Zcode_main.m
 Zcode_OBJC_FILES += \
 Builder/XCSpecification.m \
 Builder/XCCompilerSpecification.m \
+Builder/XCProductTypeSpecification.m \
 
 #
 # Plugins Class Files
