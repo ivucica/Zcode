@@ -50,6 +50,7 @@ PBXProjLib/ZCPathedItem.h \
 PBXProjLib/ZCPBXProjectReader.h \
 PBXProjLib/ZCPBXTargetList.h \
 PBXProjLib/PBXVariantGroup.h \
+PBXProjLib/PBXTarget.h \
 PBXProjLib/PBXNativeTarget.h
 
 #
@@ -97,6 +98,7 @@ PBXProjLib/ZCPathedItem.m \
 PBXProjLib/ZCPBXProjectReader.m \
 PBXProjLib/PBXVariantGroup.m \
 PBXProjLib/ZCPBXTargetList.m \
+PBXProjLib/PBXTarget.m \
 PBXProjLib/PBXNativeTarget.m
 
 #

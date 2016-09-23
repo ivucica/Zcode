@@ -20,9 +20,45 @@
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#import "PBXNativeTarget.h"
+#import "PBXTarget.h"
 
 
-@implementation PBXNativeTarget
+@implementation PBXTarget
 
+@synthesize name;
+@synthesize productInstallPath;
+@synthesize productName;
+@synthesize productType;
+@synthesize productReference;
+@synthesize owner;
+@synthesize buildConfigurationList;
+@synthesize buildPhases;
+@synthesize buildRules;
+@synthesize dependencies;
+
+#if !GNUSTEP
+-(id)copyWithZone:(NSZone*)zone
+{
+  return [self retain]; // faking because Cocoa NSOutlineView is for some reason copyWithZone'ing its items
+}
+#endif
+
+-(void)dealloc
+{
+  [name release];
+  [productInstallPath release];
+  [productName release];
+  [productType release];
+  [productReference release];
+  [dependencies release];
+  [buildPhases release];
+  [buildConfigurationList release];
+  [buildRules release];
+  [super dealloc];
+}
+
+-(NSString*)description
+{
+  return name;
+}
 @end
