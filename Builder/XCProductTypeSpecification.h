@@ -22,9 +22,15 @@
 
 #import "Builder/XCSpecification.h"
 
+@class PBXTargetBuildContext;
+@class XCLinkerSpecification;
+
 @interface XCProductTypeSpecification : XCSpecification
 {
 }
+
+- (void)computeProductDependenciesInTargetBuildContext:(PBXTargetBuildContext*)context;
+- (XCLinkerSpecification*)linkerSpecificationForObjectFilesInTargetBuildContext:(PBXTargetBuildContext*)context;
 
 @end
 
