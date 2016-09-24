@@ -96,6 +96,9 @@
 		7FD67AD7133D03A700BEF030 /* ZCInspectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD67AD5133D03A700BEF030 /* ZCInspectorViewController.xib */; };
 		7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */; };
 		7FE7EE0C133BA9B700066C1E /* PBXShellScriptBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE7EE0A133BA9B700066C1E /* PBXShellScriptBuildPhase.m */; };
+		7FF1DE2C1D97486F0008FA0A /* XCLinkerSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1DE291D97486F0008FA0A /* XCLinkerSpecification.m */; };
+		7FF1DE2D1D97486F0008FA0A /* XCProductTypeSpecification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1DE2B1D97486F0008FA0A /* XCProductTypeSpecification.m */; };
+		7FF1DE301D9748960008FA0A /* PBXTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1DE2F1D9748960008FA0A /* PBXTarget.m */; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */; };
 		969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */ = {isa = PBXBuildFile; fileRef = 969956C212EC99C0005B1A5F /* PBXGroup+ViewRelated.m */; };
@@ -197,6 +200,12 @@
 		7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildPhase.m; sourceTree = "<group>"; };
 		7FE7EE09133BA9B700066C1E /* PBXShellScriptBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXShellScriptBuildPhase.h; sourceTree = "<group>"; };
 		7FE7EE0A133BA9B700066C1E /* PBXShellScriptBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXShellScriptBuildPhase.m; sourceTree = "<group>"; };
+		7FF1DE281D97486F0008FA0A /* XCLinkerSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCLinkerSpecification.h; sourceTree = "<group>"; };
+		7FF1DE291D97486F0008FA0A /* XCLinkerSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCLinkerSpecification.m; sourceTree = "<group>"; };
+		7FF1DE2A1D97486F0008FA0A /* XCProductTypeSpecification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProductTypeSpecification.h; sourceTree = "<group>"; };
+		7FF1DE2B1D97486F0008FA0A /* XCProductTypeSpecification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProductTypeSpecification.m; sourceTree = "<group>"; };
+		7FF1DE2E1D9748960008FA0A /* PBXTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTarget.h; sourceTree = "<group>"; };
+		7FF1DE2F1D9748960008FA0A /* PBXTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXTarget.m; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Zcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		969956BF12EC99C0005B1A5F /* PBXFileReference+ViewRelated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PBXFileReference+ViewRelated.h"; sourceTree = "<group>"; };
 		969956C012EC99C0005B1A5F /* PBXFileReference+ViewRelated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PBXFileReference+ViewRelated.m"; sourceTree = "<group>"; };
@@ -322,6 +331,10 @@
 		7F050B50136DAAB400754FDE /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				7FF1DE281D97486F0008FA0A /* XCLinkerSpecification.h */,
+				7FF1DE291D97486F0008FA0A /* XCLinkerSpecification.m */,
+				7FF1DE2A1D97486F0008FA0A /* XCProductTypeSpecification.h */,
+				7FF1DE2B1D97486F0008FA0A /* XCProductTypeSpecification.m */,
 				7F08B617136DF67C00577310 /* XCSpecification.h */,
 				7F08B618136DF67C00577310 /* XCSpecification.m */,
 				7F08B61F136E061B00577310 /* XCCompilerSpecification.h */,
@@ -380,6 +393,8 @@
 		96EABD0812EC9BBB006239A6 /* PBXProjLib */ = {
 			isa = PBXGroup;
 			children = (
+				7FF1DE2E1D9748960008FA0A /* PBXTarget.h */,
+				7FF1DE2F1D9748960008FA0A /* PBXTarget.m */,
 				7FE7EE07133BA9B700066C1E /* PBXBuildPhase.h */,
 				7FE7EE08133BA9B700066C1E /* PBXBuildPhase.m */,
 				7F7D13AD134DAF9E00530F39 /* PBXBuildSettingsDictionary.h */,
@@ -644,6 +659,7 @@
 				969956C312EC99C0005B1A5F /* PBXFileReference+ViewRelated.m in Sources */,
 				969956C412EC99C0005B1A5F /* PBXGroup+ViewRelated.m in Sources */,
 				96EABD2912ECA594006239A6 /* ZCPBXProjectReader.m in Sources */,
+				7FF1DE2D1D97486F0008FA0A /* XCProductTypeSpecification.m in Sources */,
 				96A380FB12EFB82800AEFB83 /* PBXBuildFile.m in Sources */,
 				7F96ADE012FEB69D0062F4A2 /* ZCPathedItem.m in Sources */,
 				7F11AE2A1304333E00D2B67A /* PBXNativeTarget.m in Sources */,
@@ -653,6 +669,7 @@
 				7F855E5A1315BC2C00196C59 /* PBXNativeTarget+ViewRelated.m in Sources */,
 				7F855E771315BD9E00196C59 /* XCConfigurationList.m in Sources */,
 				7F855EA61315BF3B00196C59 /* XCConfigurationList+ViewRelated.m in Sources */,
+				7FF1DE2C1D97486F0008FA0A /* XCLinkerSpecification.m in Sources */,
 				7FE7EE0B133BA9B700066C1E /* PBXBuildPhase.m in Sources */,
 				7FE7EE0C133BA9B700066C1E /* PBXShellScriptBuildPhase.m in Sources */,
 				7FD67AD6133D03A700BEF030 /* ZCInspectorViewController.m in Sources */,
@@ -661,6 +678,7 @@
 				7F08B619136DF67C00577310 /* XCSpecification.m in Sources */,
 				7F08B621136E061B00577310 /* XCCompilerSpecification.m in Sources */,
 				7F24C24513CF86E0007B3928 /* XCPluginManager.m in Sources */,
+				7FF1DE301D9748960008FA0A /* PBXTarget.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
