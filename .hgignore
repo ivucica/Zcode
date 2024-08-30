@@ -26,3 +26,5 @@ configure
 _samples
 zcode-xib-crash/*
 *.zcplugin/*
+.git/
+.hg/
